@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap');
+
+/* 2. VARIABLES GLOBALES (Tus colores) */
+:root {
+  /* LOS ROSAS */
+  --cielito-rosa-viejo: #f0c2c5;   
+  --cielito-rosa-medio: #f7c6c2;    
+  --cielito-rosa-claro: #f8d4d4;    
+  
+  --color-white: #ffffff; 
+
+  /* Tonos tierra */
+  --cielito-terracota: #cf9aa0; 
+  --cielito-texto: #cf9aa0;
+  --cielito-crema: #fdf5e6;
+  --cielito-blanco: #ffffff;
+
+  /* FUENTES ASIGNADAS */
+  --font-elegante: 'Great Vibes', cursive;
+  --font-moderna:  'Cormorant Garamond', serif;
+}
+
+/* 3. RESET BÁSICO (Opcional pero recomendado) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-moderna);
+
+  background-color: var(--cielito-blanco);
+}
+
+/* 4. CLASES DE UTILIDAD PARA TUS COMPONENTES */
+.fuente-script {
+  font-family: var(--font-elegante) !important;
+}
+
+.fuente-moderna {
+  font-family: var(--font-moderna) !important;
+}
+
+
+.text-white {
+  color: var(--color-white) !important;
+}

@@ -1,0 +1,216 @@
+/* =============================
+   SECCIÓN GALERÍA
+   ============================= */
+.seccion-galeria {
+  position: relative;
+  padding: 170px 20px 60px;
+  background-color: #fdf5f6;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ESTAMPADO PAPEL PICADO */
+.galeria-papel-picado {
+  position: absolute;
+  top: -50px; /* Inicia un poco arriba para la animación */
+  left: 0;
+  width: 100%;
+  height: 280px;
+  background-image: url('/fotos/guirnalda.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: top center;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Animación forzada del papel picado */
+.reveal-active .galeria-papel-picado {
+  opacity: 1;
+  top: 0;
+}
+
+.galeria-header {
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-active .galeria-header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.galeria-subtitle {
+  display: block;
+  font-family: var(--font-moderna);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 1.5rem;
+  color: #544749;
+  margin-bottom: 10px;
+}
+
+.titulo-galeria {
+  font-family: var(--font-elegante);
+  font-size: clamp(3.5rem, 9vw, 5.5rem);  
+  color: #b5838d;
+  margin: 0;
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* =============================
+   GRID COLLAGE (ANIMADO)
+   ============================= */
+.contenedor-collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 250px;
+  gap: 15px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.foto-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px; /* Un poco más suave para Invimon */
+  background: #eee;
+  cursor: zoom-in;
+  box-shadow: 0 10px 30px rgba(181, 131, 141, 0.1);
+  
+  /* Estado Inicial Animación */
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Clase que dispara la entrada de las fotos */
+.reveal-active .foto-item {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.foto-item.grande { grid-column: span 2; grid-row: span 2; }
+.foto-item.vertical { grid-row: span 1; }
+
+.foto-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Overlays y Hovers */
+.overlay-zoom {
+  position: absolute;
+  inset: 0;
+  background: rgba(181, 131, 141, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.zoom-icon {
+  font-size: 1.1rem;
+  font-family: var(--font-moderna);
+  letter-spacing: 2px;
+  color: white;
+  padding: 8px 15px;
+  border: 1px solid white;
+  transform: scale(0.8);
+  transition: transform 0.4s ease;
+}
+
+.foto-item:hover .overlay-zoom { opacity: 1; }
+.foto-item:hover .zoom-icon { transform: scale(1); }
+.foto-item:hover img { transform: scale(1.08); }
+
+/* =============================
+   MODAL / LIGHTBOX
+   ============================= */
+.modal-galeria {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-contenido {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+}
+
+.modal-contenido img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  animation: zoomIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* =============================
+   AJUSTES MÓVIL
+   ============================= */
+@media (max-width: 768px) {
+  .seccion-galeria {
+    padding: 100px 15px 40px;
+  }
+
+  .galeria-papel-picado {
+    height: 140px;
+  }
+
+  .contenedor-collage {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 300px; 
+    gap: 15px;
+  }
+
+  .foto-item.grande, .foto-item.vertical {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .titulo-galeria {
+    font-size: 3.5rem;
+  }
+}

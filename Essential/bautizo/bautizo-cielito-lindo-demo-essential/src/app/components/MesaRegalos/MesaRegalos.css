@@ -1,0 +1,259 @@
+/* =========================
+   MESA DE REGALOS - INVIMON STYLE
+========================= */
+.regalos-seccion-invimon {
+  background-color: #f0c2c5; /* TU COLOR DE FONDO */
+  padding: 40px 20px 100px 20px; /* Reducido arriba para pegar la tarjeta al título */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* HEADER EDITORIAL */
+.regalos-header-invimon {
+  margin-bottom: 40px; /* Reducido de 80px a 40px para quitar el espacio muerto */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.regalos-subtitle-invimon {
+  font-family: var(--font-moderna);
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 1.3rem;
+  color: #544749; /* TU VERDE */
+  display: block;
+  margin-bottom: 20px;
+}
+
+.regalos-titulo-invimon {
+  font-family: var(--font-elegante);
+  font-size: clamp(3.5rem, 9vw, 5.5rem); /* Título más grande en PC */
+  color: #b5838d; /* TU ROSA VIEJO */
+  font-weight: 300;
+  margin: 0;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.divider-elegante {
+  width: 60px;
+  height: 1px;
+  background-color: rgba(181, 131, 141, 0.4);
+  margin-top: 30px;
+}
+
+/* CONTENEDOR DE LA TARJETA */
+.regalos-contenedor-invimon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  perspective: 2000px;
+}
+
+/* TARJETA INTERACTIVA (RECTANGULAR) - CORRECCIÓN DE TAMAÑO PC */
+.flip-card-invimon {
+  background-color: transparent;
+  width: 580px; /* Mucho más ancha en PC para que luzca imponente */
+  height: 380px; /* Altura ajustada para formato horizontal */
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.flip-card-invimon.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flip-card-inner-invimon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card-invimon:hover .flip-card-inner-invimon,
+.flip-card-invimon:active .flip-card-inner-invimon {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front-invimon, .flip-card-back-invimon {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 40px;
+  border-radius: 4px; 
+  border: 1px solid rgba(181, 131, 141, 0.12);
+  box-shadow: 0 15px 45px rgba(181, 131, 141, 0.08);
+}
+
+/* FRENTE */
+.flip-card-front-invimon {
+  background-color: #ffffff;
+  z-index: 2;
+}
+
+.logo-liverpool-invimon {
+  width: 220px; /* Logo más grande en PC */
+  height: auto;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.indicador-interaccion {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  opacity: 0.6;
+}
+
+.toque-text-invimon {
+  font-family: var(--font-moderna);
+  font-size: 1.1rem; /* Texto un poco más legible */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d88a9a; /* TU COLOR */
+}
+
+.toque-linea {
+  width: 40px;
+  height: 1px;
+  background-color: #b5838d;
+  animation: growLine 2s infinite;
+}
+
+@keyframes growLine {
+  0%, 100% { transform: scaleX(0.5); opacity: 0.5; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+/* ATRÁS - MANTENIENDO TU COLOR */
+.flip-card-back-invimon {
+  background-color: #d88a9a; /* TU COLOR */
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.back-title-invimon {
+  font-family: var(--font-moderna);
+  font-size: 1.2rem; /* Títulos más grandes en PC */
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.back-info-invimon {
+  font-family: var(--font-moderna);
+  font-size: 1.3rem; /* Texto más grande en PC */
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+.evento-number-invimon {
+  font-family: var(--font-moderna);
+  font-size: 3.2rem; /* Número de evento mucho más imponente */
+  letter-spacing: 3px;
+  margin-bottom: 45px;
+  color: #fdf5f6;
+  font-weight: 400;
+}
+
+/* BOTÓN IR A MESA - MANTENIENDO TU COLOR */
+.btn-regalo-invimon {
+  background: white;
+  color: #d88a9a; /* TU COLOR */
+  padding: 18px 45px; /* Botón más grande en PC */
+  text-decoration: none;
+  font-family: var(--font-moderna);
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-regalo-invimon:hover {
+  transform: scale(1.05);
+  background-color: #fdf5f6;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVO MÓVIL (Aquí sí es vertical para que quepa bien) */
+@media (max-width: 768px) {
+  .regalos-seccion-invimon {
+    padding: 30px 15px;
+  }
+
+  .flip-card-invimon {
+    width: 80vw; /* Casi todo el ancho en móvil */
+    height: 380px; /* Más alta para que el contenido respire */
+  }
+
+  .regalos-titulo-invimon {
+    font-size: 3rem;
+  }
+
+  .evento-number-invimon {
+    font-size: 2.2rem;
+  }
+}
+
+/* --- ICONO FLORECITA EN HEADER --- */
+.flower-icon-divider {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.mini-flower-invimon {
+  width: 35px; /* Tamaño discreto */
+  height: auto;
+  opacity: 0.8;
+  filter: brightness(0) invert(1); /* La hace blanca para resaltar sobre el fondo oscuro */
+  animation: slowRotate 20s linear infinite;
+}
+
+/* --- FLORECITA DENTRO DE LA TARJETA (ATRÁS) --- */
+.card-stamp-flower {
+  width: 30px;
+  height: auto;
+  margin-bottom: 10px;
+  /* Sutil, como una marca de agua */
+/* Le da un tono rosado/café suave */
+}
+
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Asegúrate de que el contenedor de atrás tenga flex-direction column y align-items center */
+.flip-card-back-invimon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}

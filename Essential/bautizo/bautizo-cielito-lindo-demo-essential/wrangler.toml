@@ -1,7 +1,0 @@
-#:schema node_modules/wrangler/config-schema.json
-name = "demob-essential-monocromatico"
-compatibility_date = "2024-11-01"
-compatibility_flags = [ "nodejs_compat" ]
-
-# Corregido: Ahora es un string simple como pide el error
-pages_build_output_dir = ".vercel/output/static"

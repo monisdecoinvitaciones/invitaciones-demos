@@ -1,0 +1,225 @@
+/* =========================================
+   FONDO Y CONTENEDOR
+   ========================================= */
+.welcome-section-bg {
+  background-color: #ffffff;
+  background-image: radial-gradient(#f2bfc8 0.6px, transparent 0.6px);
+  background-size: 24px 24px;
+  padding: 30px 20px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto; 
+  position: relative;
+  overflow: hidden; 
+}
+
+.welcome-main-container {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* =========================================
+   ANIMACIÓN "SPLIT REVEAL" (DISTINTA Y ELEGANTE)
+   ========================================= */
+.welcome-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 480px; 
+  width: 100%;
+  will-change: transform, opacity;
+  /* Animación más larga (1.5s) para que se aprecie la apertura */
+  transition: opacity 1.5s ease-out, 
+              transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal-hidden {
+  opacity: 0;
+  /* La tarjeta empieza "comprimida" horizontalmente y muy poco escalada */
+  transform: scaleX(0.4) scaleY(0.95);
+}
+
+.reveal-visible {
+  opacity: 1;
+  /* Se expande hacia los lados hasta su tamaño original */
+  transform: scaleX(1) scaleY(1);
+}
+
+/* =========================================
+   TEXTO ARQUEADO
+   ========================================= */
+.arched-title-container {
+  width: 120%;
+  max-width: 600px;
+  height: 110px;
+  margin-bottom: -20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+.arched-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.arched-text {
+  font-family: var(--font-moderna);
+  font-size: 2rem; 
+  font-weight: 700;
+  fill: #b5838d; 
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+/* =========================================
+   TARJETA ESTILO FAMILY
+   ========================================= */
+.welcome-card-elegant {
+  position: relative;
+  width: 100%;
+  background: #d88a9a; 
+  border-radius: 250px 250px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  padding: 60px 40px 30px 40px; 
+  box-shadow: 0 25px 50px rgba(181, 131, 141, 0.25);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Aplicamos una transición interna a los elementos para que "nazcan" después */
+.card-content, .talavera-decor-top, .talavera-pattern-bottom {
+  transition: opacity 1s ease-out 0.5s, transform 1s ease-out 0.5s;
+}
+
+.reveal-hidden .card-content {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.reveal-visible .card-content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.welcome-card-elegant::before {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 235px 235px 25px 25px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.talavera-decor-top {
+  font-size: 3.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  z-index: 4;
+  margin-bottom: 5px; 
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  margin-top: 10px; 
+}
+
+.welcome-subtitle {
+  font-family: var(--font-moderna);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.welcome-main-text {
+  font-family: var(--font-moderna);
+  font-size: 1.25rem;
+  margin: 5px 0;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.text-highlight {
+  font-family: var(--font-elegante);
+  font-size: 3.2rem;
+  margin: 8px 0;
+  display: block;
+}
+
+.baby-name-card {
+  font-family: var(--font-elegante);
+  font-size: clamp(3rem, 8vw, 4.2rem);
+  margin-top: 10px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.talavera-pattern-bottom {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin-top: 15px;
+  background-image: url('/fotos/estampado.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  z-index: 1;
+}
+
+.welcome-footer-decor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #d88a9a;
+  margin-top: 25px;
+}
+
+.ornament-line {
+  width: 60px;
+  height: 1px;
+  background: #d88a9a;
+}
+
+.ornament-diamond {
+  font-size: 1.2rem;
+}
+
+/* =========================================
+   RESPONSIVE (MÓVIL)
+   ========================================= */
+@media (max-width: 768px) {
+  .welcome-section-bg { 
+    padding: 20px 15px; 
+  }
+
+  .welcome-card-elegant {
+    max-width: 340px;
+    padding: 50px 30px 25px 30px;
+    border-radius: 180px 180px 30px 30px;
+  }
+
+  .arched-title-container {
+    height: 90px;
+    margin-bottom: -10px;
+  }
+
+  .arched-text {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+  }
+}

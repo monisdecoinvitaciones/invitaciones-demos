@@ -1,0 +1,224 @@
+.hero-premium {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-visual {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.hero-foto-fondo {
+    width: 100%;
+    height: 100%;
+    /* Ajustado a 'top' para que no se corte la cabeza/parte superior en PC */
+    background: url("/bautizo/optimized/1.webp") center -40px / cover no-repeat;
+    transform: scale(1.02); /* Zoom más sutil para no perder calidad */
+    filter: brightness(0.9) contrast(1.05); 
+}
+
+/* Capa de protección: Menos rosa, más neutra y elegante */
+.hero-vignette {
+    position: absolute;
+    inset: 0;
+    /* Gradiente neutral: de casi transparente a un chocolate muy suave en los bordes */
+    background: radial-gradient(
+        circle, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(30, 20, 20, 0.4) 100%
+    );
+    z-index: 2;
+}
+
+.hero-overlay-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #ffffff;
+    width: 90%;
+    max-width: 850px;
+}
+
+/* Líneas y Tags */
+.hero-top-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    animation: fadeInDown 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-line {
+    height: 1px;
+    width: 40px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.hero-mini-tag {
+    letter-spacing: 6px;
+    font-size: 0.75rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+/* Nombres */
+.nombre-script {
+    font-family: var(--font-elegante);
+    font-size: clamp(3.5rem, 12vw, 7.5rem);
+    font-weight: 400;
+    margin: 0;
+    line-height: 0.9;
+    /* Sombra más natural, menos negra */
+    text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.motivo-bautizo {
+    font-family: var(--font-moderna);
+    font-weight: 300;
+    letter-spacing: 10px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-top: 5px;
+    /* Un rosa casi blanco para que no sature */
+    color: rgba(255, 255, 255, 0.85); 
+    text-transform: uppercase;
+}
+
+/* Caja de fecha estilizada */
+.hero-date-box {
+    margin-top: 45px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: inline-block;
+    padding: 12px 35px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: fadeInUp 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.date-number {
+    letter-spacing: 5px;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+/* Indicador de Scroll */
+.mouse-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 36px;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    z-index: 3;
+}
+
+.wheel {
+    width: 3px;
+    height: 7px;
+    background: white;
+    border-radius: 2px;
+    margin: 6px auto;
+    animation: scrollMove 2.2s ease-in-out infinite;
+}
+
+/* Animaciones fluidas (GPU friendly) */
+@keyframes scrollMove {
+    0% { transform: translateY(0); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(12px); opacity: 0; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translate3d(0, -25px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 25px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* Ajuste específico para pantallas muy anchas */
+@media (min-width: 1400px) {
+    .hero-foto-fondo {
+        background-position: center 15%; /* Ajuste fino para monitores grandes */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-premium {
+        /* Cambiamos 100vh por un alto basado en la proporción de la foto */
+        /* Si tu foto es vertical, 140vw es ideal. Si quieres que sea más corta, usa 120vw */
+        height: 130vw; 
+        min-height: 500px; /* Evita que se aplaste en cels muy pequeños */
+    }
+
+    .hero-foto-fondo {
+        /* En móvil centramos totalmente para evitar espacios vacíos */
+        background-position: center center;
+    }
+
+    .nombre-script {
+        /* Ajuste de tamaño para que no rompa el diseño en pantallas angostas */
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    .mouse-scroll {
+        /* En móvil a veces el scroll indicator estorba si la sección es corta */
+        bottom: 20px;
+        transform: translateX(-50%) scale(0.8);
+    }
+}
+
+.hero-foto-fondo {
+    width: 100%;
+    height: 100%;
+    /* Cambiamos el valor fijo por un porcentaje. 
+       25% sube la imagen lo suficiente para que luzca en el tercio superior 
+       sin pegarse al borde superior.
+    */
+    background: url("/bautizo/optimized/1.webp") center 25% / cover no-repeat;
+    transform: scale(1.02); 
+    filter: brightness(0.9) contrast(1.05); 
+}
+
+/* ... resto del código igual ... */
+
+/* Ajuste específico para pantallas muy anchas (Monitores PC) */
+@media (min-width: 1400px) {
+    .hero-foto-fondo {
+        /* En pantallas muy grandes, un 20% suele ser el "sweet spot" 
+           para que el encuadre se vea intencional y elegante.
+        */
+        background-position: center 20%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-premium {
+        height: 130vw; 
+        min-height: 500px;
+    }
+
+    .hero-foto-fondo {
+        /* En móvil, 40% suele funcionar mejor que 'center' para que 
+           si la foto es un retrato, no se corten las frentes.
+        */
+        background-position: center 40%;
+    }
+
+    .nombre-script {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+}

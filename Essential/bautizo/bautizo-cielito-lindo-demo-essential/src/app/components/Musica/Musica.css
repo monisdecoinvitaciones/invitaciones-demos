@@ -1,0 +1,100 @@
+/* =========================
+   BOTÓN DE MÚSICA FIJO
+========================= */
+.contenedor-musica-fijo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row-reverse; /* El botón a la derecha, el texto a la izquierda */
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-musica {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background-color: #b5838d; 
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(181, 131, 141, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 2;
+}
+
+.btn-musica:hover {
+  transform: scale(1.1);
+  filter: brightness(0.95);
+}
+
+.icono-musica {
+  width: 22px;
+  height: 22px;
+}
+
+/* Efecto de pulso */
+.pulsando {
+  animation: pulse-invimon-claro 4s infinite;
+}
+
+@keyframes pulse-invimon-claro {
+  0% { box-shadow: 0 0 0 0 rgba(181, 131, 141, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(181, 131, 141, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(181, 131, 141, 0); }
+}
+
+/* LETRERITO (HINT) CORREGIDO */
+.hint-musica {
+  font-family: var(--font-moderna);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: rgba(181, 131, 141, 0.8); /* Un poco más sólido para que se lea bien */
+  padding: 6px 14px;
+  border-radius: 20px;
+  pointer-events: none;
+  white-space: nowrap;
+  /* Animación de flote real */
+  animation: floatingHint 3s ease-in-out infinite;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+@keyframes floatingHint {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px); /* Flota hacia arriba */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+
+/* --- AJUSTE MÓVIL --- */
+@media (max-width: 768px) {
+  .contenedor-musica-fijo {
+    bottom: 25px;
+    right: 20px;
+  }
+  
+  .btn-musica {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .hint-musica {
+    display: none; /* Se oculta en móvil para no estorbar */
+  }
+}

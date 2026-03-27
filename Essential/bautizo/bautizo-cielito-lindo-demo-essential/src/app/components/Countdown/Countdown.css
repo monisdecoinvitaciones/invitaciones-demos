@@ -1,0 +1,320 @@
+/* --- SECCIÓN CONTADOR REGRESIVO (UNIFICADO) --- */
+.countdown-section {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Fondo rosa pálido coherente con el diseño general */
+  background-color: white; 
+  color: #5f7161; 
+}
+
+.countdown-bg-wrapper {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  z-index: 1;
+}
+
+
+
+.countdown-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+/* --- DECORACIONES DE PAPEL PICADO (PNG) --- */
+.decor-papel-picado {
+  position: absolute;
+  z-index: 5;
+  width: 380px;
+  height: auto;
+  opacity: 0; /* Inicia oculto para la animación */
+  pointer-events: none;
+  transition: opacity 1.5s ease-out 1s; /* Aparece suavemente después del texto */
+}
+
+.decor-top-left {
+  top: -20px;
+  left: -20px;
+  transform: rotate(-5deg);
+}
+
+.decor-bottom-right {
+  bottom: -40px;
+  right: -40px;
+  transform: rotate(175deg) scaleX(-1);
+}
+
+.decor-papel-picado img {
+  width: 100%;
+  height: auto;
+
+}
+
+.is-visible .decor-papel-picado {
+  opacity: 1; /* Opacidad final elegante */
+}
+
+/* --- TEXTOS Y NÚMEROS --- */
+.countdown-subtitle {
+  font-family: var(--font-moderna);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  margin-bottom: 50px;
+  font-weight: 600;
+  color: #b5838d; /* Tono terracota/rosa viejo */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.8s ease-out;
+}
+
+.is-visible .countdown-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.countdown-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
+}
+
+/* Animaciones escalonadas */
+.is-visible .time-block {
+  animation: slideUpFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.is-visible .anim-1 { animation-delay: 0.2s; }
+.is-visible .anim-2 { animation-delay: 0.4s; }
+.is-visible .anim-3 { animation-delay: 0.6s; }
+.is-visible .anim-4 { animation-delay: 0.8s; }
+
+.time-number {
+  font-family: var(--font-elegante);
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  
+  color: #e8a0ad; 
+  line-height: 1;
+}
+
+.time-label {
+  font-family: var(--font-moderna);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  color: #d48c99; /* Verde eucalipto sutil */
+  opacity: 0.8;
+}
+
+.time-divider {
+  width: 1px;
+  height: 70px;
+  background-color: #f2bfc8; /* Rosa suave */
+  margin: 0 15px;
+  opacity: 0;
+  transition: opacity 1.2s ease 1.2s;
+}
+
+.is-visible .time-divider {
+  opacity: 0.5;
+}
+
+@keyframes slideUpFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- ADAPTACIÓN MÓVIL --- */
+@media (max-width: 768px) {
+  .countdown-section { 
+    height: auto; 
+    padding: 100px 0; 
+  }
+  
+  .countdown-grid { 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px 20px; 
+  }
+
+  .time-block { 
+    flex: none; 
+    width: 40%; 
+  }
+
+  .time-divider { 
+    display: none; 
+  }
+
+  .time-number { 
+    font-size: 3.8rem; 
+  }
+  
+  .countdown-subtitle { 
+    font-size: 1.5rem; 
+    letter-spacing: 4px; 
+    margin-bottom: 40px;
+  }
+
+  .decor-papel-picado { 
+    width: 250px; 
+  }
+  
+  .decor-top-left { 
+    top: -40px; 
+    left: -40px; 
+  }
+  
+  .decor-bottom-right { 
+    bottom: -40px; 
+    right: -40px; 
+  }
+}
+
+/* --- ESTILOS DE LAS DECORACIONES DE PAPEL PICADO --- */
+.decor-papel-picado {
+  position: absolute;
+  z-index: 5;
+  width: clamp(200px, 30vw, 380px); /* Tamaño responsivo */
+  height: auto;
+  opacity: 0; 
+  pointer-events: none;
+  transition: opacity 1.5s ease-out 1s;
+}
+
+/* ESQUINA SUPERIOR IZQUIERDA */
+/* No necesita rotación si el PNG ya viene en ángulo recto */
+.decor-top-left {
+  top: 0;
+  left: 0;
+  transform: rotate(0deg); 
+}
+
+/* ESQUINA INFERIOR DERECHA */
+/* Aquí está el truco: Rotamos 180 grados para que la esquina 
+   recta apunte hacia abajo a la derecha */
+.decor-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg); 
+}
+
+/* Si quieres que la de abajo sea un reflejo exacto (espejo) 
+   usa esta en lugar de la anterior: */
+/* .decor-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1, -1); 
+}
+*/
+
+.decor-papel-picado img {
+  width: 100%;
+  height: auto;
+  display: block; /* Quita espacios fantasma debajo de la imagen */
+
+}
+
+.is-visible .decor-papel-picado {
+  opacity: 1; 
+}
+/* --- DECORACIONES DE PAPEL PICADO --- */
+.decor-papel-picado {
+  position: absolute;
+  z-index: 5;
+  /* Mantenemos el tamaño responsivo */
+  width: clamp(280px, 35vw, 420px); 
+  height: auto;
+  opacity: 0; 
+  pointer-events: none;
+  transition: opacity 1.5s ease-out 1s;
+}
+
+/* ESQUINA SUPERIOR IZQUIERDA */
+.decor-top-left {
+  /* Empujamos más hacia afuera para "limpiar" la esquina */
+  top: -25px; 
+  left: -25px;
+  transform: rotate(-0deg); /* Un toque de rotación lo hace ver más orgánico */
+}
+
+/* ESQUINA INFERIOR DERECHA */
+.decor-bottom-right {
+  /* Empujamos más hacia afuera */
+  bottom: -30px; 
+  right: -30px;
+  /* Rotación de 180 para que la esquina apunte al rincón */
+  transform: rotate(180deg); 
+}
+
+.decor-papel-picado img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Filtro opcional por si el PNG es muy oscuro y quieres que sea más sutil */
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.05));
+}
+
+/* --- ACTUALIZACIÓN DE COLORES (Gris Antracita y Rosa) --- */
+.countdown-section {
+  background-color: #ffffff;
+  /* Cambiado el verde por tu nuevo Gris Antracita */
+  color: #4A4A4A; 
+}
+
+.time-number {
+  /* Rosa principal de Invimon */
+  color: #d88a9a; 
+}
+
+.time-label {
+  /* Gris suave para las etiquetas */
+  color: #666666;
+  letter-spacing: 5px;
+}
+
+.time-divider {
+  /* Divisor rosa muy tenue */
+  background-color: rgba(216, 138, 154, 0.3);
+}
+
+/* --- AJUSTE MÓVIL --- */
+@media (max-width: 768px) {
+  .decor-top-left { 
+    top: -30px; 
+    left: -30px; 
+  }
+  
+  .decor-bottom-right { 
+    bottom: -30px; 
+    right: -30px; 
+  }
+
+  .time-number {
+    font-size: 4rem;
+  }
+}

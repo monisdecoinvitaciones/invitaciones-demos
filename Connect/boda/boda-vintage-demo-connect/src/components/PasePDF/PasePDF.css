@@ -1,0 +1,89 @@
+.ticket-pdf {
+  width: 160mm; /* Un poco más angosto para que luzca mejor centrado en el A4 */
+  padding: 50px;
+  background: #ffffff;
+  border: 1px solid #E0115F;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0 auto;
+}
+
+.ticket-header h1 {
+  font-family: 'Pinyon Script', cursive; /* Asegúrate de cargar esta fuente en tu layout */
+  color: #6d7a5f;
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+.ticket-header p {
+  letter-spacing: 4px;
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.ticket-nombre {
+  color: #1a1a1a;
+  font-size: 2rem;
+  margin: 20px 0 10px 0;
+  text-transform: uppercase;
+}
+
+.ticket-info-pases {
+  display: flex;
+  justify-content: center; /* Centrado absoluto */
+  gap: 40px; /* Espacio entre los grupos */
+  margin: 20px 0;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.ticket-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-label {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.ticket-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #008080;
+}
+
+.ticket-qr {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Asegura que ocupe el ancho del ticket */
+}
+
+.ticket-qr svg, 
+.ticket-qr canvas {
+  width: 180px !important;  /* Tamaño fijo en el PDF */
+  height: 180px !important;
+  display: block;
+}
+
+.ticket-lista {
+  font-size: 1rem;
+  color: #555;
+  max-width: 80%;
+  margin: 10px auto;
+  line-height: 1.4;
+}
+
+.ticket-footer {
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: #bbb;
+}

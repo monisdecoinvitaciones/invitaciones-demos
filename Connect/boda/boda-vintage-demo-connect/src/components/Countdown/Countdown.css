@@ -1,0 +1,128 @@
+/* ============================================================
+   COUNTDOWN ELEGANT - BURGUNDY EDITION
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;600&display=swap');
+
+.countdown-elegant {
+  height: 50vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Color Borgoña profundo para máxima elegancia */
+  background-color: #4a0404; 
+}
+
+/* Eliminamos las capas de imagen para mantener el color sólido */
+.background-overlay {
+  display: none;
+}
+
+.countdown-content-container {
+  max-width: 900px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* ENCABEZADO DE FECHA */
+.elegant-date-header {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 6px; /* Aumentamos un poco para aire editorial */
+  text-transform: uppercase;
+  margin: 0 0 25px 0;
+  color: #ffffff;
+}
+
+/* DIVISORES FINOS TRASLÚCIDOS */
+.elegant-divider {
+  width: 100%;
+  max-width: 600px; /* Limitamos el ancho para que se vea más contenido */
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.divider-top {
+  margin-bottom: 35px;
+}
+
+.divider-bottom {
+  margin-top: 35px;
+}
+
+/* GRID DEL CONTADOR */
+.countdown-timer-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline; /* Mejor alineación visual para los números */
+  width: 100%;
+  max-width: 800px;
+}
+
+.timer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.timer-number {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 300;
+  line-height: 1;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Los segundos en Bronce sobre el Borgoña se ven espectaculares */
+.seconds-number {
+  color: #ffffff; 
+}
+
+.timer-label {
+  font-family: var(--font-montserrat), sans-serif; /* Montserrat para contraste moderno */
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.7); /* Un poco más suave que el número */
+  margin-top: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+  .countdown-elegant {
+    height: auto;
+    padding: 60px 0;
+  }
+
+  .countdown-content-container {
+    width: 85%;
+  }
+  
+  .elegant-date-header {
+    font-size: 1rem;
+    letter-spacing: 4px;
+  }
+
+  .timer-number {
+    font-size: 3rem;
+  }
+  
+  .timer-label {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+}

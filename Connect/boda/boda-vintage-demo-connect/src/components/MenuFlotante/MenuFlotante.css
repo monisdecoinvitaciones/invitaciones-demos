@@ -1,0 +1,104 @@
+
+/*-----------------BOTON FLOTANTE*/
+/* Botón circular que abre el menú */
+/* Estilos base para el Botón (Desktop y general) */
+.boton-menu {
+  position: fixed;
+  bottom: 100px; /* Separación del botón de música */
+  right: 5%;    /* Usamos % para que se adapte al ancho de pantalla */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
+  font-size: 20px;
+  
+  /* Efecto Cristalino */
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  cursor: pointer;
+  z-index: 8000; 
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Lista de botones (Menú desplegable) */
+.menu-flotante {
+  position: fixed;
+  bottom: 160px; 
+  right: 5%;
+  
+  /* Efecto Cristalino más puro */
+  background: rgba(95, 113, 97, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 9999; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  
+  /* Responsividad de altura */
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.menu-flotante.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Botones internos de la lista */
+.menu-flotante button {
+  background: white; /* Fondo muy leve al botón */
+  border: none;
+  border-radius: 10px;
+  color: black; /* Texto blanco para que resalte en el cristal */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.menu-flotante button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* --- AJUSTES PARA MÓVILES (Responsivo) --- */
+@media (max-width: 600px) {
+  .boton-menu {
+    bottom: 90px; /* Un poco más abajo en móvil */
+    right: 10px;  /* Margen fijo en pantallas pequeñas */
+    width: 45px;
+    height: 45px;
+  }
+
+
+  .menu-flotante {
+    bottom: 145px;
+    right: 10px;
+    width: 180px; /* Ancho fijo para que no baile según el texto */
+  }
+  
+  .menu-flotante button {
+    font-size: 0.85rem;
+    padding: 12px; /* Área de toque más grande para dedos */
+  }
+}
+
+

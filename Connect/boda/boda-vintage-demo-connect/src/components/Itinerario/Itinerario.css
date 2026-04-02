@@ -1,0 +1,210 @@
+/* ============================================================
+   ITINERARIO - BURGUNDY & MOSS EDITION (INVIMON)
+   ============================================================ */
+
+.itinerario-section {
+  background: url('/images/marble-bg.jpg') center/cover;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.itinerario-title-main {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  color: #362017;
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.itinerario-container {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* LÍNEAS CENTRALES */
+.itinerario-line-bg {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(74, 14, 14, 0.1); /* Burgundy muy sutil */
+  transform: translateX(-50%);
+}
+
+.itinerario-line-progress {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  background: #800020; /* Burgundy Vibrante */
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: 0 0 8px rgba(128, 0, 32, 0.3);
+  transition: height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* FILAS CON EFECTO BLUR (Mantenemos animación original) */
+.itinerario-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+  opacity: 0;
+  filter: blur(15px);
+  transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.itinerario-row.left { 
+  flex-direction: row-reverse;
+  transform: translateX(-60px) scale(0.95);
+}
+
+.itinerario-row.right { 
+  transform: translateX(60px) scale(0.95);
+}
+
+.itinerario-row.visible {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateX(0) scale(1);
+}
+
+/* CONTENIDO E ICONOS */
+.itinerario-time {
+  flex: 1;
+  padding: 0 60px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.8rem;
+  color: #4a0e0e; /* Burgundy Profundo */
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.itinerario-row.left .itinerario-time { text-align: left; }
+.itinerario-row.right .itinerario-time { text-align: right; }
+
+.itinerario-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.itinerario-icon-circle {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  /* CAMBIO: Borde Burgundy Vibrante en lugar de dorado */
+  border: 4.5px solid #800020; 
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.react-icon-wrapper {
+  font-size: 2.2rem;
+  color: #800020; /* Icono Burgundy */
+}
+
+.itinerario-content h4 {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.8rem;
+  letter-spacing: 4px;
+  margin: 5px 0;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
+
+.itinerario-content p {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.3rem;
+  /* CAMBIO: Moss Green (#5f7161) para el lugar en vez de dorado */
+  color: #5f7161; 
+  text-align: center;
+}
+
+/* EFECTO HOVER (PC) - Mantenemos original */
+
+
+
+/* ============================================================
+   RESPONSIVO MÓVIL (Mantenemos original)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .itinerario-section {
+    padding: 20px 15px;
+  }
+
+  .itinerario-title-main {
+    margin-bottom: 20px;
+  }
+
+  /* Línea a la izquierda */
+  .itinerario-line-bg, .itinerario-line-progress { 
+    left: 25px; 
+    transform: none; 
+  }
+  
+  .itinerario-row {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 60px;
+    margin-bottom: 40px;
+    /* En móvil desaparece hacia abajo */
+    transform: translateY(40px) !important;
+  }
+
+  .itinerario-row.visible { 
+    transform: translateY(0) !important; 
+  }
+
+  .itinerario-time {
+    padding: 0;
+    text-align: left !important;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .itinerario-content {
+    padding: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .itinerario-icon-circle {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 8px;
+    /* Mantenemos el grosor original de 4px */
+    border-width: 4px; 
+    /* El color ya está definido arriba como #800020 */
+  }
+
+  .react-icon-wrapper {
+    font-size: 1.8rem;
+  }
+
+  .itinerario-content h4 {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  .itinerario-content p {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+}

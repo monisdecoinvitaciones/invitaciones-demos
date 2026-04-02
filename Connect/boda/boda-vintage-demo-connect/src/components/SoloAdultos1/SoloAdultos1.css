@@ -1,0 +1,81 @@
+/*------------------ SOLO ADULTOS LUXE ---------------*/
+
+.adultos-seccion {
+  padding: 20px 20px;
+  background: #ffffff; /* Fondo limpio para resaltar el marco */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adultos-frame {
+  max-width: 600px;
+  padding: 40px 30px;
+  border: 1px solid #008080; /* Color champaña muy tenue */
+  position: relative;
+  text-align: center;
+  /* Animación de entrada */
+  opacity: 0;
+  transform: scale(0.98);
+  transition: all 1s ease-out;
+}
+
+/* El segundo marco decorativo (el toque elegante) */
+.adultos-frame::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid #008080;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.adultos-frame.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.adultos-icon {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem;
+  letter-spacing: 6px;
+  color: #008080;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.adultos-titulo-fino {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(2rem, 5vw, 3rem) !important;
+  color: #008080 !important; /* Tu verde oliva */
+  
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.adultos-linea {
+  width: 40px;
+  height: 1px;
+  background: #d4c5b9;
+  margin: 20px auto;
+}
+
+.adultos-texto-editorial {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 300 !important;
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .adultos-seccion { padding: 50px 15px; }
+  .adultos-frame { padding: 30px 20px; }
+}

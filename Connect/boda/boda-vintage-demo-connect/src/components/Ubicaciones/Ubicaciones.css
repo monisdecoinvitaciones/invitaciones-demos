@@ -1,0 +1,216 @@
+/* ============================================================
+   SECCIÓN UBICACIONES (THE GREAT DAY)
+   ============================================================ */
+
+.ubicaciones-section {
+  padding: 30px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  background-color: #f2ede0;
+}
+
+.ubicaciones-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- ENCABEZADO --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  color: #362017;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  color: #362017;
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.section-divider {
+  width: 50px;
+  height: 1px;
+  background-color: #aa8a2e;
+  margin: 0 auto;
+  opacity: 0.4;
+}
+
+/* --- GRID Y TARJETAS --- */
+.locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.location-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(40px) rotateX(5deg);
+  transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 20px 40px rgba(54, 32, 23, 0.15);
+}
+
+.location-card.ceremonia { background-color: #5f7161; }
+.location-card.recepcion { background-color: #4a0404; }
+.location-card.is-visible { opacity: 1; transform: translateY(0) rotateX(0); }
+.location-card.recepcion { transition-delay: 0.2s; }
+
+/* --- CAPAS DE EFECTO --- */
+.card-glass-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-25deg);
+  z-index: 2;
+  animation: sweep 8s infinite ease-in-out;
+}
+
+@keyframes sweep {
+  0% { left: -120%; }
+  15% { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* --- CONTENIDO DE LA TARJETA --- */
+.card-content {
+  position: relative;
+  z-index: 5;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  color: #ffffff;
+}
+
+.card-title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin: 20px 0 35px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.detail-row svg {
+  color: #ffffff;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.detail-row p { margin: 0; }
+.detail-row strong { font-weight: 600; }
+
+.detail-row.address {
+  margin-bottom: 45px;
+  min-height: 60px;
+}
+
+/* --- ICONOS DE ENCABEZADO --- */
+.icon-wrapper { animation: floatIcon 5s ease-in-out infinite; }
+.icon-box { padding: 15px; border: 1px solid rgba(255, 255, 255, 0.2); }
+.premium-icon { width: 65px; height: auto; filter: brightness(0) invert(1); }
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* --- BOTÓN --- */
+.btn-premium {
+  padding: 14px 35px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  transition: all 0.5s ease;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.btn-premium:hover {
+  background: #ffffff;
+  color: #362017;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ============================================================
+   RESPONSIVO (Ajuste de Iconos arriba en móvil)
+   ============================================================ */
+
+@media (max-width: 850px) {
+  .locations-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .card-content { padding: 50px 20px; }
+  .card-shine { display: none; }
+
+  /* --- CAMBIO SOLICITADO: ICONOS ARRIBA --- */
+  .detail-row {
+    flex-direction: column; /* Icono arriba del texto */
+    align-items: center;    /* Centra ambos */
+    gap: 8px;              /* Espacio corto entre icono y texto */
+    margin-bottom: 25px;
+  }
+
+  .detail-row svg {
+    margin-top: 0;          /* Reset del margen superior */
+    width: 24px;            /* Un poco más grande para que luzca centrado */
+    height: 24px;
+  }
+
+  .detail-row p {
+    text-align: center;     /* Asegura que el texto esté centrado bajo el icono */
+  }
+
+  .detail-row.address {
+    min-height: auto;       /* Se ajusta al contenido */
+    margin-bottom: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title { font-size: 3.2rem; }
+  .card-title { font-size: 1.8rem; }
+}

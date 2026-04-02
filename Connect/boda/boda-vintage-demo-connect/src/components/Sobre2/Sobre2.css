@@ -1,0 +1,189 @@
+.luxury-envelope-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding-top: 15vh; /* Mantiene la posición que nos gustó */
+  perspective: 1200px;
+  background-color: #1a1a1a;
+}
+
+.fondo-mesa {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, #362017 0%, #1a0a05 100%);
+  opacity: 0.95;
+}
+
+.sobre-contenedor {
+  position: relative;
+  width: 350px;
+  height: 240px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.cuerpo-sobre {
+  position: absolute;
+  inset: 0;
+  background-color: #4a0404;
+  border-radius: 4px;
+  z-index: 2;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+}
+
+.solapa-superior {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5a0505;
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+  z-index: 4;
+  transform-origin: top;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal .solapa-superior {
+  transform: rotateX(170deg);
+  z-index: 1;
+}
+
+.sello-lacre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  transition: all 0.6s ease;
+}
+
+.monograma-sello {
+  width: 70px;
+  filter: contrast(1.2) brightness(0.6);
+}
+
+.reveal .sello-lacre {
+  opacity: 0;
+  transform: translate(-50%, -100%) scale(0);
+}
+
+/* --- TARJETA REVELADA --- */
+.invitacion-fisica {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  right: 10px;
+  bottom: 5px;
+  background-color: #f2ede0;
+  z-index: 1;
+  opacity: 0;
+  padding: 8px;
+  transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal .invitacion-fisica {
+  opacity: 1;
+  z-index: 3;
+  transform: translateY(-105%) scale(1.08); 
+  box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+}
+
+.papel-textura {
+  border: 1px solid #aa8a2e;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px; /* Un poco más de padding interno */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.label-top {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: #5f7161;
+  margin-top: 10px; /* AJUSTE: Separación del margen superior */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.nombres-lujo {
+ font-family: var(--font-mea), cursive;
+  font-size: 2.3rem;
+  color: #362017;
+  margin: 5px 0;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.linea-elegante {
+  width: 60px; /* Un poco más larga para que luzca */
+  height: 1px;
+  background: #aa8a2e;
+  margin: 15px auto; /* AJUSTE: Centrado horizontal garantizado */
+}
+
+.fecha-lujo {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: #362017;
+  font-weight: 300;
+  margin-bottom: 10px; /* Separación del margen inferior */
+}
+
+/* --- INSTRUCCIONES Y SALIDA --- */
+.instruccion-abrir {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.instruccion-abrir p {
+  color: #f2ede0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+  animation: bouncePulse 2s infinite;
+}
+
+@keyframes bouncePulse {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-5px); }
+}
+
+.reveal {
+  /* AJUSTE: Duración extendida a 6s para poder leer todo bien */
+  animation: fadeOutSectionEnd 1.2s ease forwards 6s; 
+}
+
+@keyframes fadeOutSectionEnd {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Ajuste Responsivo Móvil */
+@media (max-width: 480px) {
+  .luxury-envelope-wrapper { padding-top: 10vh; }
+  .sobre-contenedor { width: 310px; height: 210px; }
+  .nombres-lujo { font-size: 1.9rem; }
+  .reveal .invitacion-fisica { transform: translateY(-95%) scale(1.05); }
+}

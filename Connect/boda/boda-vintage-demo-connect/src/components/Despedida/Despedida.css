@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@300;400;700&family=Cormorant+Garamond:wght@400;600&display=swap');
+
+/* --- CONTENEDOR PADRE --- */
+.despedida-full {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evita scrolls raros por el parallax */
+  text-align: center;
+  background-color: #362017; /* Color base chocolate */
+}
+
+/* --- EFECTO PARALLAX OPTIMIZADO --- */
+/* Usamos un pseudo-elemento para la imagen. Esto permite que el parallax 
+   funcione mucho mejor en dispositivos móviles modernos. */
+.despedida-full::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit; /* Hereda la imagen del inline style de React */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax nativo */
+  z-index: 0;
+}
+
+/* --- OVERLAY PARA LEGIBILIDAD --- */
+.despedida-overlay-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom, 
+    rgba(54, 32, 23, 0.45), 
+    rgba(54, 32, 23, 0.8)
+  );
+  z-index: 1;
+}
+
+/* --- CONTENIDO --- */
+.despedida-content-center {
+  position: relative;
+  z-index: 2;
+  color: #f2ede0; /* Ivory */
+  padding: 30px;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.is-visible .despedida-content-center {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* --- TEXTOS --- */
+.txt-script {
+  font-family: 'Pinyon Script', cursive; /* Actualizado */
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  color: #f2ede0;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.divider-gold {
+  width: 80px;
+  height: 1px;
+  background: #f2ede0;
+  margin: 25px auto;
+  opacity: 0.5;
+}
+
+.txt-mensaje {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+}
+
+.txt-mensaje strong {
+  font-weight: 700;
+  display: block;
+  margin-top: 8px;
+  color: #ffffff;
+}
+
+.txt-firmas p {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.txt-firmas h3 {
+  font-family: 'Pinyon Script', cursive; /* Actualizado */
+  font-weight: 400;
+  font-size: clamp(2.8rem, 10vw, 4.5rem);
+  margin: 0;
+  color: #f2ede0;
+}
+
+/* --- AJUSTES PARA MÓVIL --- */
+@media (max-width: 768px) {
+  .despedida-full {
+    height: 85vh; /* Altura ideal para móviles */
+  }
+
+  /* En muchos móviles 'fixed' da problemas, este ajuste asegura 
+     que se vea elegante aunque el scroll sea normal */
+  .despedida-full::before {
+    background-attachment: scroll; 
+  }
+
+  .despedida-content-center {
+    padding: 20px;
+  }
+  
+  .txt-script {
+    font-size: 4.5rem;
+  }
+}

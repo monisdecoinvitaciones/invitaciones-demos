@@ -1,0 +1,139 @@
+.std-minimal {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+.std-minimal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- FLORES EN ESQUINAS --- */
+.std-flor-1 {
+  position: absolute;
+  top: -40px;
+  left: -80px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+  width: 350px;
+}
+
+.std-flor-2 {
+  position: absolute;
+  bottom: -60px;
+  right: -80px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+  width: 420px;
+}
+
+.img-responsive-flor {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* --- CONTENIDO CENTRAL --- */
+.std-content {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+/* --- ICONO FLOTANTE ARRIBA DEL TÍTULO --- */
+.std-icon-wrapper {
+  width: 80px; 
+  height: 80px;
+  margin-bottom: 30px;
+  position: relative;
+  opacity: 0.9;
+  animation: floatIcon 4s ease-in-out infinite; /* Animación de flotado suave */
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.std-png-icon {
+  object-fit: contain;
+}
+
+.std-title {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #362017;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+.std-date {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 8px;
+  color: #5f7161;
+  margin: 15px 0 40px;
+}
+
+.std-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.std-links a {
+  text-decoration: none;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #362017;
+  border: 1px solid rgba(54, 32, 23, 0.2);
+  padding: 12px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.std-links a:hover {
+  background-color: #362017;
+  color: #ffffff;
+}
+
+/* --- AJUSTE MÓVIL --- */
+@media (max-width: 768px) {
+  .std-minimal {
+    padding: 100px 25px;
+  }
+
+  .std-flor-1 {
+    width: 140px !important;
+    top: -10px;
+    left: -30px;
+  }
+
+  .std-flor-2 {
+    width: 180px !important;
+    bottom: -30px;
+    right: -30px;
+  }
+
+  .std-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+}

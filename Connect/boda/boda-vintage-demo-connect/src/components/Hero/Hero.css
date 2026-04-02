@@ -1,0 +1,194 @@
+/* ============================================================
+   HERO SECTION (CLEAN & PREMIUM) - CORREGIDO
+   ============================================================ */
+
+.hero-clean {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  /* --- CAMBIO AQUÍ: Se cambió 'center' por 'center 20%' para bajar la imagen --- */
+  /* Si aún se corta, prueba con 'center top' */
+  background: url("/Boda4/optimized/boda1.webp") center 35% / cover no-repeat;
+  z-index: 1;
+  
+  /* Se añade un scale pequeño inicial para que el zoom no muestre bordes */
+  transform: scale(1.05); 
+  animation: slowZoom 20s infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
+}
+
+/* Capa de contraste inteligente */
+.hero-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.4) 0%,      /* Un poco más oscuro arriba para la etiqueta glass */
+    transparent 40%,
+    transparent 60%,
+    rgba(0,0,0,0.7) 100%
+  );
+}
+
+.hero-ui {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ETIQUETA SUPERIOR */
+.glass-tag {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 25px;
+  color: #f2ede0;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  animation: fadeInDown 1.5s ease-out;
+}
+
+/* GRUPO INFERIOR (NOMBRES Y FECHA) */
+.hero-bottom-group {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.8s ease-out;
+}
+
+.names-title {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(4.5rem, 15vw, 9rem);
+  color: #ffffff;
+  margin: 0;
+  line-height: 0.8;
+  font-weight: 400;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4); /* Sombra más profunda para legibilidad */
+}
+
+.hero-divider-minimal {
+  width: 40px;
+  height: 1px;
+  background: #f2ede0;
+  margin: 25px auto;
+  opacity: 0.6;
+}
+
+.hero-date-text {
+  font-family: var(--font-cormorant), serif;
+  color: #f2ede0;
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.location-tag {
+  font-family: var(--font-montserrat), sans-serif;
+  color: #f2ede0;
+  font-size: 0.6rem;
+  letter-spacing: 5px;
+  opacity: 0.6;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+/* INDICADOR DE SCROLL ANIMADO */
+.minimal-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #f2ede0, transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  animation: scrollAnim 2s infinite cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+@keyframes scrollAnim {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* --- ANIMACIONES DE ENTRADA --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- AJUSTES MÓVIL --- */
+@media (max-width: 768px) {
+  .hero-ui { padding: 50px 25px; }
+
+  .hero-background {
+    /* En móvil solemos querer el centro exacto */
+    background-position: center center;
+  }
+
+  .names-title {
+    font-size: 5.5rem;
+    line-height: 0.9;
+  }
+
+  .hero-date-text {
+    letter-spacing: 5px;
+    font-size: 0.85rem;
+  }
+
+  .glass-tag {
+    letter-spacing: 4px;
+    padding: 8px 18px;
+  }
+}

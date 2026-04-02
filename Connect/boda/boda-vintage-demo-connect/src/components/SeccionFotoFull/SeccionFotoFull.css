@@ -1,0 +1,36 @@
+/* --- SECCIÓN FOTO FULL WIDTH --- */
+.seccion-foto-full {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0; /* Elimina espacio extra debajo de la imagen en algunos navegadores */
+  display: block;
+  overflow: hidden;
+}
+
+.img-full-pantalla {
+  width: 100%;
+  height: auto; /* Mantiene la proporción original de tu foto */
+  display: block;
+  border: none;
+  /* Opcional: añade un suavizado de carga */
+  animation: fadeIn Image 1.5s ease-in-out;
+}
+
+/* Animación sutil de entrada */
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    filter: grayscale(20%);
+  }
+  to {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+}
+
+/* Reset de márgenes para el body (Asegúrate de que el contenedor padre no tenga padding) */
+:global(body) {
+  margin: 0;
+  padding: 0;
+}

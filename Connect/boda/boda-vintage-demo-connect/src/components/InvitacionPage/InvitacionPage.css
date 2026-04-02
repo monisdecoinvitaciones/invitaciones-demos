@@ -1,0 +1,141 @@
+/* Contenedor principal que centra todo en pantalla */
+.invitacion-status-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  padding: 20px;
+  background-color: #f48861; /* Cambia al color de fondo de tu boda */
+  
+}
+
+/* Tarjeta base */
+.status-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.status-card h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.status-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Variantes */
+.status-card.error .icon { color: #e74c3c; }
+.status-card.expired .icon { color: #f39c12; }
+
+/* Spinner de carga */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #d4af37; /* Color dorado premium */
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+/* Resumen de confirmación (Ya confirmó) */
+.info-resumen {
+  background: #faf9f6;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px 0;
+}
+
+.dato {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.qr-placeholder {
+  background: #eee;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Contenedor del QR para centrarlo perfectamente */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el QR */
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.qr-contenedor {
+  padding: 15px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  display: inline-block; /* Ajusta al tamaño del QR */
+}
+
+/* Ajuste para la frase de descarga */
+.mensaje-intro {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0 10px 0;
+  font-size: 1rem;
+  color: #6d7a5f;
+  display: block; /* Rompe el flujo del flex horizontal del padre */
+}
+
+.qr-subtext {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+}
+
+/* Botón de descarga con más aire */
+.btn-rsvp {
+  display: block;
+  width: 100%;
+  margin: 30px auto; /* Aumenta el margen superior e inferior */
+  padding: 15px;
+  background-color: #6d7a5f;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  
+  cursor: pointer;
+}

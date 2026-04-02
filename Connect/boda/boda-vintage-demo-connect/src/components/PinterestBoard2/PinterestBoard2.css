@@ -1,0 +1,70 @@
+/*===================== PINTEREST MOODBOARD DESIGN =================*/
+.dresscode-section {
+  padding: 60px 20px;
+  background-color: #fcfaf7; /* Fondo crema muy suave */
+  text-align: center;
+}
+
+/* Título con tu verde salvia */
+.dresscode-inspiration-title {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  color: #6d7a5f;
+  margin-bottom: 5px;
+}
+
+.dresscode-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 1px;
+}
+
+/* El contenedor del tablero con efecto de elevación */
+.pinterest-outer-box {
+  background: white;
+  padding: 15px;
+  border: 1px solid #e8e0d5;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  max-width: 1050px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 2px;
+}
+
+/* Pequeña etiqueta decorativa */
+.pinterest-outer-box::after {
+  content: "MOODBOARD";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: #E0115F;
+  color: white;
+  font-size: 0.6rem;
+  padding: 3px 12px;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+}
+
+.pinterest-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 320px; /* Evita saltos de layout mientras carga */
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+  .dresscode-section {
+    padding: 40px 15px;
+  }
+  .pinterest-outer-box {
+    padding: 8px; /* Menos margen en móvil */
+  }
+}

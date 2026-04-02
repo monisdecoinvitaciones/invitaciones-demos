@@ -1,0 +1,173 @@
+/* ============================================================
+   AMENIDADES ACCORDION - INVIMON PREMIUM (CON PAPEL DECOR)
+   ============================================================ */
+
+.amenidades-section {
+  padding: 50px 20px;
+  background-color: #ffffff; /* Fondo muy claro y limpio */
+  display: flex;
+  justify-content: center;
+  position: relative; /* Obligatorio para el posicionamiento absoluto */
+  overflow: hidden;   /* Evita scroll lateral por las decoraciones */
+}
+
+/* --- DECORACIONES DE PAPEL RASGADO --- */
+.papel-decor-tr, 
+.papel-decor-bl {
+  position: absolute;
+  /* Muy sutil para no distraer */
+  pointer-events: none; /* No interfiere con los clics */
+  z-index: 1; /* Por detrás del texto */
+}
+
+/* Esquina Superior Derecha */
+.papel-decor-tr {
+  top: -20px;
+  right: -10px;
+  transform: rotate(5deg);
+}
+
+/* Esquina Inferior Izquierda (Reflejada y rotada) */
+.papel-decor-bl {
+  bottom: -40px;
+  left: -60px;
+  transform: rotate(270deg) scaleX(-1); /* Espejo y rotación encontrada */
+}
+
+.papel-decor-tr img, 
+.papel-decor-bl img {
+  object-fit: contain;
+}
+
+.amenidades-container {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Por encima de las decoraciones de papel */
+}
+
+.amenidades-title {
+ font-family: var(--font-mea), cursive;
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  color: #362017;
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.amenidades-divider {
+  width: 60px;
+  height: 2px;
+  background-color: #5f7161; /* Moss Green de Invimon */
+  margin: 15px auto 50px;
+}
+
+/* ACORDEÓN */
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.accordion-item {
+  background: rgba(255, 255, 255, 0.7); /* Ligeramente más opaco para leer mejor */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(95, 113, 97, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-item.active {
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-color: rgba(95, 113, 97, 0.3);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 22px 30px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #5f7161;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.accordion-item.active .accordion-header {
+  color: #800020; /* Burgundy al abrir */
+}
+
+.chevron-icon {
+  font-size: 1.2rem;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-item.active .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* CONTENIDO DESPLEGABLE */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+}
+
+/* El control de maxHeight se hace vía JS inline en el componente para suavidad total */
+
+.content-inner {
+  padding: 0 30px 30px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+  .amenidades-section {
+    padding: 80px 20px;
+  }
+
+  /* Ajuste de decoraciones para móvil */
+  .papel-decor-tr {
+    width: 250px;
+    top: -70px;
+    right: -30px;
+    opacity: 0.5;
+    /* Aún más sutil en móvil */
+  }
+
+  .papel-decor-bl {
+    width: 280px;
+    bottom: -60px;
+    left: -70px;
+    opacity: 0.5;
+  }
+
+  .amenidades-title {
+    font-size: 2.2rem;
+  }
+
+  .accordion-header {
+    padding: 18px 20px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  .content-inner {
+    padding: 0 20px 25px;
+    font-size: 1.05rem;
+  }
+}

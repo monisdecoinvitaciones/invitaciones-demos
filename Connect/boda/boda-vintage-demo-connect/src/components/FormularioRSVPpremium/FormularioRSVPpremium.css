@@ -1,0 +1,324 @@
+/* ============================================================
+   ESTILOS GENERALES Y CONTENEDOR
+   ============================================================ */
+.form-seccion {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f48861;
+  min-height: 50vh;
+}
+
+/* Tarjeta del Formulario */
+.form-card {
+  background: white;
+  padding: 45px 35px;
+  border-radius: 30px;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  border: 1px solid rgba(109, 122, 95, 0.1);
+  box-sizing: border-box; /* IMPORTANTE: evita que el padding empuje el contenido */
+  align-items: center;
+}
+
+/* Asegurar que el formulario interno ocupe todo el ancho */
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+/* ============================================================
+   TIPOGRAFÍA Y TEXTOS
+   ============================================================ */
+.form-card h2 {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.8rem;
+  text-align: center;
+  color: #6d7a5f;
+  margin: 0;
+}
+
+.mensaje-intro {
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.5;
+  color: #555;
+}
+
+.form-card label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #888;
+  text-align: center; /* Centramos el label */
+}
+
+/* ============================================================
+   INPUTS Y BOTONES (CENTRADOS)
+   ============================================================ */
+.form-card select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1.5px solid #eee;
+  font-size: 1rem;
+  color: #444;
+  background-color: #fdfdfd;
+  outline: none;
+  text-align: center;
+}
+
+/* Botón RSVP - Corregido para centrarse */
+.btn-rsvp {
+  width: fit-content; /* Se ajusta al texto */
+  min-width: 240px;    /* Pero tiene un ancho mínimo bonito */
+  margin: 20px auto 0; /* Centrado horizontal con auto */
+  padding: 16px 30px;
+  border-radius: 50px;
+  border: none;
+  background: #E0115F !important;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(109, 122, 95, 0.3);
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   CONTENEDOR DE CHECKBOXES (ARREGLADO)
+   ============================================================ */
+.contenedor-checks {
+  margin: 10px 0;
+  padding: 25px;
+  background: #faf9f6;
+  border-radius: 18px;
+  border: 1px solid #e9e5db;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.label-personalizado {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f48861;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+}
+
+.checkbox-custom {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 40px; /* Espacio para que el check no toque el texto */
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #444;
+  min-height: 25px;
+}
+
+.checkbox-custom input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* El cuadro del check */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 2px solid #f48861;
+  border-radius: 6px;
+}
+
+/* Espaciado para el nombre */
+.nombre-invitado {
+  margin-left: 10px;
+  line-height: 1.2;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.checkbox-custom input:checked ~ .checkmark {
+  background-color: #f48861;
+}
+
+/* La palomita */
+.checkbox-custom .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-custom input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* ============================================================
+   AJUSTES MÓVIL
+   ============================================================ */
+@media (max-width: 480px) {
+  .form-card {
+    padding: 30px 20px;
+  }
+  .btn-rsvp {
+    width: 100%; /* En móvil que sí use todo el ancho */
+  }
+}
+
+.mensaje-exito-contenedor {
+
+  padding: 40px 10px;
+
+  text-align: center;
+
+  animation: fadeIn 0.8s ease;
+
+}
+
+
+
+.icono-exito {
+
+  font-size: 4rem;
+
+  margin-bottom: 20px;
+
+  display: block;
+
+}
+
+
+
+.mensaje-exito {
+
+  font-family: 'Pinyon Script', cursive;
+
+  font-size: 2.5rem;
+
+  color: #6d7a5f;
+
+  line-height: 1.2;
+
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Agrega esto a tu archivo CSS actual */
+
+.invitado-row-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(109, 122, 95, 0.05);
+}
+
+.invitado-row-container:last-child {
+  border-bottom: none;
+}
+
+.badge-tipo {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  background: #f4f1ea;
+  color: #008080;
+  border: 1px solid #dcd7ca;
+  transition: all 0.3s ease;
+  min-width: 80px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.badge-tipo.active-nino {
+  background: #008080;
+  color: white;
+  border-color: #6d7a5f;
+  box-shadow: 0 4px 8px rgba(109, 122, 95, 0.2);
+}
+
+.grid-checks {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*----------------------------------------------*/
+
+/* Contenedor alineado a la derecha */
+.selector-minimalista {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+/* Estilo de las palabras */
+.opcion-txt {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #b2ad9f; /* Color apagado para lo no seleccionado */
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Divisor visual vertical */
+.divisor {
+  color: #e0dacc;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+/* Estado Activo: Resalta la palabra seleccionada */
+.opcion-txt.activo {
+  color: #008080; /* Tu verde institucional */
+  font-weight: 800;
+}
+
+/* Opcional: Una línea sutil debajo de la opción activa */
+.opcion-txt.activo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #008080;
+  border-radius: 2px;
+}
+
+/* Hover para indicar que es clickeable */
+.opcion-txt:hover:not(.activo) {
+  color: #8a817c;
+}

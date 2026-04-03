@@ -1,68 +1,50 @@
 /* ============================================================
-   AMENIDADES ACCORDION - INVIMON PREMIUM (CON PAPEL DECOR)
+   AMENIDADES ACCORDION - ESTILO FAQ (ALTO RENDIMIENTO)
    ============================================================ */
 
 .amenidades-section {
-  padding: 50px 20px;
-  background-color: #ffffff; /* Fondo muy claro y limpio */
-  display: flex;
-  justify-content: center;
-  position: relative; /* Obligatorio para el posicionamiento absoluto */
-  overflow: hidden;   /* Evita scroll lateral por las decoraciones */
-}
-
-/* --- DECORACIONES DE PAPEL RASGADO --- */
-.papel-decor-tr, 
-.papel-decor-bl {
-  position: absolute;
-  /* Muy sutil para no distraer */
-  pointer-events: none; /* No interfiere con los clics */
-  z-index: 1; /* Por detrás del texto */
-}
-
-/* Esquina Superior Derecha */
-.papel-decor-tr {
-  top: -20px;
-  right: -10px;
-  transform: rotate(5deg);
-}
-
-/* Esquina Inferior Izquierda (Reflejada y rotada) */
-.papel-decor-bl {
-  bottom: -40px;
-  left: -60px;
-  transform: rotate(270deg) scaleX(-1); /* Espejo y rotación encontrada */
-}
-
-.papel-decor-tr img, 
-.papel-decor-bl img {
-  object-fit: contain;
+  padding: 30px 24px;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
 }
 
 .amenidades-container {
-  width: 100%;
-  max-width: 700px;
-  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
   position: relative;
-  z-index: 2; /* Por encima de las decoraciones de papel */
+  z-index: 2;
 }
 
 .amenidades-title {
- font-family: var(--font-mea), cursive;
-  font-size: clamp(3.5rem, 10vw, 5.5rem);
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(3rem, 8vw, 4.5rem);
   color: #362017;
-  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 10px;
   font-weight: 400;
 }
 
 .amenidades-divider {
-  width: 60px;
+  width: 50px;
   height: 2px;
-  background-color: #5f7161; /* Moss Green de Invimon */
-  margin: 15px auto 50px;
+  background-color: #5f7161;
+  margin: 0 auto 50px;
 }
 
-/* ACORDEÓN */
+/* DECORACIONES LIGERAS */
+.papel-decor-tr, 
+.papel-decor-bl {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.papel-decor-tr { top: -20px; right: -10px; transform: rotate(5deg); width: 250px; }
+.papel-decor-bl { bottom: -40px; left: -60px; transform: rotate(270deg) scaleX(-1); width: 280px; }
+
+/* ESTRUCTURA DEL ACORDEÓN (Basada en tu FAQ) */
 .accordion-wrapper {
   display: flex;
   flex-direction: column;
@@ -70,104 +52,84 @@
 }
 
 .accordion-item {
-  background: rgba(255, 255, 255, 0.7); /* Ligeramente más opaco para leer mejor */
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(95, 113, 97, 0.1);
+  background: #fcfcfc;
+  border: 1px solid #eee;
   border-radius: 20px;
-  overflow: hidden;
+  cursor: pointer;
   transition: all 0.3s ease;
+  padding: 5px 0; /* Espacio interno sutil */
+}
+
+.accordion-item:hover {
+  border-color: #5f7161;
+  background: rgba(95, 113, 97, 0.02);
 }
 
 .accordion-item.active {
-  background: #ffffff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-color: rgba(95, 113, 97, 0.3);
+  background: white;
+  border-color: #5f7161;
+  box-shadow: 0 10px 30px rgba(95, 113, 97, 0.08);
 }
 
 .accordion-header {
   width: 100%;
-  padding: 22px 30px;
+  padding: 20px 30px;
   background: none;
   border: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 3px;
-  color: #5f7161;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  text-align: left;
   -webkit-tap-highlight-color: transparent;
 }
 
-.accordion-item.active .accordion-header {
-  color: #800020; /* Burgundy al abrir */
+.accordion-header span {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #5f7161;
+  text-transform: uppercase;
 }
 
-.chevron-icon {
-  font-size: 1.2rem;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.accordion-item.active .accordion-header span {
+  color: #800020;
 }
 
-.accordion-item.active .chevron-icon {
-  transform: rotate(180deg);
+.faq-icon {
+  font-size: 1.5rem;
+  color: #5f7161;
+  font-weight: 300;
+  transition: transform 0.3s ease;
 }
 
-/* CONTENIDO DESPLEGABLE */
+/* LA CLAVE DEL RENDIMIENTO: Animación de la FAQ */
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: left;
+  transition: all 0.4s cubic-bezier(0, 1, 0, 1);
+  opacity: 0;
 }
 
-/* El control de maxHeight se hace vía JS inline en el componente para suavidad total */
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
 
 .content-inner {
-  padding: 0 30px 30px;
+  padding: 0 30px 25px;
   font-family: var(--font-cormorant), serif;
   font-size: 1.15rem;
   color: #666;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-/* --- RESPONSIVO MÓVIL --- */
+/* RESPONSIVO */
 @media (max-width: 768px) {
-  .amenidades-section {
-    padding: 80px 20px;
-  }
-
-  /* Ajuste de decoraciones para móvil */
-  .papel-decor-tr {
-    width: 250px;
-    top: -70px;
-    right: -30px;
-    opacity: 0.5;
-    /* Aún más sutil en móvil */
-  }
-
-  .papel-decor-bl {
-    width: 280px;
-    bottom: -60px;
-    left: -70px;
-    opacity: 0.5;
-  }
-
-  .amenidades-title {
-    font-size: 2.2rem;
-  }
-
-  .accordion-header {
-    padding: 18px 20px;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-  }
-
-  .content-inner {
-    padding: 0 20px 25px;
-    font-size: 1.05rem;
-  }
+  .amenidades-section { padding: 30px 20px; }
+  .accordion-header { padding: 15px 20px; }
+  .content-inner { padding: 0 20px 20px; font-size: 1.05rem; }
+  .papel-decor-tr, .papel-decor-bl { width: 150px; opacity: 0.3; }
 }

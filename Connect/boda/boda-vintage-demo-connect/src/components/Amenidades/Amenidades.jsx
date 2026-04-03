@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image"; // Importante para optimización
-import { IoChevronDownOutline } from "react-icons/io5"; // Icono simple y elegante
+import Image from "next/image";
 import './Amenidades.css';
 
 export default function Amenidades() {
@@ -22,7 +21,7 @@ export default function Amenidades() {
     },
     {
       titulo: "HOSPEDAJE",
-      contenido: "Tenemos un convenio con los hoeteles de la seccón Hospedaje. Menciona el código 'Boda KarinayUlises' al hacer tu reserva para obtener una tarifa preferencial."
+      contenido: "Tenemos un convenio con los hoteles de la sección Hospedaje. Menciona el código 'Boda KarinayUlises' al hacer tu reserva para obtener una tarifa preferencial."
     },
     {
       titulo: "RESTRICCIONES ALIMENTARIAS",
@@ -32,30 +31,22 @@ export default function Amenidades() {
 
   return (
     <section className="amenidades-section">
-      {/* Decoración de Papel Rasgado - Esquina Superior Derecha */}
+      {/* Decoraciones de fondo con prioridad baja para no trabar el render */}
       <div className="papel-decor-tr">
         <Image 
           src="/icons/flores/optimized/papel.webp" 
-          alt="Decoración de papel"
-          width={350} 
-          height={350}
-          priority
+          alt="" width={250} height={250} loading="lazy"
         />
       </div>
-
-      {/* Decoración de Papel Rasgado - Esquina Inferior Izquierda */}
       <div className="papel-decor-bl">
         <Image 
           src="/icons/flores/optimized/papel.webp" 
-          alt="Decoración de papel"
-          width={400} 
-          height={400}
-          priority
+          alt="" width={250} height={250} loading="lazy"
         />
       </div>
 
       <div className="amenidades-container">
-        <h2 className="amenidades-title">Amenidades & Detalles</h2>
+        <h2 className="amenidades-title">Amenidades</h2>
         <div className="amenidades-divider"></div>
 
         <div className="accordion-wrapper">
@@ -63,22 +54,16 @@ export default function Amenidades() {
             <div 
               key={index} 
               className={`accordion-item ${activeIndex === index ? 'active' : ''}`}
+              onClick={() => toggleAccordion(index)}
             >
-              <button 
-                className="accordion-header" 
-                onClick={() => toggleAccordion(index)}
-                aria-expanded={activeIndex === index}
-              >
+              <div className="accordion-header">
                 <span>{item.titulo}</span>
-                <IoChevronDownOutline className="chevron-icon" />
-              </button>
+                <span className="faq-icon">
+                  {activeIndex === index ? '−' : '+'}
+                </span>
+              </div>
               
-              <div 
-                className="accordion-content"
-                style={{
-                  maxHeight: activeIndex === index ? "200px" : "0px",
-                }}
-              >
+              <div className="accordion-content">
                 <div className="content-inner">
                   <p>{item.contenido}</p>
                 </div>

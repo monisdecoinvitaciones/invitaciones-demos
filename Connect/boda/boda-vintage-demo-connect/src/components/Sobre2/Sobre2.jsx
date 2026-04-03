@@ -29,7 +29,7 @@ export default function Sobre2() {
         <div className="cuerpo-sobre"></div>
 
         <div className="sello-lacre">
-           <img src="/sello.png" alt="Sello" className="monograma-sello" />
+           <img src="/icons/flores/optimized/sello.webp" alt="Sello" className="monograma-sello" />
         </div>
 
         {/* Invitación que sube */}

@@ -35,7 +35,7 @@ export default function Amenidades() {
       {/* Decoración de Papel Rasgado - Esquina Superior Derecha */}
       <div className="papel-decor-tr">
         <Image 
-          src="/icons/papel.png" 
+          src="/icons/flores/optimized/papel.webp" 
           alt="Decoración de papel"
           width={350} 
           height={350}
@@ -46,7 +46,7 @@ export default function Amenidades() {
       {/* Decoración de Papel Rasgado - Esquina Inferior Izquierda */}
       <div className="papel-decor-bl">
         <Image 
-          src="/icons/papel.png" 
+          src="/icons/flores/optimized/papel.webp" 
           alt="Decoración de papel"
           width={400} 
           height={400}

@@ -28,7 +28,7 @@ export default function Frase() {
         style={{ transform: `translateY(${parallaxValue * 0.4}px) rotate(-15deg)` }}
       >
         <Image 
-          src="/icons/flor.png" 
+          src="/icons/flores/optimized/flor.webp" 
           alt="Decoración floral"
           width={400} 
           height={400}
@@ -43,7 +43,7 @@ export default function Frase() {
         style={{ transform: `translateY(${parallaxValue * -0.4}px) rotate(160deg) scaleX(-1)` }}
       >
         <Image 
-          src="/icons/flor.png" 
+          src="/icons/flores/optimized/flor.webp" 
           alt="Decoración floral"
           width={450} 
           height={450}
@@ -55,7 +55,7 @@ export default function Frase() {
       <div className="frase-container">
         <div className="frase-icon-wrapper">
           <Image 
-            src="/icons/flor.png" 
+            src="/icons/flores/optimized/flor.webp" 
             alt="Icono central"
             fill
             className="frase-png-icon"

@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 // 1. Configura aquí tus carpetas
-const inputFolder = './public/Boda4'; // Carpeta con tus fotos originales
-const outputFolder = './public/Boda4/optimized'; // Donde se guardarán las nuevas
+const inputFolder = './public/icons/flores'; // Carpeta con tus fotos originales
+const outputFolder = './public/icons/flores/optimized'; // Donde se guardarán las nuevas
 
 // Crear la carpeta de salida si no existe
 if (!fs.existsSync(outputFolder)) {

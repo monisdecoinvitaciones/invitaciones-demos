@@ -29,8 +29,7 @@
   }
 }
 
-/* Reset de márgenes para el body (Asegúrate de que el contenedor padre no tenga padding) */
-:global(body) {
+body {
   margin: 0;
   padding: 0;
 }

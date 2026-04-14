@@ -1,0 +1,86 @@
+/* =========================================
+   GALERÍA ACORDEÓN ULTRA MINIMALISTA
+   ========================================= */
+
+.contenedor-interactivo {
+  width: 100%;
+  height: 85vh; /* Altura ideal en PC */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 0;
+  overflow: hidden;
+}
+
+.galeria-acordeon {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 0; /* Fotos pegadas una tras otra */
+}
+
+.panel-foto {
+  position: relative;
+  flex: 1; /* Reparto equitativo inicial */
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  /* Transición suave de expansión horizontal */
+  transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* El panel seleccionado se expande */
+.panel-foto.activo {
+  flex: 6; 
+}
+
+.imagen-panel {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Evita que la imagen se deforme al cambiar el tamaño del panel */
+  object-position: center;
+}
+
+/* Detalle de número minimalista */
+.info-minimal {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: white;
+  font-family: 'Cinzel', serif; /* Tu tipografía elegante */
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.info-minimal.visible {
+  opacity: 1;
+}
+
+/* =========================================
+   RESPONSIVO PARA MÓVIL
+   ========================================= */
+@media (max-width: 768px) {
+  .contenedor-interactivo {
+    height: 60vh; /* Un poco más corto en móvil */
+  }
+
+  .panel-foto {
+    /* En móvil, los paneles cerrados son más estrechos */
+    flex: 0.4;
+  }
+
+  .panel-foto.activo {
+    /* El panel abierto ocupa casi toda la pantalla */
+    flex: 10;
+  }
+
+  .info-minimal {
+    bottom: 15px;
+    left: 15px;
+    font-size: 1.2rem;
+  }
+}

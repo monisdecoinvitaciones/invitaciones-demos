@@ -1,0 +1,171 @@
+:root {
+  --inv-butter: #FFFEFC;
+  --inv-dark: #404D77;
+  --inv-sage: #92966F;
+}
+
+.galeria-section {
+  padding: 50px 20px;
+  background-color: var(--inv-butter);
+}
+
+.galeria-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galeria-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.galeria-subtitle {
+  color: var(--inv-sage);
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.galeria-title {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(3rem, 10vw, 4.4rem);
+  font-weight: 400;
+  color: var(--inv-dark);
+  margin: 10px 0;
+}
+
+.galeria-divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--inv-sage);
+  margin: 0 auto;
+}
+
+/* --- GRID COLLAGE --- */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 15px;
+  grid-auto-flow: dense;
+}
+
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.galeria-item.large { grid-row: span 2; grid-column: span 1; }
+.galeria-item.medium { grid-row: span 1; grid-column: span 1; }
+
+.galeria-item:hover img { transform: scale(1.1); }
+
+.galeria-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(64, 77, 119, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galeria-overlay span {
+  color: white;
+  font-family: 'Cinzel', serif;
+  border: 1px solid white;
+  padding: 8px 15px;
+  font-size: 0.8rem;
+}
+
+.galeria-item:hover .galeria-overlay { opacity: 1; }
+
+/* =========================================
+   MODAL (LIGHTBOX CORREGIDO - SIN BORDES)
+   ========================================= */
+.galeria-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95); /* Fondo oscuro casi opaco */
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Contenedor principal de la imagen */
+.modal-wrapper {
+  position: relative;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Asegura que nada sobresalga */
+  animation: zoomIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Imagen dentro del modal */
+.modal-content {
+  width: auto;
+  height: auto;
+  max-width: 100%; /* Se adapta al wrapper sin estirarse */
+  max-height: 100%;
+  object-fit: contain; /* Mantiene la proporción */
+  border: none !important; /* Eliminamos cualquier borde residual */
+  box-shadow: none !important; /* Quitamos sombras para que flote limpia */
+  border-radius: 0; /* Sin bordes redondeados para un look editorial */
+  background: transparent !important; /* Fondo transparente */
+  display: block; /* Evita espacios inferiores */
+}
+
+/* Botón cerrar */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 3rem;
+  font-weight: 200;
+  cursor: pointer;
+  z-index: 10001;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+
+/* Animaciones */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+  }
+  .galeria-item.large, .galeria-item.medium { grid-column: span 1; grid-row: span 1; }
+  
+  .modal-close {
+    font-size: 2.5rem;
+    top: 10px;
+    right: 15px;
+  }
+}

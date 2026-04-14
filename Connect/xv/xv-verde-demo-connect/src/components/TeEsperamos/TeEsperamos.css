@@ -1,0 +1,81 @@
+/*---------------TE ESPERAMOS----------*/
+.cierre-boda {
+  height: 80vh;
+  background-size: cover;
+  background-position: center; /* Centrado general */
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajustes específicos para Móvil */
+@media (max-width: 768px) {
+  .cierre-boda {
+    /* "center center" asegura que el corazón de la foto sea el eje */
+    background-position: center center; 
+    /* Opcional: aumenta la altura en móvil si la foto se corta mucho */
+    height: 70vh; 
+  }
+  
+  .cierre-contenido h2 {
+    font-size: 1.8rem; /* Reducimos el tamaño para que no rompa en 2 líneas */
+  }
+}
+
+.cierre-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.55)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cierre-contenido {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  animation: cierreFadeIn 1.2s ease forwards;
+}
+
+.cierre-contenido h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.cierre-contenido p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.cierre-frase {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 15px;
+  animation: cierreFloat 3s ease-in-out infinite;
+}
+
+/* Animaciones */
+@keyframes cierreFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cierreFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}

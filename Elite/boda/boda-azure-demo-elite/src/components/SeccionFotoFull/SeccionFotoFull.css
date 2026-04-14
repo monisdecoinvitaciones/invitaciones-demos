@@ -1,0 +1,96 @@
+/* =========================================
+   SECCION FOTO FULL - DESLIZAMIENTO PURO
+   ========================================= */
+
+.seccion-galeria-full {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ffffff; /* Fondo blanco limpio */
+}
+
+.galeria-swiper {
+  width: 100%;
+  height: 90vh;
+}
+
+/* 🔥 ELIMINAR DESVANECIMIENTO: Forzamos visibilidad total */
+.swiper-slide {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Asegura que no haya saltos visuales */
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+}
+
+/* MARCOS: Limpios, sin bordes, sombras ni overlays */
+.marco-artistico {
+  position: absolute;
+  overflow: hidden;
+  background-color: #f8f8f8;
+}
+
+/* Cuadro Grande */
+.marco-artistico.principal {
+  width: 70%;
+  height: 70%;
+  top: 10%;
+  left: 5%;
+  z-index: 1;
+}
+
+/* Cuadro Pequeño superpuesto */
+.marco-artistico.secundario {
+  width: 45%;
+  height: 50%;
+  bottom: 5%;
+  right: 5%;
+  z-index: 2;
+}
+
+.img-galeria-full {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================
+   RESPONSIVO PARA MÓVIL
+   ========================================= */
+@media (max-width: 768px) {
+  .galeria-swiper {
+    height: 70vh;
+  }
+
+  .marco-artistico.principal {
+    width: 85%;
+    height: 50%;
+    top: 5%;
+    left: 5%;
+  }
+
+  .marco-artistico.secundario {
+    width: 70%;
+    height: 45%;
+    bottom: 5%;
+    right: 5%;
+  }
+}
+
+/* Reset global */
+:global(body) {
+  margin: 0;
+  padding: 0;
+}

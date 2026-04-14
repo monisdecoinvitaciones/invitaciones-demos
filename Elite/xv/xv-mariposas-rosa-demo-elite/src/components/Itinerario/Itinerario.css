@@ -1,0 +1,308 @@
+/* ============================================================
+   SECCIÓN ITINERARIO - SOLUCIÓN DEFINITIVA MÓVIL/PC
+   ============================================================ */
+
+.itinerario-section {
+  padding: 60px 20px;
+  background-color: #FFF5F7; 
+  overflow: hidden;
+}
+
+.itinerario-container {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 0; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- LÍNEAS CENTRALES --- */
+.itinerario-line-bg, .itinerario-line-progress {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+
+  /* 🔥 FIX REAL Y SIMPLE */
+  top: 25px;
+  bottom: 25px;
+
+  z-index: 1;
+}
+
+.itinerario-line-progress {
+  background-color: #B8445E; 
+  z-index: 2;
+
+  height: 0%;
+  bottom: auto;
+
+  max-height: calc(100% - 60px);
+
+  transition: height 0.15s ease-out;
+}
+
+.itinerario-line-bg {
+  background-color: #F8D8DE; 
+}
+
+/* --- FILAS --- */
+.itinerario-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+  min-height: 50px;
+
+  margin-bottom: 45px; 
+  z-index: 3;
+}
+
+.itinerario-row:last-child {
+  margin-bottom: 0;
+}
+
+/* --- CÍRCULOS E ICONOS --- */
+.itinerario-dot {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid #F8D8DE;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* PC */
+@media (min-width: 769px) {
+  .itinerario-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .itinerario-row.visible .itinerario-dot {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.itinerario-icon-react {
+  color: #DE8C9C; 
+  font-size: 1.4rem;
+  display: flex;
+}
+
+.itinerario-row.visible .itinerario-icon-react {
+  color: #B8445E; 
+}
+
+/* --- TARJETAS --- */
+.itinerario-content {
+  width: 45%; 
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.itinerario-row.visible .itinerario-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.itinerario-row:nth-child(odd) .itinerario-content {
+  margin-left: auto;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.itinerario-row:nth-child(even) .itinerario-content {
+  margin-right: auto;
+  text-align: right;
+  padding-right: 40px;
+}
+
+.itinerario-time {
+  font-family: var(--font-cormorant), serif;
+  color: #B8445E;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+.itinerario-card {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(184, 68, 94, 0.04);
+  border: 1px solid rgba(248, 216, 222, 0.4);
+}
+
+.itinerario-card h3 {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.itinerario-card p {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1rem;
+  color: #777;
+  margin: 0;
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+
+  .itinerario-line-bg, .itinerario-line-progress { 
+    left: 25px;
+    transform: none;
+
+    /* 🔥 MISMO FIX AQUÍ */
+    top: 35px;
+    bottom: 25px;
+  }
+  
+  .itinerario-dot { 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .itinerario-row {
+    justify-content: flex-start;
+    margin-bottom: 35px;
+  }
+
+  .itinerario-row.visible .itinerario-dot {
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .itinerario-content {
+    width: 85%;
+    margin-left: 65px !important;
+    text-align: left !important;
+    padding: 0 !important;
+  }
+}
+
+/* --- LÍNEAS CENTRALES --- */
+.itinerario-line-bg, .itinerario-line-progress {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  top: 35px;
+  bottom: 25px;
+  z-index: 1;
+}
+
+.itinerario-line-progress {
+  background-color: #B8445E; 
+  z-index: 2;
+  height: 0%;
+  bottom: auto;
+  
+  /* 🔥 FIX: Opacidad 0 cuando el alto es 0 para evitar la línea residual */
+  opacity: 0;
+  
+  /* Eliminamos el max-height calc que causa problemas de renderizado */
+  transition: height 0.15s ease-out, opacity 0.1s ease-out;
+  
+  /* Optimizaciones para evitar el temblor y líneas fantasma */
+  will-change: height, opacity;
+  backface-visibility: hidden;
+}
+
+/* 🔥 Cuando la línea empieza a crecer, la hacemos visible */
+.itinerario-line-progress[style*="height"] {
+  opacity: 1;
+}
+
+/* Si tu JS solo cambia el height, esto asegura que si es 0 no se vea nada */
+.itinerario-line-progress:not([style*="height: 0%"]) {
+  opacity: 1;
+}
+
+.itinerario-line-bg {
+  background-color: #F8D8DE; 
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+  .itinerario-line-bg, .itinerario-line-progress { 
+    left: 25px;
+    transform: none;
+    /* Unificamos a 25px para que coincida con el centro real del icono */
+    top: 45px; 
+    bottom: 45px;
+  }
+
+  .itinerario-time {
+  font-family: var(--font-cormorant), serif;
+  color: #B8445E;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+  
+  /* ... resto de tu código igual ... */
+}
+
+
+
+@media (max-width: 768px) {
+  .itinerario-line-bg, .itinerario-line-progress { 
+    left: 25px;
+    transform: none;
+    
+    /* 1. Definimos dónde nace (centro del primer dot) */
+    top: 45px; 
+    
+    /* 2. Definimos dónde muere (centro del último dot) */
+    /* Usamos bottom: 25px porque el último dot mide 50px, su centro es 25 */
+    bottom: 25px; 
+  }
+
+  .itinerario-line-progress {
+    /* 3. ¡ESTA ES LA CLAVE! */
+    /* Evita que el JS la estire de más. 
+       Si sientes que sobresale abajo, baja este porcentaje a 98% o 97% */
+    max-height: 90%; 
+    
+    /* 4. Mantenemos el parche de opacidad para que no se vea la línea fina al inicio */
+    opacity: 0;
+  }
+
+  /* Hacemos que se vea en cuanto el JS le de altura */
+  .itinerario-line-progress[style*="height"] {
+    opacity: 1;
+  }
+
+  .itinerario-dot { 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .itinerario-row {
+    justify-content: flex-start;
+    margin-bottom: 35px;
+    min-height: 50px; /* Asegura que la fila siempre mida al menos lo que el dot */
+  }
+
+  .itinerario-time {
+    font-family: var(--font-cormorant), serif;
+    color: #B8445E;
+    font-size: 1.4rem;
+    font-style: italic;
+  }
+}

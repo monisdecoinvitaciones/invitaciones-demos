@@ -1,0 +1,166 @@
+/* --- SECCIÓN CONTACTO (FONDO VERDE OLIVA) --- */
+.contacto-seccion {
+  padding: clamp(60px, 10vh, 100px) 20px;
+  background: #5f7161; /* Verde Oliva de la marca */
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden; /* Evita scrolls laterales durante la animación */
+}
+
+/* Ajuste de títulos para fondo oscuro */
+.titulo-blanco {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: #f2ede0; /* Ivory para contraste */
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.mensaje-intro-claro {
+  color: #f2ede0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+/* --- CONTENEDOR --- */
+.contacto-container {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 5vw, 50px);
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* --- TARJETA ELEGANTE --- */
+.contacto-card {
+  background: #fdfcf9;
+  padding: 50px 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  
+  /* Estado inicial para la animación */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.contacto-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Elemento decorativo minimalista */
+.linea-decorativa {
+  width: 40px;
+  height: 2px;
+  background: #362017;
+  margin-bottom: 10px;
+}
+
+.contacto-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  color: #362017;
+  font-size: 1.8rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.contacto-card p {
+  font-size: 0.95rem;
+  color: #5f7161;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  max-width: 250px;
+}
+
+/* --- BOTÓN WHATSAPP --- */
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px;
+  background: #362017;
+  color: #f2ede0 !important;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background: #4a3228;
+  box-shadow: 0 10px 20px rgba(54, 32, 23, 0.2);
+}
+
+/* --- ANIMACIONES DE ENTRADA --- */
+.contacto-seccion.visible .titulo-blanco {
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+.contacto-seccion.visible .mensaje-intro-claro {
+  animation: fadeInDown 0.8s ease forwards 0.2s;
+  opacity: 0; /* Empieza oculto para la animación */
+}
+
+.contacto-seccion.visible .contacto-card {
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Delay para la segunda tarjeta */
+.contacto-seccion.visible .contacto-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+  .contacto-container {
+    gap: 30px;
+  }
+  
+  .contacto-card {
+    padding: 40px 25px;
+    max-width: 90%;
+  }
+}

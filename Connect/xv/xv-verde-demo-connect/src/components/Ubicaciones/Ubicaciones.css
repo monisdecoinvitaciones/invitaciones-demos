@@ -1,0 +1,201 @@
+.ubicaciones-container {
+  position: relative;
+  width: 100%;
+  padding: 50px 20px;
+  background-color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.ubicaciones-wrapper {
+  max-width: 1100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  text-align: center;
+  z-index: 5;
+}
+
+.ubicacion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Iconos de React Icons */
+.react-icon {
+  font-size: 4.5rem;
+  color: #8aac66; 
+  margin-bottom: 25px;
+  stroke-width: 1;
+}
+
+.tipo-evento {
+  font-family: var(--font-mea), cursive;
+  font-size: 3rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.nombre-lugar {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: #000;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.direccion-texto {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555;
+  max-width: 320px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.hora-texto {
+  font-family: var(--font-cormorant), serif;
+  font-size: 2rem;
+  color: #000;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+/* Botón ABRIR GPS */
+.btn-gps {
+  display: inline-block;
+  padding: 14px 45px;
+  background-color: #bdc7bd;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+}
+
+.btn-gps:hover {
+  background-color: transparent;
+  color: #bdc7bd;
+  border: 1px solid #bdc7bd;
+}
+
+/* --- PNGs de EUCALIPTO (PC) --- */
+.eucalipto-decor {
+  position: absolute;
+  width: 400px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.top-left {
+  top: -50px;
+  left: -100px;
+}
+
+.bottom-right {
+  bottom: -50px;
+  right: -100px;
+  transform: scaleX(-1) scaleY(-1);
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 850px) {
+  .ubicaciones-container {
+    padding: 80px 20px;
+  }
+
+  .ubicaciones-wrapper {
+    grid-template-columns: 1fr;
+    gap: 100px;
+  }
+  
+  /* Ajuste de Eucaliptos para Tablet/Móvil Grande */
+  .eucalipto-decor {
+    width: 250px;
+  }
+
+  .top-left {
+    top: -20px;   /* Más abajo */
+    left: -40px;  /* Más a la derecha */
+  }
+
+  .bottom-right {
+    bottom: -20px; /* Más arriba */
+    right: -40px;  /* Más a la izquierda */
+  }
+}
+
+@media (max-width: 480px) {
+  .tipo-evento {
+    font-size: 2.4rem;
+  }
+
+  /* Ajuste de Eucaliptos para Móvil pequeño */
+  .eucalipto-decor {
+    width: 150px; /* Un poco más pequeños para no saturar */
+    opacity: 0.4; /* Bajamos opacidad para que no tapen el texto */
+  }
+
+  .top-left {
+    top: -10px;
+    left: -40px; /* Casi al borde pero entrando en el canvas */
+  }
+
+  .bottom-right {
+    bottom: -10px;
+    right: -40px;
+  }
+
+  .nombre-lugar {
+    font-size: 1.1rem;
+  }
+
+  .hora-texto {
+    font-size: 1.7rem;
+  }
+}
+
+/* ... (Todo tu código anterior se mantiene igual) ... */
+
+/* Iconos de React Icons */
+.react-icon {
+  font-size: 4.5rem;
+  color: #8aac66; 
+  margin-bottom: 0px;
+  stroke-width: 1;
+  /* AÑADIDO: Animación de flotación */
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ... (El resto de tus estilos: .tipo-evento, .nombre-lugar, etc.) ... */
+
+/* --- ANIMACIÓN DE FLOTACIÓN --- */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px); /* Sube 15px */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Opcional: Si quieres que un icono flote con un tiempo diferente al otro para que no se muevan idénticos */
+.ubicacion-item:nth-child(2) .react-icon {
+  animation-delay: 0.5s;
+}
+
+/* ... (Tus Media Queries se mantienen igual) ... */

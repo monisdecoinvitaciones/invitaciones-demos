@@ -1,0 +1,164 @@
+:root {
+  --font-mea: 'Mea Culpa', cursive;
+  --font-cormorant: 'Cormorant Garamond', serif;
+}
+
+/* Bloqueo total del scroll cuando el portal está activo */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+}
+
+.sobre-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: #fdf2f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  touch-action: none; /* Evita scroll accidental en móviles */
+}
+
+/* Cortinas de apertura lateral */
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f7d7da; /* Rosa Palo */
+  z-index: 5;
+  transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+  display: flex;
+  align-items: center;
+}
+
+.curtain-left { 
+  left: 0; 
+  border-right: 1px solid rgba(212, 163, 115, 0.2); 
+}
+.curtain-right { 
+  right: 0; 
+  border-left: 1px solid rgba(212, 163, 115, 0.2); 
+}
+
+/* Animación de apertura */
+.active-portal .curtain-left { transform: translateX(-100%); }
+.active-portal .curtain-right { transform: translateX(100%); }
+
+/* Contenedor Central */
+.main-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  transition: opacity 0.8s ease, transform 1s ease;
+}
+
+.decor-frame {
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 2px;
+  border: 1px solid rgba(212, 163, 115, 0.2);
+}
+
+.name-title {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  color: #de8c9c;
+  margin: 10px 0;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.event-type {
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.9rem;
+  letter-spacing: 6px;
+  color: #b07d88;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.butterfly-seal {
+  width: 65px;
+  height: 65px;
+  margin: 25px auto;
+  filter: drop-shadow(0 4px 10px rgba(166, 124, 82, 0.2));
+}
+
+.butterfly-seal img {
+  width: 100%;
+  animation: flap 3s infinite ease-in-out;
+}
+
+.event-date {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  color: #8d7b7b;
+  font-style: italic;
+}
+
+/* Explosión de Mariposas */
+.butterfly-burst .burst-bfly {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: url('/mariposas/5.png') no-repeat center;
+  background-size: contain;
+  opacity: 0;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.active-portal .burst-bfly {
+  opacity: 1;
+  transition: all 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.active-portal .bfly-1 { transform: translate(-40vw, -45vh) scale(2) rotate(-30deg); }
+.active-portal .bfly-2 { transform: translate(35vw, -38vh) scale(1.5) rotate(40deg); transition-delay: 0.1s; }
+.active-portal .bfly-3 { transform: translate(-30vw, 40vh) scale(1.8) rotate(-110deg); transition-delay: 0.2s; }
+.active-portal .bfly-4 { transform: translate(38vw, 35vh) scale(2.2) rotate(115deg); transition-delay: 0.15s; }
+.active-portal .bfly-5 { transform: translate(0, -48vh) scale(1.2) rotate(10deg); transition-delay: 0.3s; }
+
+.active-portal .main-container {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+@keyframes flap {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.7) rotate(5deg); }
+}
+
+.touch-hint {
+  margin-top: 50px;
+}
+
+.touch-hint p {
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  color: #b07d88;
+  font-style: italic;
+  animation: pulseFade 2s infinite;
+}
+
+@keyframes pulseFade {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .name-title { font-size: 3.2rem; }
+  .decor-frame { width: 85vw; padding: 35px 20px; }
+  .event-date { font-size: 1.2rem; }
+}

@@ -1,0 +1,159 @@
+:root {
+  --pink-light: #FCC7D1;
+  --pink-main: #F0B3C5;
+  --pink-vibrant: #E47990;
+  --pink-soft: #F8D8DE;
+  --pink-deep: #B8445E;
+}
+
+.elite-quote-section {
+  position: relative;
+  min-height: 50vh; 
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px 20px;
+  background: radial-gradient(circle at center, #ffffff 0%, var(--pink-soft) 100%);
+  box-sizing: border-box;
+}
+
+.elite-quote-container {
+  position: relative;
+  z-index: 10; /* Elevamos para que esté por encima de estrellas */
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  padding: 0 40px; 
+}
+
+.elite-quote-wrapper {
+  position: relative;
+  margin: 0;
+  padding: 20px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elite-quote-section.elite-animate-in .elite-quote-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.elite-quote-wrapper p {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--pink-deep);
+  line-height: 1.4;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.elite-quote-highlight {
+  font-family: var(--font-mea), cursive;
+  color: var(--pink-vibrant);
+  font-size: 1.2em;
+  font-weight: 400;
+  padding: 0 5px;
+  display: inline-block;
+}
+
+/* --- COMILLAS --- */
+.elite-quote-mark {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(5rem, 10vw, 8rem);
+  color: var(--pink-light);
+  position: absolute;
+  opacity: 0.35;
+  line-height: 1;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.elite-quote-mark.elite-open { top: -30px; left: -20px; }
+.elite-quote-mark.elite-close { bottom: -40px; right: -20px; }
+
+/* --- ICONOS FLOTANTES --- */
+.elite-quote-float {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2s ease;
+  z-index: 5; /* Por debajo del texto pero visible */
+}
+
+.elite-quote-section.elite-animate-in .elite-quote-float {
+  opacity: 0.8;
+}
+
+.eq-b1 { width: 90px; top: 10%; left: 10%; animation: eq-floating 6s infinite ease-in-out; }
+.eq-b2 { width: 70px; bottom: 10%; right: 10%; animation: eq-floating 8s infinite ease-in-out reverse; }
+.eq-f1 { width: 85px; top: 15%; right: 12%; animation: eq-floating 7s infinite ease-in-out 1s; }
+.eq-f2 { width: 85px; bottom: 15%; left: 12%; animation: eq-floating 9s infinite ease-in-out; }
+
+@keyframes eq-floating {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(8px, -12px) rotate(6deg); }
+}
+
+.elite-quote-stars {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(circle, #fff 1px, transparent 1px),
+    radial-gradient(circle, var(--pink-main) 1px, transparent 1px);
+  background-size: 60px 60px, 120px 120px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.elite-quote-divider {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--pink-vibrant), transparent);
+  margin: 20px auto;
+  opacity: 0.5;
+}
+
+/* --- AJUSTES PARA MÓVIL CORREGIDOS --- */
+@media (max-width: 768px) {
+  .elite-quote-section {
+    min-height: 40vh;
+    padding: 40px 15px;
+  }
+  
+  .elite-quote-container {
+    padding: 0 20px;
+  }
+
+  .elite-quote-wrapper p { 
+    font-size: 1.5rem; 
+    line-height: 1.3;
+  }
+
+  /* Reducimos opacidad de iconos en móvil para no estorbar lectura */
+  .elite-quote-section.elite-animate-in .elite-quote-float {
+    opacity: 1;
+  }
+
+  /* Reposicionamiento para que NO queden detrás del texto */
+  .eq-b1 { width: 45px; top: 5%; left: 5%; }
+  .eq-b2 { width: 40px; bottom: 5%; right: 5%; }
+  
+  /* Escondemos o alejamos los iconos f1 y f2 en pantallas muy pequeñas si saturan */
+  .eq-f1 { width: 40px; top: 8%; right: 5%; }
+  .eq-f2 { width: 40px; bottom: 8%; left: 5%; }
+
+  .elite-quote-mark.elite-open { top: -10px; left: -5px; font-size: 4rem; }
+  .elite-quote-mark.elite-close { bottom: -20px; right: -5px; font-size: 4rem; }
+
+  /* Reducimos el rango de movimiento para que no se salgan de la pantalla */
+  @keyframes eq-floating {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(4px, -6px) rotate(3deg); }
+  }
+}

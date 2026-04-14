@@ -1,0 +1,124 @@
+/*=====================================================
+  DISEÑO 1: MARCO EDITORIAL VERDE SALVIA
+======================================================*/
+
+.vestimenta-seccion-ed {
+  padding: 80px 20px;
+  background-color: #E0115F; /* Tu color verde protagonista */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.vestimenta-container-ed {
+  background-color: #ffffff;
+  max-width: 500px;
+  width: 100%;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 4px; /* Un toque de suavidad en las esquinas */
+
+  /* Estado inicial para la animación de entrada */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Clase que se añade con el Intersection Observer */
+.vestimenta-container-ed.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vestimenta-titulo-ed {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  color: #6d7a5f;
+  margin: 0 0 10px 0;
+  line-height: 1;
+}
+
+.vestimenta-ilustracion-ed {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.vestimenta-ilustracion-ed img {
+  width: 130px;
+  height: auto;
+  /* Animación de flotar suave */
+  animation: floatEditorial 4s ease-in-out infinite;
+}
+
+@keyframes floatEditorial {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.tipo-vestimenta-ed {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.descripcion-vestimenta-ed {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.detalle-items-ed {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: #bca37d; /* Color arena/bronce para acentuar */
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.separador-ed {
+  opacity: 0.3;
+}
+
+/* AJUSTES PARA MÓVIL */
+@media (max-width: 480px) {
+  .vestimenta-seccion-ed {
+    padding: 40px 15px; /* Menos espacio fuera para que la tarjeta sea más ancha */
+  }
+
+  .vestimenta-container-ed {
+    padding: 40px 20px; /* Menos padding interno */
+  }
+
+  .vestimenta-titulo-ed {
+    font-size: 3rem;
+  }
+
+  .tipo-vestimenta-ed {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+  }
+
+  .detalle-items-ed {
+    flex-direction: column; /* Apilamos los textos en pantallas muy pequeñas */
+    gap: 5px;
+  }
+
+  .separador-ed {
+    display: none; /* Quitamos la rayita en móvil si se apilan */
+  }
+}

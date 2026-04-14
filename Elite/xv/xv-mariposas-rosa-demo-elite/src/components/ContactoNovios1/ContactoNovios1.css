@@ -1,0 +1,95 @@
+.contacto-organic {
+  padding: 20px 10px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.contacto-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contacto-header {
+  margin-bottom: 50px;
+}
+
+.contacto-header h2 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 4px;
+  color: #d38c9d; /* Rosa de la invitación */
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  text-transform: uppercase;
+}
+
+.txt-medium {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+.grid-nombres {
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.contacto-item {
+  padding: 20px;
+}
+
+.contacto-item span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #2c2c2c;
+  margin-bottom: 15px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.ampersand {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 3.5rem;
+  color: #e4b8c1; /* Rosa suave para el separador */
+  opacity: 0.8;
+}
+
+.btn-minimal {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid #d38c9d;
+  padding-bottom: 6px;
+  transition: all 0.4s ease;
+  font-weight: 600;
+}
+
+.btn-minimal:hover {
+  color: #d38c9d;
+  border-bottom-color: #000000;
+  letter-spacing: 4px;
+}
+
+@media (max-width: 650px) {
+  .grid-nombres {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .ampersand { 
+    transform: rotate(0deg); 
+    margin: 10px 0;
+    font-size: 2.5rem;
+  }
+
+  .contacto-header h2 {
+    font-size: 1.8rem;
+  }
+}

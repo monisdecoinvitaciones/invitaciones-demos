@@ -1,0 +1,26 @@
+/*-------------------SECCION DE FRASE ROMANTICA DESPUES DE HOTELES---------------*/
+.frase-seccion {
+  padding: 20px 0px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.frase-contenido {
+  max-width: 700px;
+  text-align: center;
+  font-style: italic;
+}
+
+.frase-romantica {
+  
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.frase-romantica.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+

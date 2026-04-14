@@ -1,0 +1,24 @@
+/* RESET GLOBAL PARA ELIMINAR BORDES BLANCOS */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  overflow-x: hidden; /* Evita el scroll horizontal */
+  background-color: #ffffff; /* Usa el color de tu marca para que no se vea blanco si carga lento */
+}
+
+* {
+  box-sizing: border-box; /* Asegura que el padding no "empuje" hacia afuera */
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

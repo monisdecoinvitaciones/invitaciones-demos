@@ -1,0 +1,283 @@
+/* ============================================================
+   ESTILOS GENERALES Y CONTENEDOR - PINK & BLACK EDITION
+   ============================================================ */
+.form-seccion {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FDF2F4; /* Fondo rosa ultra suave para resaltar la card */
+  min-height: 50vh;
+}
+
+/* Tarjeta del Formulario */
+.form-card {
+  background: white;
+  padding: 45px 35px;
+  border-radius: 30px;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 0 20px 40px rgba(211, 140, 157, 0.15);
+  border: 1px solid rgba(211, 140, 157, 0.2);
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+/* ============================================================
+   TIPOGRAFÍA Y TEXTOS (CORMORANT)
+   ============================================================ */
+.form-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #000000; /* Título en Negro */
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.mensaje-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.4;
+  color: #333;
+  font-style: italic;
+}
+
+.form-card label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+}
+
+/* ============================================================
+   INPUTS Y SELECTS
+   ============================================================ */
+.form-card select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1.5px solid #F8D8DE;
+  font-size: 1rem;
+  color: #000;
+  background-color: #fff;
+  outline: none;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+/* ============================================================
+   CONTENEDOR DE CHECKBOXES (LISTA DE INVITADOS)
+   ============================================================ */
+.contenedor-checks {
+  margin: 10px 0;
+  padding: 25px;
+  background: #FFF5F7; /* Fondo rosado muy tenue */
+  border-radius: 18px;
+  border: 1px solid #F8D8DE;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.label-personalizado {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d38c9d; /* Rosa solicitado */
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.invitado-row-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 12px 0 !important;
+  gap: 10px !important;
+  border-bottom: 1px solid rgba(211, 140, 157, 0.2) !important;
+}
+
+.checkbox-y-nombre {
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 !important;
+  gap: 12px !important;
+  min-width: 0;
+}
+
+/* Checkbox personalizado */
+.checkbox-custom {
+  position: relative;
+  width: 25px !important;
+  height: 25px !important;
+  flex-shrink: 0 !important;
+  cursor: pointer;
+}
+
+.checkbox-custom input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 2px solid #d38c9d; /* Rosa */
+  border-radius: 6px;
+}
+
+.checkbox-custom input:checked ~ .checkmark {
+  background-color: #d38c9d;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-custom input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Input de nombre Live */
+.input-nombre-invitado-live {
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #d38c9d !important;
+  color: #000 !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  padding: 4px 0 !important;
+  outline: none !important;
+}
+
+/* Selector Adulto/Niño */
+.selector-minimalista {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.opcion-txt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #bbb;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.opcion-txt.activo {
+  color: #000000; /* Negro para activo */
+  font-weight: 800;
+  border-bottom: 1.5px solid #d38c9d;
+}
+
+/* ============================================================
+   BOTÓN RSVP - ROSA SOLICITADO
+   ============================================================ */
+.btn-rsvp {
+  width: 100% !important;
+  max-width: 320px !important;
+  margin: 20px auto 0;
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: none;
+  background: #d38c9d; /* Rosa solicitado */
+  color: white !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(211, 140, 157, 0.4);
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: block;
+  text-align: center;
+}
+
+.btn-rsvp:hover:not(:disabled) {
+  background: #000000; /* Cambio a negro al pasar el mouse */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-rsvp:disabled {
+  background-color: #f1c4cf !important;
+  color: #ffffff !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+/* Mensaje de éxito */
+.mensaje-exito {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.icono-exito {
+  color: #d38c9d;
+  font-size: 4rem;
+}
+
+/* ============================================================
+   AJUSTES MÓVIL
+   ============================================================ */
+@media (max-width: 480px) {
+  .form-card {
+    padding: 30px 20px;
+  }
+  .invitado-row-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .selector-minimalista {
+    align-self: flex-end !important;
+    margin-top: -5px;
+  }
+  .btn-rsvp {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,257 @@
+/* ============================================================
+   CONTACT SECTION - ELITE PRO STYLE (QUINCEAÑERA VERSION)
+   ============================================================ */
+
+:root {
+  --pink-light: #FCC7D1;
+  --pink-main: #F0B3C5;
+  --pink-vibrant: #E47990;
+  --pink-soft: #F8D8DE;
+  --pink-deep: #B8445E;
+}
+
+.elite-contact-section {
+  position: relative;
+  min-height: 60vh; /* Más alta para dar aire */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 80px 20px;
+  /* Gradiente radial característico del Elite Pro */
+  background: radial-gradient(circle at center, #ffffff 0%, var(--pink-soft) 100%);
+  box-sizing: border-box;
+}
+
+.elite-contact-stars {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  /* El mismo patrón de estrellas sutil */
+  background-image: 
+    radial-gradient(circle, #fff 1px, transparent 1px),
+    radial-gradient(circle, var(--pink-main) 1px, transparent 1px);
+  background-size: 60px 60px, 120px 120px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.elite-contact-container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.elite-contact-content-wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Animación de entrada suave */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elite-animate-in .elite-contact-content-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.elite-contact-tag {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 5px;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  opacity: 0.6;
+}
+
+.elite-contact-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  color: #000;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.elite-contact-highlight {
+  font-family: var(--font-mea), cursive;
+  color: var(--pink-vibrant);
+  font-size: 1.3em; /* Resaltado elegante */
+  text-transform: none;
+  letter-spacing: 0;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.elite-contact-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 550px;
+  font-style: italic; /* Toque sofisticado */
+}
+
+.elite-contact-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--pink-vibrant), transparent);
+  margin-bottom: 40px;
+  opacity: 0.5;
+}
+
+/* BOTÓN WHATSAPP MINIMALISTA ELITE */
+.elite-btn-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: transparent; 
+  color: #000000;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Borde sutil en lugar de fondo sólido */
+  transition: all 0.4s ease;
+}
+
+.elite-btn-whatsapp:hover {
+  background-color: #000000; /* Fondo negro al hover */
+  color: #ffffff;
+  transform: translateY(-3px);
+  border-color: #000000;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.elite-icon-wa {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: transform 0.4s ease;
+}
+
+.elite-btn-whatsapp:hover .elite-icon-wa {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* --- ADORNOS Y COMILLAS SUTILES --- */
+.elite-contact-quote {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(6rem, 12vw, 10rem);
+  color: var(--pink-light);
+  position: absolute;
+  opacity: 0.25;
+  line-height: 1;
+  z-index: -1; /* Detrás del contenido */
+  pointer-events: none;
+}
+
+.elite-contact-quote.open { 
+  top: 10px; 
+  left: -30px; 
+}
+
+.elite-contact-quote.close { 
+  bottom: 0px; 
+  right: -30px; 
+}
+
+/* --- ICONOS FLOTANTES --- */
+.elite-contact-fly {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2s ease;
+  z-index: 2;
+  filter: grayscale(100%); /* Comienzan en gris sutil */
+}
+
+.elite-animate-in .elite-contact-fly {
+  opacity: 0.6;
+}
+
+.elite-contact-section:hover .elite-contact-fly {
+  filter: grayscale(0%); /* Recuperan color al hover de la sección */
+  opacity: 0.8;
+}
+
+/* Posiciones estratégicas para que no tapen texto */
+.c-b1 { 
+  width: 130px; 
+  top: 10%; 
+  left: 8%; 
+  animation: elite-float 8s infinite ease-in-out; 
+}
+
+.c-f1 { 
+  width: 100px; 
+  bottom: 10%; 
+  right: 8%; 
+  animation: elite-float 10s infinite ease-in-out reverse; 
+}
+
+@keyframes elite-float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(15px, -20px) rotate(8deg); }
+}
+
+/* RESPONSIVO MÓVIL CORREGIDO */
+@media (max-width: 768px) {
+  .elite-contact-section {
+    padding: 60px 15px;
+    min-height: 50vh;
+  }
+
+  .elite-contact-tag {
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+  }
+
+  .elite-contact-title {
+    font-size: 2.2rem;
+  }
+
+  .elite-contact-highlight {
+    font-size: 1.2rem;
+    padding: 0 5px;
+  }
+
+  .elite-contact-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .elite-btn-whatsapp {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* Alejamos las comillas en móvil para no encimarse */
+  .elite-contact-quote.open { top: -20px; left: -10px; font-size: 5rem; }
+  .elite-contact-quote.close { bottom: -20px; right: -10px; font-size: 5rem; }
+
+  /* Reducimos iconos flotantes en móvil */
+  .c-b1 { width: 60px; top: 5%; left: 5%; }
+  .c-f1 { width: 50px; bottom: 5%; right: 5%; }
+}

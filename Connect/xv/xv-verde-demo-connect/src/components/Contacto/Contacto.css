@@ -1,0 +1,182 @@
+.contacto-section {
+  padding: 80px 20px;
+  background-image: linear-gradient(
+      rgba(91, 115, 65, 0.7), 
+      rgba(61, 83, 22, 0.8)
+    ), 
+    url('/icons/fondo-verde.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contacto-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: row; /* Horizontal en PC */
+  justify-content: center; /* Centrado absoluto de los elementos */
+  align-items: center;
+  gap: 80px; /* Espacio generoso entre info y tarjeta */
+}
+
+.contacto-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Eliminamos flex: 1 para que no empuje a la tarjeta */
+  max-width: 450px; 
+}
+
+.contacto-titulo {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(3.5rem, 8vw, 4.6rem);
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* --- LUCIÉRNAGA --- */
+.luciernaga-contacto {
+  width: 70px;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 200, 0.9));
+}
+
+/* --- LÓGICA DE FLIP CARD --- */
+.flip-card-wrapper {
+  background-color: transparent;
+  width: 320px;
+  height: 420px;
+  perspective: 1000px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.flip-card-front {
+  background-color: #ffffff;
+  border: 1px solid #8aac66;
+}
+
+.front-content h3 {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.8rem;
+  color: #8aac66;
+  margin: 20px 0;
+}
+
+.front-content p {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+.flip-card-back {
+  background-color: #8aac66;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.back-content h3 {
+  font-family: var(--font-cormorant), serif;
+  font-size: 2rem;
+  margin: 15px 0;
+}
+
+.back-content p {
+  font-family: var(--font-cormorant), serif;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+/* BOTÓN WHATSAPP */
+.btn-whatsapp {
+  background-color: #ffffff;
+  color: #000000 !important; /* Texto negro para legibilidad */
+  padding: 14px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-whatsapp:hover {
+  background-color: #1a1a1a;
+  color: #ffffff !important;
+  transform: scale(1.05);
+}
+
+.icon-floating {
+  color: #8aac66;
+  animation: float-contacto 3s ease-in-out infinite;
+}
+
+@keyframes float-contacto {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ========= RESPONSIVO ========= */
+@media (max-width: 900px) {
+  .contacto-container {
+    flex-direction: column; /* Vertical */
+    gap: 40px;
+  }
+
+
+
+  .contacto-info {
+    max-width: 100%;
+  }
+
+  .luciernaga-contacto {
+    width: 55px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contacto-section {
+    padding: 30px 20px;
+  }
+
+  .flip-card-wrapper {
+    width: 290px;
+    height: 380px;
+  }
+  
+}

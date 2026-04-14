@@ -1,0 +1,173 @@
+/* CONTENEDOR PRINCIPAL */
+.mesa-premium {
+  position: relative;
+  padding: 50px 0; /* Aumentamos para dar espacio arriba/abajo */
+  overflow: hidden;
+  background: radial-gradient(circle at center, #d8c2a4 0%, #c5ad8c 60%, #b89c78 100%);
+}
+
+/* SLIDER */
+.slider-premium {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: visible; /* Vital para la sombra */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  
+  /* Esto crea el espacio para que la primera y última tarjeta se centren */
+  padding: 40px 0; 
+}
+
+.slider-premium::-webkit-scrollbar { display: none; }
+
+/* CONTENEDOR DE CADA TARJETA */
+/* Añadimos este contenedor para manejar el espaciado sin romper el snap */
+.card-wrapper {
+  flex: 0 0 100%; /* Por defecto ocupa todo el ancho para centrar fácil */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: center;
+}
+
+/* TARJETAS */
+.card-premium {
+  width: 300px; /* Ancho fijo */
+  height: 400px;
+  background: white;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: scale(0.85);
+  opacity: 0.6;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+  /* Sombra base */
+  border: none; /* <--- Asegúrate de que no tenga borde */
+  outline: none;
+}
+
+.card-premium.active {
+  transform: scale(1.05);
+  opacity: 1;
+  /* La sombra ahora tiene 60px de padding arriba/abajo para no cortarse */
+  z-index: 10;
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 768px) {
+  .card-premium { 
+    width: 260px; 
+    height: 420px; 
+  }
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 768px) {
+  .slider-premium {
+    /* Ajuste de centrado para móvil: (100% - 240px) / 2 */
+    padding-inline: calc(50% - 120px);
+    gap: 15px;
+    pointer-events: auto; /* IMPORTANTE para que funcione el swipe */
+  }
+
+  .card-premium { 
+    flex: 0 0 240px; 
+    height: 380px; 
+  }
+}
+
+/* DISEÑO INTERNO DE TARJETA */
+.card-top {
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+}
+.card-top img { max-width: 60%; }
+
+.card-bottom {
+  height: 30%;
+  background: #c5ad8c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Color del texto */
+  text-decoration: none; /* Quita el subrayado */
+  font-family: serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Efecto opcional al pasar el mouse en PC */
+.card-bottom:hover {
+  background: #b89c78;
+  color: white;
+}
+
+/* CONTROLES (FLECHAS Y DOTS) */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 20;
+  transition: background 0.3s;
+}
+.arrow:hover { background: #f9f9f9; }
+.arrow.left { left: 60px; }
+.arrow.right { right: 60px; }
+
+.dots { text-align: center; margin-top: 15px; }
+.dot {
+  height: 8px; width: 8px; margin: 0 6px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%; display: inline-block;
+  cursor: pointer; transition: all 0.3s ease;
+}
+.active-dot { width: 22px; border-radius: 20px; background: white; }
+
+.hint {
+  text-align: center; 
+  margin-top: 15px; /* más cerca del slider */
+  color: white; 
+  font-style: italic; 
+  font-size: 16px;
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 768px) {
+  .mesa-premium { 
+    overflow: visible; 
+    padding: 30px 0; /* menos espacio en móvil */
+  }
+  
+  .slider-premium {
+    pointer-events: auto; /* Reactiva el swipe en móvil */
+    padding: 30px 10%; /* menos padding lateral y vertical */
+    gap: 20px;
+  }
+
+  .card-premium { 
+    flex: 0 0 240px; 
+    height: 400px; 
+  }
+
+  .arrow { display: none; }
+
+  /* Mantener visible la frase en móvil */
+  .hint { 
+    display: block; 
+    margin-top: 10px; 
+    font-size: 14px; 
+  }
+}

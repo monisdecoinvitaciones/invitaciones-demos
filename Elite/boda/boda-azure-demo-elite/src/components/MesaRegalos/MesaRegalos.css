@@ -1,0 +1,268 @@
+:root {
+  --inv-dark: #404D77;
+  --inv-sage: #92966F; /* Verde Salvia de la referencia */
+  --inv-butter: #FFFEFC;
+}
+
+.mesa-section {
+  padding: 50px 20px;
+  background-color: #F0F2F5; /* Fondo base claro */
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- TEXTURA DE TALAVERA SUTIL (EL FONDO) --- */
+/* --- TEXTURA DE TALAVERA (REPETICIÓN GRANDE) --- */
+.talavera-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/fondoVerde.jpeg'); 
+  
+  /* Mantiene la repetición en ambos ejes */
+  background-repeat: repeat;
+  
+  /* Centra el inicio del patrón para que no se corte feo en las orillas */
+  background-position: center; 
+  
+  /* AUMENTA ESTE VALOR: 
+     150px se ve pequeño/amontonado. 
+     600px o 800px hace que el dibujo se vea grande y lujoso. */
+  background-size: 700px; 
+  
+  /* Ajusta la opacidad a tu gusto; al ser más grande, 
+     puedes subirla un poco sin que distraiga. */
+  opacity: 0.35; 
+  
+  z-index: 0;
+}
+
+.mesa-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- TARJETA VERDE ASIMÉTRICA (ESTILO REFERENCIA) --- */
+.mesa-card {
+  background-color: var(--inv-sage); /* Fondo Verde Salvia */
+  padding: clamp(20px, 8vw, 60px) clamp(20px, 6vw, 40px);
+  color: #FFFFFF !important; /* Todo el texto es blanco */
+  
+  /* BORDES ASIMÉTRICOS (LA CLAVE) */
+  border-radius: 60px 0px 60px 0px; 
+  /* Si prefieres el estilo de la referencia exacta: radius en top-left y bottom-right */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 15px 40px rgba(146, 150, 111, 0.2);
+}
+
+.mesa-header {
+  margin-bottom: 30px;
+}
+
+.mesa-title {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(3rem, 10vw, 4.4rem);
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #FFFFFF !important;
+}
+
+.mesa-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.mesa-content {
+  width: 100%;
+}
+
+.mesa-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 10px auto;
+}
+
+/* --- TRANSFERENCIA --- */
+.mesa-opcion.transfer {
+  margin-bottom: 40px;
+}
+
+.bank-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #FFFFFF !important;
+  margin-bottom: 10px;
+}
+
+/* Espacio para el icono de Wendy */
+.person-icon-box {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 15px 0 10px 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.person-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.account-data {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* --- BOTONES DE TIENDA (ESTILO REFERENCIA) --- */
+.mesa-opcion.buttons {
+  margin-top: 20px;
+}
+
+/* Espacio para icono floral decorativo central */
+.floral-divider-icon {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 25px;
+  display: block;
+}
+
+.buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.mesa-btn-fancy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 30px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Borde blanco sutil */
+  color: #FFFFFF !important;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 320px;
+  text-transform: uppercase;
+}
+
+.mesa-btn-fancy:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+  transform: scale(1.03);
+}
+
+/* Responsivo Móvil */
+@media (max-width: 480px) {
+  .mesa-section {
+    padding: 40px 10px;
+  }
+  
+  .mesa-card {
+    padding: 30px 20px;
+    border-radius: 40px 0px 40px 0px; /* Borde más pequeño en móvil */
+  }
+
+  .mesa-btn-fancy {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+  }
+}
+
+/* --- AJUSTES PARA PC (MENOS ALTO) --- */
+@media (min-width: 1024px) {
+  .mesa-section {
+    padding: 30px 20px; /* Reducción de padding externo */
+    min-height: auto;
+  }
+
+  .mesa-card {
+    padding: 40px 60px; /* Menos alto, más ancho */
+    flex-direction: row; /* Cambio a horizontal */
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+  }
+
+  .mesa-header {
+    flex: 1;
+    margin-bottom: 0; /* Eliminamos margen inferior */
+    text-align: left;
+  }
+
+  .mesa-content {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Alineamos textos a la izquierda en PC */
+  .mesa-title, .mesa-intro, .bank-name, .person-name, .account-data {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .mesa-divider {
+    margin: 10px 0; /* Divisores alineados a la izquierda */
+  }
+
+  /* Los botones ahora pueden ir uno al lado del otro o en bloque pequeño */
+  .buttons-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .mesa-btn-fancy {
+    max-width: fit-content;
+    padding: 8px 20px; /* Botones más compactos */
+  }
+
+  .mesa-opcion.transfer {
+    margin-bottom: 20px; /* Menos espacio entre secciones */
+  }
+
+  .floral-divider-icon, .person-icon-box {
+    margin-bottom: 10px;
+    text-align: left;
+  }
+}
+
+/* Mantén el resto de tu código base igual para móvil... */

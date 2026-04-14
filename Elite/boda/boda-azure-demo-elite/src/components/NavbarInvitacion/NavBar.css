@@ -1,0 +1,133 @@
+/* --- ESTILOS GENERALES Y PC --- */
+.nav-invitacion {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 0; 
+  display: flex;
+  justify-content: center;
+  
+  background: rgba(255, 255, 255, 0.30); 
+  backdrop-filter: blur(30px) saturate(160%); 
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+  
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); 
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  font-family: serif;
+  font-size: 0.9rem;
+  color: #362017; /* TONO: Chocolate Invimon */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-links button:hover {
+  color: black; /* TONO: Oliva */
+  transform: translateY(-2px);
+}
+
+/* --- ELEMENTOS MÓVIL (Ocultos por defecto) --- */
+.mobile-menu-wrapper {
+  display: none;
+}
+
+/* --- RESPONSIVE (MÓVIL) --- */
+@media (max-width: 850px) {
+  .nav-invitacion {
+    display: none; 
+  }
+
+  .mobile-menu-wrapper {
+    display: block;
+  }
+
+  /* Botón Flotante */
+  .boton-flotante {
+    position: fixed;
+    bottom: 90px; 
+    right: 10px;  
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #92966F; /* TONO: Oliva (más acorde que el burgundy brillante) */
+    color: white !important;
+    border: none;
+    font-size: 24px;
+    z-index: 9998;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+  /* Sidebar Lateral */
+  .sidebar-movil {
+    position: fixed;
+    top: 0;
+    right: -400px; 
+    width: 280px; 
+    height: 100vh;
+    background: #ffffff; /* Fondo blanco sólido */
+    z-index: 9997;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 25px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 20px rgba(0,0,0,0.1);
+  }
+
+  .sidebar-movil.open {
+    right: 0; 
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .sidebar-header {
+    font-family: serif;
+    font-size: 1.2rem;
+    color: #c5ad8c; /* TONO: Dorado */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .sidebar-movil button {
+    background: none;
+    border: none;
+    padding: 15px 0;
+    text-align: right;
+    font-family: serif;
+    font-size: 1.1rem;
+    color: #362017; /* TONO: Chocolate (Cambiado de blanco para que sea visible) */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* Overlay Oscuro */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(54, 32, 23, 0.3); /* TONO: Chocolate tenue en lugar de negro puro */
+    z-index: 9990;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

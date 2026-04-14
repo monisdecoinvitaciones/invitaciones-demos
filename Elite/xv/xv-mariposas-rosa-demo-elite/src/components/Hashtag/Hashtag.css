@@ -1,0 +1,216 @@
+/* ============================================================
+   HASHTAG SECTION - INVIMON STYLE (FLOR ROTATION FIXED)
+   ============================================================ */
+
+.hashtag-section {
+  padding: 50px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative; 
+  overflow: hidden;   
+}
+
+/* --- FLORES CON PARALLAX --- */
+.hashtag-flor-1 {
+  position: absolute;
+  top: -40px;
+  left: -80px;
+  pointer-events: none;
+  z-index: 1;
+  width: 350px;
+  /* Rotación leve para que las hojas apunten al centro */
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+}
+
+.hashtag-flor-2 {
+  position: absolute;
+  bottom: -60px;
+  right: -80px;
+  pointer-events: none;
+  z-index: 1;
+  width: 420px;
+  /* Reflejo total + Rotación personalizada para equilibrar la esquina inferior */
+  transform: scaleX(-1) scaleY(-1) rotate(-180deg);
+  transition: transform 0.1s linear;
+}
+
+.img-responsive-flor {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.hashtag-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.hashtag-pretitle {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #B8445E;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.hashtag-main {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: #E47990; 
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  line-height: 1.2;
+}
+
+.hashtag-main:hover {
+  transform: scale(1.05);
+}
+
+.hashtag-copy-btn {
+  margin-top: 25px;
+  background: none;
+  border: 1px solid rgba(128, 0, 32, 0.2);
+  padding: 10px 25px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #E47990;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hashtag-copy-btn:hover {
+  background-color: #E47990;
+  color: white;
+}
+
+.hashtag-copy-btn.copiado {
+  background-color: black; /* Color oliva al confirmar copia */
+  color: white;
+  border-color: black;
+}
+
+.hashtag-footer {
+  margin-top: 30px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  color: black;
+  font-style: italic;
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+  .hashtag-section {
+    padding: 80px 25px;
+  }
+
+  .hashtag-flor-1 {
+    width: 140px !important;
+    top: -10px;
+    left: -30px;
+    /* Se mantiene la rotación en móvil */
+    transform: rotate(-15deg);
+  }
+
+  .hashtag-flor-2 {
+    width: 160px !important;
+    bottom: -10px;
+    right: -60px;
+    /* Corrección de sintaxis y aplicación de reflejo + rotación */
+    transform: scaleX(-1) scaleY(-1) rotate(-10deg);
+  }
+
+  .hashtag-main {
+    font-size: 2.8rem;
+  }
+
+  .hashtag-footer {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+
+/* --- FLORES CON PARALLAX --- */
+.hashtag-flor-1 {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  pointer-events: none;
+  z-index: 1;
+  width: 350px;
+  /* Eliminamos el transform de aquí para que el JS del Parallax no lo rompa */
+  transition: transform 0.1s linear;
+}
+
+.hashtag-flor-2 {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  pointer-events: none;
+  z-index: 1;
+  width: 350px;
+  /* Eliminamos el transform de aquí */
+  transition: transform 0.1s linear;
+}
+
+/* Esta es la clave: aplicamos la rotación a la imagen directamente */
+.hashtag-flor-1 img {
+  transform: rotate(180deg); /* Aquí pon los grados que quieras */
+}
+
+.hashtag-flor-2 img {
+  transform: scaleX(1) scaleY(-1) rotate(360deg); /* Reflejo + Rotación */
+}
+
+.img-responsive-flor {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* --- RESPONSIVO MÓVIL (Flores más cerca) --- */
+@media (max-width: 768px) {
+  .hashtag-section {
+    padding: 80px 25px;
+  }
+
+  .hashtag-flor-1 {
+    width: 160px !important; /* Un poco más grande para que resalte */
+    top: -35px;  /* Antes -40px, ahora más cerca */
+    left: -30px; /* Antes -80px, ahora más cerca */
+  }
+
+  .hashtag-flor-2 {
+    width: 160px !important;
+    bottom: -35px; /* Antes -60px, ahora más cerca */
+    right: -35px; /* Antes -80px, ahora más cerca */
+  }
+
+  /* Aseguramos que las imágenes internas mantengan su rotación/reflejo en móvil */
+  .hashtag-flor-1 img {
+    transform: rotate(180deg);
+  }
+
+  .hashtag-flor-2 img {
+    transform: scaleX(1) scaleY(-1) rotate(360deg);
+  }
+
+  .hashtag-main {
+    font-size: 2.8rem;
+  }
+
+  .hashtag-footer {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}

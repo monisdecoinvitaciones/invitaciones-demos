@@ -1,0 +1,214 @@
+/* ============================================================
+   SECCIÓN UBICACIONES (THE GREAT DAY) - FINAL COMPACTO
+   ============================================================ */
+
+.ubicaciones-section {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  background: radial-gradient(circle at center, #ffffff 0%, #FFF5F7 100%);
+}
+
+.ubicaciones-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- ENCABEZADO --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  color: WHITE;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(2.8rem, 8vw, 4.5rem); /* Ajustado para que no sea excesivo en PC */
+  color: WHITE;
+  margin: 15px 0;
+  font-weight: 400;
+  text-align: center; /* Opcional: para que siempre estén centrados */
+  line-height: 1.2;
+}
+
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background-color: WHITE;
+  margin: 0 auto;
+}
+
+/* --- GRID Y TARJETAS --- */
+.locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.location-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px; 
+  opacity: 0;
+  transform: translateY(40px) rotateX(5deg);
+  transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px rgba(184, 68, 94, 0.1);
+}
+
+.location-card.ceremonia { background-color: #d38c9d; }
+.location-card.recepcion { background-color: #B8445E; }
+
+.location-card.is-visible { 
+  opacity: 1; 
+  transform: translateY(0) rotateX(0); 
+}
+
+.location-card.recepcion { transition-delay: 0.2s; }
+
+/* --- CONTENIDO DE LA TARJETA --- */
+.card-content {
+  position: relative;
+  z-index: 5;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: var(--font-cormorant), serif;
+  color: #ffffff;
+}
+
+.card-title {
+  font-size: 2rem;
+  margin: 15px 0 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center; /* Centrado para PC */
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 1.15rem; 
+}
+
+.detail-row svg {
+  color: #ffffff;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.detail-row.address {
+  margin-bottom: 30px;
+}
+
+/* --- EFECTOS --- */
+.card-glass-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-25deg);
+  z-index: 2;
+  animation: sweep 8s infinite ease-in-out;
+}
+
+@keyframes sweep {
+  0% { left: -120%; }
+  15% { left: 150%; }
+  100% { left: 150%; }
+}
+
+.icon-box { 
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.premium-icon { 
+  width: 50px;
+  height: auto; 
+  filter: brightness(0) invert(1); 
+}
+
+/* --- BOTÓN --- */
+.btn-premium {
+  padding: 12px 35px;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: all 0.5s ease;
+  text-transform: uppercase;
+}
+
+.btn-premium:hover {
+  background: #ffffff;
+  color: #B8445E;
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   RESPONSIVO MÓVIL
+   ============================================================ */
+
+@media (max-width: 850px) {
+  .ubicaciones-section { padding: 30px 15px; }
+  
+  .locations-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .card-content { padding: 25px 20px; }
+  
+  /* 🔥 ICONOS ARRIBA DEL TEXTO 🔥 */
+  .detail-row {
+    flex-direction: column; /* Apilado vertical */
+    align-items: center;
+    text-align: center;
+    gap: 0px;
+    font-size: 1.25rem;
+  }
+
+  .detail-row svg {
+    width: 26px; /* Un poco más grandes para resaltar arriba */
+    height: 26px;
+    margin-bottom: 2px;
+  }
+
+  .detail-row.address {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .card-title { font-size: 1.7rem; }
+}

@@ -1,0 +1,153 @@
+/* ============================================================
+   SECCIÓN DESPEDIDA - FULL BACKGROUND IMAGE (ELITE PRO)
+   ============================================================ */
+
+:root {
+  --pink-light: #FCC7D1;
+  --pink-main: #F0B3C5;
+  --pink-vibrant: #E47990;
+}
+
+.elite-despedida-section {
+  position: relative;
+  min-height: 80vh; /* Ocupa casi toda la pantalla */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 100px 20px;
+  box-sizing: border-box;
+  text-align: center;
+
+  /* --- CONFIGURACIÓN DE IMAGEN DE FONDO ACTUALIZADA --- */
+  background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), /* Overlay sutil */
+    url('/xv3/optimized/xv3.webp'); 
+  
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Mantiene el efecto Parallax en desktop */
+}
+
+/* Ajuste para asegurar legibilidad en móviles */
+@media (max-width: 768px) {
+  .elite-despedida-section {
+    background-attachment: scroll; /* Mejora el rendimiento en celulares */
+    min-height: 60vh;
+    /* Un overlay un poco más oscuro para móviles por el brillo de las pantallas */
+    background-image: 
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), 
+      url('/xv3/optimized/xv3.webp');
+  }
+}
+/* Polvo de estrellas opcional sobre la foto */
+.elite-despedida-stars {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(circle, #fff 1px, transparent 1px),
+    radial-gradient(circle, var(--pink-main) 1px, transparent 1px);
+  background-size: 80px 80px, 160px 160px;
+  opacity: 0.15;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.elite-despedida-container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* Animación de entrada */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elite-animate-in .elite-despedida-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- TIPOGRAFÍA (UNIFICADA A CORMORANT & MEA) --- */
+.elite-despedida-frase {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  color: #FFFFFF;
+  margin: 0;
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para contrastar */
+}
+
+.mea-highlight {
+  font-family: var(--font-mea), cursive;
+  color: #d38c9d; /* Tu rosa solicitado */
+  text-transform: none;
+  font-size: 1.25em;
+  letter-spacing: 0;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.elite-despedida-subtext {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #FFFFFF;
+  line-height: 1.6;
+  margin-top: 30px;
+  font-style: italic;
+  max-width: 500px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* --- DIVIDER FINAL SUTIL --- */
+.elite-despedida-divider {
+  margin-top: 50px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0.8;
+}
+
+.elite-despedida-divider .mea-highlight {
+  font-size: 2rem;
+  color: var(--pink-main);
+}
+
+/* --- AJUSTES MÓVIL (IMAGEN FIJA NO FUNCIONA EN ALGUNOS MÓVILES) --- */
+@media (max-width: 768px) {
+  .elite-despedida-section {
+    min-height: 60vh;
+    padding: 80px 15px;
+    background-attachment: scroll; /* Desactivamos Parallax en móvil */
+  }
+
+  .elite-despedida-frase {
+    font-size: clamp(3rem, 15vw, 4rem);
+  }
+
+  .elite-despedida-subtext {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .elite-despedida-divider {
+    font-size: 1rem;
+    margin-top: 40px;
+  }
+}

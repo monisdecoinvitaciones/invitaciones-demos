@@ -1,0 +1,175 @@
+/* ============================================================
+   MESA DE REGALOS - DISEÑO MERLOT & MOSS
+   ============================================================ */
+
+.regalos-section {
+  /* Se sustituye el fondo anterior por fondo.jpg con un overlay sutil */
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
+              url('/fondo1.jpg') center/cover no-repeat;
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.regalos-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  max-width: 1100px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* TARJETA OVALADA MERLOT */
+.regalos-card-merlot {
+  background: #4a0e0e; /* Color Merlot de la paleta */
+  color: #ffffff;
+  padding: 70px 45px;
+  border-radius: 50% / 30%; /* Forma ovalada editorial */
+  width: 480px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s ease;
+}
+
+.regalos-card-merlot:hover {
+  transform: translateY(-5px);
+}
+
+/* TARJETA OVALADA MOSS GREEN */
+.regalos-card-moss {
+  background: #5f7161; /* Color Moss Green de la paleta */
+  color: #ffffff;
+  padding: 50px 40px;
+  border-radius: 50% / 40%;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* TIPOGRAFÍAS */
+.regalos-title {
+  font-family: var(--font-cormorant), serif;
+  font-size: 2.2rem;
+  letter-spacing: 6px;
+  margin-bottom: 25px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.regalos-text-italic {
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.regalos-name {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* CAJA DE CLABE INTERACTIVA */
+.regalos-clabe-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  padding: 18px;
+  margin: 25px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.regalos-clabe-box:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+}
+
+.regalos-label {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  opacity: 0.8;
+}
+
+.regalos-number {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.regalos-bank-info {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.regalos-bank-name {
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.regalos-icon-top {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.regalos-grace-text {
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.7;
+}
+
+/* ANIMACIÓN DE ENTRADA (Activa con visible) */
+.regalos-container.animar {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.regalos-container.animar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVO MÓVIL */
+@media (max-width: 768px) {
+  .regalos-section {
+    padding: 60px 15px;
+  }
+
+  .regalos-card-merlot {
+    width: 100%;
+    border-radius: 60px; /* Menos ovalado para facilitar lectura en móvil */
+    padding: 50px 25px;
+  }
+  
+  .regalos-card-moss {
+    width: 100%;
+    border-radius: 50px;
+    order: -1; /* El mensaje de texto aparece primero en móvil */
+    margin-bottom: -10px;
+  }
+
+  .regalos-title {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+  }
+}

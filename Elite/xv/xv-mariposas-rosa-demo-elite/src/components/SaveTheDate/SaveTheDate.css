@@ -1,0 +1,183 @@
+/* ============================================================
+   SAVE THE DATE SECTION - INVIMON STYLE
+   ============================================================ */
+
+.save-date-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative; 
+  overflow: hidden;   
+  min-height: 400px;
+}
+
+/* --- ELEMENTOS DECORATIVOS CON PARALLAX --- */
+.save-date-decor-1 {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  pointer-events: none;
+  z-index: 1;
+  width: 350px;
+  transition: transform 0.1s linear;
+}
+
+.save-date-decor-2 {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  pointer-events: none;
+  z-index: 1;
+  width: 350px;
+  transition: transform 0.1s linear;
+
+  transform: scaleX(1) scaleY(-1) rotate(360deg);
+}
+
+.img-responsive-decor {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.save-date-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.save-date-pretitle {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  color: #000000; 
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.save-date-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #d38c9d; /* Tu tono de rosa */
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.save-date-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #000000;
+  margin: 10px 0 30px;
+  font-style: italic;
+}
+
+/* --- BOTONES DE CALENDARIO --- */
+.calendar-buttons-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-calendar {
+  background: none;
+  border: 1px solid rgba(211, 140, 157, 0.4);
+  padding: 12px 25px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #d38c9d;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.btn-calendar:hover {
+  background-color: #d38c9d;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(211, 140, 157, 0.3);
+}
+
+.btn-calendar svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.save-date-footer {
+  margin-top: 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #000000;
+  max-width: 400px;
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+  .save-date-section {
+    padding: 70px 25px;
+  }
+
+  .save-date-decor-1 {
+    width: 160px !important;
+    top: -30px;
+    left: -30px;
+  }
+
+  .save-date-decor-2 {
+    width: 160px !important;
+    bottom: -30px;
+    right: -35px;
+
+    transform: scaleX(1) scaleY(-1) rotate(360deg);
+  }
+
+  .save-date-title {
+    font-size: 2.5rem;
+  }
+
+  .calendar-buttons-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .btn-calendar {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Esto se queda limpio para que el JS lo mueva libremente */
+.save-date-decor-1, .save-date-decor-2 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.1s linear;
+}
+
+/* AQUÍ está el truco: aplicamos la rotación a la imagen, no al contenedor */
+.save-date-decor-1 img {
+  transform: rotate(180deg); 
+}
+
+.save-date-decor-2 img {
+  /* Aquí aplicas el reflejo y rotación que querías */
+  transform: scaleY(-1) rotate(360deg); 
+}

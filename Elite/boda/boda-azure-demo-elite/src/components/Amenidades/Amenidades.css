@@ -1,0 +1,135 @@
+/* ============================================================
+   AMENIDADES ACCORDION - ESTILO FAQ (ALTO RENDIMIENTO)
+   ============================================================ */
+
+.amenidades-section {
+  padding: 30px 24px;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.amenidades-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.amenidades-title {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  color: #362017;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.amenidades-divider {
+  width: 50px;
+  height: 2px;
+  background-color: #5f7161;
+  margin: 0 auto 50px;
+}
+
+/* DECORACIONES LIGERAS */
+.papel-decor-tr, 
+.papel-decor-bl {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.papel-decor-tr { top: -20px; right: -10px; transform: rotate(5deg); width: 250px; }
+.papel-decor-bl { bottom: -40px; left: -60px; transform: rotate(270deg) scaleX(-1); width: 280px; }
+
+/* ESTRUCTURA DEL ACORDEÓN (Basada en tu FAQ) */
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.accordion-item {
+  background: #fcfcfc;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px 0; /* Espacio interno sutil */
+}
+
+.accordion-item:hover {
+  border-color: #5f7161;
+  background: rgba(95, 113, 97, 0.02);
+}
+
+.accordion-item.active {
+  background: white;
+  border-color: #5f7161;
+  box-shadow: 0 10px 30px rgba(95, 113, 97, 0.08);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 20px 30px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.accordion-header span {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #5f7161;
+  text-transform: uppercase;
+}
+
+.accordion-item.active .accordion-header span {
+  color: #800020;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: #5f7161;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+/* LA CLAVE DEL RENDIMIENTO: Animación de la FAQ */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0, 1, 0, 1);
+  opacity: 0;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+
+.content-inner {
+  padding: 0 30px 25px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .amenidades-section { padding: 30px 20px; }
+  .accordion-header { padding: 15px 20px; }
+  .content-inner { padding: 0 20px 20px; font-size: 1.05rem; }
+  .papel-decor-tr, .papel-decor-bl { width: 150px; opacity: 0.3; }
+}

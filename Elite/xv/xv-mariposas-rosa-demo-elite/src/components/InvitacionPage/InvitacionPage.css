@@ -1,0 +1,291 @@
+/* ============================================================
+   SECCIÓN STATUS & MODAL - PALETA MONOCROMÁTICA ROSA (INVIMON)
+   ============================================================ */
+
+/* Contenedor principal */
+.invitacion-status-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  padding: 20px;
+  background-color: #FDF2F4; /* Rosa ultra suave */
+}
+
+/* Tarjeta base */
+.status-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(184, 68, 94, 0.1);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+  border: 1px solid #F8D8DE;
+}
+
+.status-card h2 {
+  color: #B8445E; /* Rosa fuerte */
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-family: var(--font-cormorant), serif;
+  font-weight: 700;
+}
+
+.status-card p {
+  color: #E47990; /* Rosa medio */
+  line-height: 1.6;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Variantes de estado */
+.status-card.error .icon { color: #B8445E; }
+.status-card.expired .icon { color: #E47990; }
+
+/* Spinner de carga - AHORA ROSA */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #F8D8DE;
+  border-top: 4px solid #B8445E; 
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+/* Resumen de confirmación */
+.info-resumen {
+  background: #FFF5F7;
+  border: 1px solid #F8D8DE;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px 0;
+}
+
+.dato {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #B8445E;
+}
+
+.dato strong {
+  color: #B8445E;
+  font-weight: 800;
+}
+
+.qr-placeholder {
+  background: #FDF2F4;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #E47990;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Contenedor del QR */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.qr-contenedor {
+  padding: 15px;
+  background: white;
+  border: 1px solid #F8D8DE;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.mensaje-intro {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0 10px 0;
+  font-size: 1rem;
+  color: #B8445E;
+  display: block; 
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+}
+
+.qr-subtext {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #E47990;
+  text-align: center;
+}
+
+/* Botón de descarga y login - AHORA ROSA */
+.btn-rsvp {
+  display: block;
+  width: 100%;
+  margin: 30px auto; 
+  padding: 15px;
+  background-color: #d38c9d; 
+  color: #ffffff !important;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-rsvp:hover {
+  background-color: #E47990;
+  transform: translateY(-2px);
+}
+
+/* --- MODAL STYLES --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* DIFUMINADO GRIS/OSCURO SOLICITADO */
+  backdrop-filter: blur(8px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #E47990;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: #B8445E;
+}
+
+.modal-icon-bg {
+  width: 70px;
+  height: 70px;
+  background: #FDF2F4; 
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  color: #B8445E;
+}
+
+.modal-header h3 {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.6rem;
+  color: #B8445E;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.modal-header p {
+  color: #E47990;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.credentials-box {
+  background: #FFF5F7;
+  border: 1px dashed #B8445E;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.credentials-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #B8445E;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.credential-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.credential-row .label { color: #E47990; }
+.credential-row .value {
+  color: #B8445E;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.btn-go-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #d38c9d !important; /* BOTÓN ROSA */
+  color: white !important;
+  text-decoration: none;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.btn-go-panel:hover {
+  background: #d38c9d !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(184, 68, 94, 0.3);
+}
+
+.modal-note {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  color: #E47990;
+}
+
+/* Animaciones */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 480px) {
+  .modal-content { padding: 30px 20px; }
+  .btn-go-panel { padding: 14px 15px; font-size: 0.95rem; }
+}

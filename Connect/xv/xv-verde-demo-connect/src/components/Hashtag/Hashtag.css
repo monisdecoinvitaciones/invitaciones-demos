@@ -1,0 +1,135 @@
+/* ============================================================
+   HASHTAG SECTION - INVIMON STYLE
+   ============================================================ */
+
+.hashtag-section {
+  padding: 120px 20px; /* Aumentamos padding para dar espacio a las flores */
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative; /* Necesario para las flores absolute */
+  overflow: hidden;   /* Evita desbordes */
+}
+
+/* --- FLORES CON PARALLAX --- */
+.hashtag-flor-1 {
+  position: absolute;
+  top: -40px;
+  left: -80px;
+  opacity: 0.4; /* Un poco más sutil ya que el fondo es blanco puro */
+  pointer-events: none;
+  z-index: 1;
+  width: 350px;
+  transition: transform 0.1s linear;
+}
+
+.hashtag-flor-2 {
+  position: absolute;
+  bottom: -60px;
+  right: -80px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+  width: 350px;
+  transition: transform 0.1s linear;
+}
+
+.img-responsive-flor {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.hashtag-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2; /* Por encima de las flores */
+}
+
+.hashtag-pretitle {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: #5f7161; /* Color Oliva */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hashtag-main {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: #8AAC66; /* Burgundy */
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  line-height: 1.2;
+}
+
+.hashtag-main:hover {
+  transform: scale(1.05);
+}
+
+.hashtag-copy-btn {
+  margin-top: 25px;
+  background: none;
+  border: 1px solid #8AAC66;
+  padding: 10px 25px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #8AAC66;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hashtag-copy-btn:hover {
+  background-color: #8AAC66;
+  color: white;
+}
+
+.hashtag-copy-btn.copiado {
+  background-color: #5f7161; /* Verde al copiar */
+  color: white;
+  border-color: #5f7161;
+}
+
+.hashtag-footer {
+  margin-top: 30px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+  .hashtag-section {
+    padding: 80px 25px;
+  }
+
+  .hashtag-flor-1 {
+    width: 140px !important;
+    top: -10px;
+    left: -30px;
+  }
+
+  .hashtag-flor-2 {
+    width: 140px !important;
+    bottom: -30px;
+    right: -30px;
+  }
+
+  .hashtag-main {
+    font-size: 2.3rem;
+  }
+
+  .hashtag-footer {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}

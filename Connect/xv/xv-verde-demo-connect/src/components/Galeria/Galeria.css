@@ -1,0 +1,232 @@
+/* =======================================================
+   SECCIÓN GALERÍA ROYAL 
+   ======================================================= */
+.galeria-royal-section {
+  padding: 50px 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  /* Fondo principal */
+  background-image: linear-gradient(
+      rgba(91, 115, 65, 0.7), 
+      rgba(61, 83, 22, 0.8)
+    ), 
+    url('/icons/fondo-verde.png'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Overlay oscuro para legibilidad */
+.galeria-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  z-index: 1;
+}
+
+.galeria-royal-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Títulos */
+.titulo-galeria {
+  font-family: var(--font-cormorant), serif;
+  font-size: 3.8rem;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.adorno-galeria {
+  width: 70px;
+  height: 1px;
+  background-color: rgba(217, 183, 101, 0.5);
+  margin: 20px auto 20px;
+}
+
+/* =======================================================
+   GRID Y MARCOS DE FOTOS
+   ======================================================= */
+.galeria-royal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 5; /* Por encima del overlay */
+}
+
+.galeria-royal-item {
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 12px; /* Ancho del marco blanco */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+}
+
+.img-frame {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Forzar visualización de la imagen */
+.img-frame img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover;
+  opacity: 1 !important;
+  transition: transform 0.8s ease;
+}
+
+
+/* Borde dorado interno */
+.frame-border {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(217, 183, 101, 0.3);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Etiqueta flotante "Ver más" */
+.tap-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(148, 170, 100, 0.9);
+  color: white;
+  padding: 5px 12px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 4;
+}
+
+/* Hovers */
+.galeria-royal-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(217, 183, 101, 0.2);
+}
+
+.galeria-royal-item:hover .img-frame img {
+  transform: scale(1.05);
+}
+
+.galeria-royal-item:hover .tap-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =======================================================
+   LIGHTBOX (PANTALLA COMPLETA)
+   ======================================================= */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 25, 12, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  cursor: zoom-out;
+}
+
+.lightbox-img {
+  max-width: 95%;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+.subtitulo-curvo1{
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(3.5rem, 8vw, 4.6rem);
+  color: #ffffff;
+  margin-bottom: -10px;
+  z-index: 2;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 3rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+/* =======================================================
+   RESPONSIVO
+   ======================================================= */
+@media (max-width: 992px) {
+  .galeria-royal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .galeria-royal-section {
+    padding: 40px 10px;
+    background-attachment: scroll;
+  }
+
+  .titulo-galeria {
+    font-size: 2.2rem;
+    letter-spacing: 6px;
+  }
+
+  .galeria-royal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .img-frame {
+    height: 300px;
+  }
+
+  .tap-hint {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+
+  .lightbox-img {
+    max-width: 100%;
+    border-width: 2px;
+  }
+}
+

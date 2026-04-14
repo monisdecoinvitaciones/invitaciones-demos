@@ -1,0 +1,190 @@
+:root {
+  --inv-dark: #404D77;
+  --inv-sage: #92966F;
+  --inv-azure: #CDDFE9;
+  --inv-butter: #FFFEFC;
+}
+
+.section {
+  padding: 80px 20px;
+  background-color: var(--inv-butter);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Animación para el encabezado */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 1s ease;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mainTitle {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(3rem, 10vw, 4.4rem);
+  font-weight: 400;
+  color: var(--inv-dark);
+  margin: 0;
+}
+
+.titleDivider {
+  width: 80px;
+  height: 1px;
+  background-color: var(--inv-sage);
+  margin: 30px auto;
+}
+
+/* --- GRID RESPONSIVO --- */
+.gridUbicaciones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+/* --- TARJETA --- */
+.card {
+  background: #FFFFFF;
+  border: 1px solid var(--inv-azure);
+  padding: 30px 25px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 15px 40px rgba(64, 77, 119, 0.04);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+  position: relative;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tituloScript {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  color: var(--inv-sage);
+  margin: 0;
+  font-weight: 400;
+}
+
+.hora {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: var(--inv-dark);
+  letter-spacing: 4px;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+
+/* --- ICONO FLOTANTE --- */
+.iconoFloating {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.iconoFloating img {
+  width: 80px;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(29%) sepia(16%) saturate(1452%) hue-rotate(189deg) brightness(92%) contrast(88%);
+  animation: floatingIcon 4s ease-in-out infinite;
+}
+
+@keyframes floatingIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.nombreLugar {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--inv-dark);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.direccion {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #777;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.btnMaps {
+  margin-top: 30px;
+  background: transparent;
+  border: 1px solid var(--inv-dark);
+  color: var(--inv-dark);
+  padding: 14px 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  width: 100%;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.btnMaps:hover {
+  background: var(--inv-dark);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(64, 77, 119, 0.15);
+}
+
+/* --- MEDIA QUERIES --- */
+
+@media (max-width: 1024px) {
+  .gridUbicaciones {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 40px 15px;
+  }
+
+  .gridUbicaciones {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    padding: 25px 20px;
+    min-height: auto;
+    /* En móvil quitamos el delay para que no tarde tanto en aparecer la lista larga */
+    transition-delay: 0.1s !important; 
+  }
+
+  .mainTitle {
+    font-size: 3rem;
+  }
+
+  .iconoFloating img {
+    width: 80px;
+  }
+}
+

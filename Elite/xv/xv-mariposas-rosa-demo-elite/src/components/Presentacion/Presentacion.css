@@ -1,0 +1,181 @@
+.nosotros-section {
+  padding: 50px 20px;
+  background-color: #f2ede0; /* Ivory */
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.nosotros-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.novio-card {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  opacity: 0; /* Oculto inicialmente para la animación */
+  transition: opacity 0.8s ease;
+}
+
+.novio-card.ella { align-items: flex-end; }
+.novio-card.el { align-items: flex-start; }
+
+/* Cuando Intersection Observer activa la visibilidad */
+.novio-card.is-visible {
+  opacity: 1;
+}
+
+/* CONTENEDOR DE FOTO Y REVELADO */
+.foto-wrapper {
+  width: 85%;
+  height: 550px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 25px 25px 50px rgba(54, 32, 23, 0.1);
+}
+
+.foto-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2); /* Empieza con un ligero zoom */
+  transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* LA CORTINA (Efecto de revelado) */
+.reveal-curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4a0404; /* Burgundy - Color de la cortina */
+  z-index: 2;
+  transform: translateX(0);
+}
+
+/* Animación de la cortina al activarse */
+.is-visible .reveal-curtain {
+  animation: revealImage 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.is-visible .foto-content {
+  transform: scale(1); /* El zoom regresa a la normalidad */
+}
+
+@keyframes revealImage {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(101%); }
+}
+
+/* INFO GLASS (Glassmorphism) */
+.info-glass {
+  width: 75%;
+  margin-top: -80px; /* Superposición */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 10;
+  box-shadow: 0 20px 40px rgba(54, 32, 23, 0.08);
+  text-align: center;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1) 0.5s; /* Delay para esperar a la foto */
+}
+
+.is-visible .info-glass {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.rol {
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  color: #5f7161; /* Olive */
+  display: block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.nombre-script {
+  font-family: var(--font-mea), cursive;
+  font-size: 3.8rem;
+  color: #362017; /* Chocolate */
+  margin: 0 0 20px 0;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.descripcion {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: #4a0404;
+  max-width: 90% ;
+  margin: 0 auto;
+}
+
+/* DIVISOR CENTRAL */
+.middle-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 50px;
+  z-index: 5;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 180px;
+  background: linear-gradient(to bottom, transparent, #aa8a2e, transparent);
+  opacity: 0.5;
+}
+
+.ampersand-center {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 3rem;
+  color: #aa8a2e;
+  margin: 25px 0;
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 960px) {
+  .nosotros-section { padding: 80px 20px; }
+  
+  .nosotros-container {
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .novio-card.ella, .novio-card.el {
+    align-items: center;
+    width: 100%;
+  }
+
+  .foto-wrapper {
+    width: 100%;
+    height: 450px;
+  }
+
+  .info-glass {
+    width: 90%;
+    margin-top: -50px;
+    padding: 30px 20px;
+  }
+
+  .middle-divider { display: none; }
+
+  .nombre-script { font-size: 3rem; }
+}

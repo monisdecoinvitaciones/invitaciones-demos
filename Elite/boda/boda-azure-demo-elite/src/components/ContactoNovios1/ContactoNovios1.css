@@ -1,0 +1,113 @@
+.whatsapp-seccion {
+  padding: 0px 20px;
+  background-color: #FFFEFC; /* Color crema base */
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.whatsapp-container {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  /* Animación de entrada padre: escala + opacidad + elevación */
+  animation: revealContact 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  opacity: 0;
+}
+
+.whatsapp-deco-line {
+  width: 50px;
+  height: 2px;
+  background-color: #92966F; /* Salvia */
+  margin: 0 auto 30px;
+}
+
+.whatsapp-title {
+  font-family: 'Cinzel', serif;
+  color: #404D77; /* Azul Profundo */
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.whatsapp-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* BOTÓN ESTILO EDITORIAL */
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #404D77;
+  color: white;
+  text-decoration: none;
+  padding: 18px 35px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px rgba(64, 77, 119, 0.15);
+}
+
+.whatsapp-button:hover {
+  background-color: #92966F; /* Cambia a salvia en hover */
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(146, 150, 111, 0.3);
+}
+
+.whatsapp-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.whatsapp-footer-deco {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background-color: #CDDFE9; /* Azure */
+  border-radius: 50%;
+}
+
+/* KEYFRAMES ANIMACIÓN */
+@keyframes revealContact {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+  .whatsapp-seccion {
+    padding: 20px 20px;
+  }
+  
+  .whatsapp-title {
+    font-size: 1.4rem;
+  }
+  
+  .whatsapp-button {
+    width: 100%; /* Botón ancho completo en móvil para facilidad de clic */
+    box-sizing: border-box;
+  }
+}

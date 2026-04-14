@@ -1,0 +1,55 @@
+/* ================= FRASE & SECCIONES ================= */
+
+.nuestra-boda {
+  padding-top: 40px; 
+  padding-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* Aseguramos que la sección no tenga altura mínima extra */
+  min-height: auto; 
+  
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Controlamos el espacio ENTRE elementos (h2, p e img) */
+  gap: 6px; 
+  padding-bottom: 0;
+}
+
+/* ELIMINAR MÁRGENES POR DEFECTO */
+.contenido h2 {
+  margin: 0; 
+  padding: 0;
+  line-height: 1.1; /* Ajusta para que el texto no ocupe espacio extra */
+}
+
+.contenido p {
+  margin: 0;
+  padding: 0;
+  max-width: 80%; /* Evita que el texto sea muy ancho */
+}
+
+.img-adorno {
+  width: 80px; 
+  height: auto; /* Cambiado a auto para mantener proporción */
+  display: block; /* EVITA EL ESPACIO DE LÍNEA DE TEXTO DEBAJO */
+  margin: 0 auto; /* Centra y asegura que no haya márgenes externos */
+  opacity: 0.8;
+}
+/* Animaciones (Mantener igual) */
+.animar {
+  opacity: 0;
+  transform: translateY(15px); /* Reducido un poco */
+  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Evita que el elemento afecte el flujo del vecino mientras se mueve */
+  backface-visibility: hidden; 
+}
+
+.animar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

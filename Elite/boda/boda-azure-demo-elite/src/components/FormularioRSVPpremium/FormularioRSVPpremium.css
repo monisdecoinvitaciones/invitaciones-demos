@@ -1,0 +1,302 @@
+/* ============================================================
+   ESTILOS GENERALES Y CONTENEDOR - BLUE & SAGE EDITION
+   ============================================================ */
+.form-seccion {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FFFEFC; /* Fondo Butter Yellow suave */
+  min-height: 50vh;
+}
+
+/* Tarjeta del Formulario */
+.form-card {
+  background: white;
+  padding: 45px 35px;
+  border-radius: 30px;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 0 20px 40px rgba(64, 77, 119, 0.1); 
+  border: 1px solid rgba(205, 223, 233, 0.5); 
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+/* ============================================================
+   ESTILO DESTACADO: FECHA LÍMITE
+   ============================================================ */
+.container-fecha-limite {
+  background: rgba(146, 150, 111, 0.08); /* Sage Green muy suave */
+  border: 1px solid rgba(146, 150, 111, 0.3);
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-bottom: 5px;
+}
+
+.txt-fecha-limite {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: #92966F; /* Sage Green */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  text-align: center;
+}
+
+/* ============================================================
+   TIPOGRAFÍA Y TEXTOS
+   ============================================================ */
+.form-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #404D77; 
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.mensaje-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.4;
+  color: #404D77 !important;
+  font-style: italic;
+}
+
+.form-card label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #404D77;
+  text-align: center;
+}
+
+/* ============================================================
+   INPUTS Y SELECTS
+   ============================================================ */
+.form-card select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1.5px solid #CDDFE9; 
+  font-size: 1rem;
+  color: #404D77 !important;
+  background-color: #fff;
+  outline: none;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+/* ============================================================
+   CONTENEDOR DE CHECKBOXES
+   ============================================================ */
+.contenedor-checks {
+  margin: 10px 0;
+  padding: 25px;
+  background: #FFFEFC; 
+  border-radius: 18px;
+  border: 1px solid #CDDFE9;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.label-personalizado {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #92966F; 
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.invitado-row-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 12px 0 !important;
+  gap: 10px !important;
+  border-bottom: 1px solid rgba(205, 223, 233, 0.4) !important;
+}
+
+.checkbox-y-nombre {
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 !important;
+  gap: 12px !important;
+  min-width: 0;
+}
+
+.checkbox-custom {
+  position: relative;
+  width: 25px !important;
+  height: 25px !important;
+  flex-shrink: 0 !important;
+  cursor: pointer;
+}
+
+.checkbox-custom input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 2px solid #92966F; 
+  border-radius: 6px;
+}
+
+.checkbox-custom input:checked ~ .checkmark {
+  background-color: #92966F;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-custom input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.input-nombre-invitado-live {
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #92966F !important; 
+  color: #404D77 !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  padding: 4px 0 !important;
+  outline: none !important;
+}
+
+.selector-minimalista {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.opcion-txt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #bbb;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.opcion-txt.activo {
+  color: #404D77; 
+  font-weight: 800;
+  border-bottom: 1.5px solid #92966F; 
+}
+
+/* ============================================================
+   BOTÓN RSVP
+   ============================================================ */
+.btn-rsvp {
+  width: 100% !important;
+  max-width: 320px !important;
+  margin: 20px auto 0;
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: none;
+  background: #404D77 !important; 
+  color: white !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(64, 77, 119, 0.3);
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: block;
+  text-align: center;
+}
+
+.btn-rsvp:hover:not(:disabled) {
+  background: #92966F !important; 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(146, 150, 111, 0.3);
+}
+
+.btn-rsvp:disabled {
+  background-color: #CDDFE9 !important; 
+  color: #ffffff !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+/* Mensaje de éxito */
+.mensaje-exito {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: #404D77;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.icono-exito {
+  color: #92966F;
+  font-size: 4rem;
+}
+
+/* ============================================================
+   AJUSTES MÓVIL
+   ============================================================ */
+@media (max-width: 480px) {
+  .form-card {
+    padding: 30px 20px;
+  }
+  .invitado-row-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .selector-minimalista {
+    align-self: flex-end !important;
+    margin-top: -5px;
+  }
+  .btn-rsvp {
+    width: 100% !important;
+  }
+}

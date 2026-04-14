@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&display=swap');
+
+:root {
+  --eucalyptus: #8aac66;
+  --eucalyptus-soft: rgba(95, 113, 97, 0.05);
+  --eucalyptus-border: rgba(95, 113, 97, 0.15);
+}
+
+/* 1. CONTENEDOR PRINCIPAL */
+.invimon-footer-full {
+  width: 100%;
+  padding: 50px 20px;
+  margin-top: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-sizing: border-box; /* Asegura que el padding no estire el ancho */
+}
+
+.invimon-footer-full:hover {
+  background: linear-gradient(180deg, transparent, rgba(95, 113, 97, 0.08));
+}
+
+/* 2. ESTRUCTURA INTERNA */
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: auto; /* Cambiado a auto para que se ajuste al contenido centrado */
+  max-width: 100%;
+}
+
+/* 3. EL TEXTO (CON CORRECCIÓN DE CENTRADO) */
+.footer-text {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 14px;
+  color: #8aac66 !important;
+  text-transform: uppercase;
+  margin: 0 !important; /* Mata el margen de globals.css */
+  opacity: 0.8;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-align: center;
+  white-space: nowrap; /* Evita saltos de línea raros */
+
+  /* TRUCO MAESTRO: Compensación de letter-spacing */
+  letter-spacing: 4px;
+  text-indent: 4px; 
+}
+
+/* 4. LÍNEAS LATERALES */
+.footer-line {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--eucalyptus), transparent);
+  opacity: 0.5;
+  flex-shrink: 0; /* Evita que las líneas se aplasten si el texto es largo */
+}
+
+/* 5. ESTADOS HOVER */
+.invimon-footer-full:hover .footer-text {
+  letter-spacing: 6px;
+  text-indent: 6px; 
+  opacity: 1;
+}
+
+/* 6. RESPONSIVE */
+@media (max-width: 480px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-indent: 2px;
+  }
+
+  .footer-line {
+    width: 60px; /* Un poco más largas en móvil al estar apiladas */
+  }
+}

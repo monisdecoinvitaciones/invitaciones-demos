@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;400&display=swap');
+
+.elegant-countdown {
+  position: relative;
+  padding: 40px 20px; /* Reducido para mayor proximidad */
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Eliminamos min-height: 50vh para que no fuerce espacio vacío */
+  overflow: hidden;
+}
+
+.elegant-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Encabezado */
+.elegant-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 5px;
+  color: #B8445E;
+  font-weight: 400;
+}
+
+.elegant-line {
+  width: 30px; /* Más pequeña */
+  height: 1px;
+  background: #E47990;
+  margin: 10px auto; /* Reducido de 15px */
+  opacity: 0.6;
+}
+
+.elegant-title {
+ font-family: var(--font-mea), cursive;
+  font-size: clamp(2.3rem, 8vw, 4.5rem); /* Ajustado para que no sea excesivo en PC */
+  color: #a55166;
+  margin: 15px 0;
+  font-weight: 400;
+  text-align: center; /* Opcional: para que siempre estén centrados */
+  line-height: 1.2;
+}
+
+/* Grid del Contador */
+.elegant-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 35px; /* Reducido de 60px */
+}
+
+.elegant-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.elegant-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  color: #333;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.elegant-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #B8445E;
+  margin-top: 8px;
+}
+
+.elegant-divider {
+  width: 1px;
+  height: 30px;
+  background: radial-gradient(circle, #E47990 0%, transparent 100%);
+}
+
+.seconds-glow {
+  color: #d38c9d;
+}
+
+/* Footer */
+.elegant-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.full-date-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: #333;
+  font-weight: 400;
+  border-bottom: 1px solid #F8D8DE;
+  padding-bottom: 3px;
+}
+
+.elegant-butterfly {
+  width: 28px;
+  opacity: 0.6;
+  animation: elegantFloat 6s infinite ease-in-out;
+}
+
+.elegant-flower {
+  width: 25px;
+  opacity: 0.6;
+}
+
+@keyframes elegantFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+/* --- MEDIA QUERY: AJUSTE FINAL MÓVIL --- */
+@media (max-width: 768px) {
+  .elegant-countdown {
+    padding: 30px 15px; /* Padding mínimo */
+  }
+
+  .elegant-title {
+    margin-bottom: 25px;
+  }
+
+  .elegant-grid {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .elegant-divider {
+    display: none;
+  }
+
+  .elegant-number {
+    font-size: 2rem;
+  }
+
+  .full-date-text {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+}

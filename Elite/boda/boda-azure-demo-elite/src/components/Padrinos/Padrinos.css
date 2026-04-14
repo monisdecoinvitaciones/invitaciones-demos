@@ -1,0 +1,341 @@
+:root {
+  --sage: #92966F;
+  --dark-blue: #404D77;
+  --azure: #CDDFE9;
+  --butter-yellow: #FFFEFC;
+}
+
+.padrinos-section {
+  padding: 30px 0; 
+  background-color: var(--butter-yellow);
+  display: block; 
+  overflow: hidden;
+}
+
+.padrinos-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 25px;
+}
+
+.padrinos-swiper {
+  width: 100%;
+  margin-bottom: 0 !important; 
+}
+
+/* Transición de desvanecimiento limpia */
+.swiper-slide {
+  background: transparent !important;
+  opacity: 0 !important;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 800ms ease-in-out, visibility 800ms !important;
+}
+
+.swiper-slide-active {
+  opacity: 1 !important;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Diseño del Item (Compacto) */
+.padrino-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 0; 
+  min-height: auto; /* Permite que el contenido dicte la altura */
+}
+
+.padrino-content { 
+  text-align: right; 
+}
+
+.padrino-label {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: var(--sage);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.padrino-name {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  color: var(--dark-blue);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.padrino-role {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--sage);
+  margin-top: 8px;
+}
+
+/* Imagen y Frame */
+.padrino-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 340px; /* Tamaño reducido para compactar en PC */
+  aspect-ratio: 1/1;
+}
+
+.padrino-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  z-index: 2;
+  position: relative;
+}
+
+.blob-bg {
+  position: absolute;
+  inset: -12px;
+  background-color: var(--azure);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* Paginación Pegada */
+.swiper-pagination-custom {
+  margin-top: 10px; /* Controla la distancia final de los números */
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.padrino-dot {
+  background: none;
+  border: none;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: var(--dark-blue);
+  opacity: 0.3;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.padrino-dot.active {
+  opacity: 1;
+  border-bottom: 1px solid var(--sage);
+}
+
+/* Flechas Swiper */
+.padrinos-swiper .swiper-button-next,
+.padrinos-swiper .swiper-button-prev {
+  color: var(--sage);
+  transform: scale(0.6);
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.padrinos-swiper .swiper-button-next:hover,
+.padrinos-swiper .swiper-button-prev:hover {
+  opacity: 1;
+}
+
+/* Responsivo */
+@media (max-width: 850px) {
+  .padrino-item { 
+    grid-template-columns: 1fr; 
+    text-align: center;
+    gap: 20px;
+  }
+  .padrino-content { order: 2; text-align: center; }
+  .padrino-visual { order: 1; }
+  .image-frame { max-width: 260px; margin: 0 auto; }
+  .padrinos-swiper .swiper-button-next,
+  .padrinos-swiper .swiper-button-prev { display: none; }
+}:root {
+  --sage: #92966F;
+  --dark-blue: #404D77;
+  --azure: #CDDFE9;
+  --butter-yellow: #FFFEFC;
+}
+
+.padrinos-section {
+  padding: 30px 0; /* Aumentado un poco para dar aire */
+  background-color: var(--butter-yellow);
+  display: block; 
+  overflow: hidden; /* Mantiene el scroll de la página limpio */
+}
+
+.padrinos-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 25px;
+}
+
+/* IMPORTANTE: Permitir que el swiper muestre lo que sobresale un poco */
+.padrinos-swiper {
+  width: 100%;
+  padding: 20px 0 !important; /* Espacio extra arriba/abajo para que la burbuja no se corte */
+  overflow: visible !important; /* Permite que el efecto de la burbuja se vea completo */
+}
+
+/* Transición de desvanecimiento limpia */
+.swiper-slide {
+  background: transparent !important;
+  opacity: 0 !important;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 800ms ease-in-out, visibility 800ms !important;
+}
+
+.swiper-slide-active {
+  opacity: 1 !important;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Diseño del Item */
+.padrino-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 10px; /* Un pequeño padding interno */
+}
+
+.padrino-content { 
+  text-align: right; 
+}
+
+.padrino-label {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: var(--sage);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.padrino-name {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  color: var(--dark-blue);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.padrino-role {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--sage);
+  margin-top: 8px;
+}
+
+/* Imagen y Frame - EL AJUSTE ESTÁ AQUÍ */
+.padrino-visual {
+  display: flex;
+  justify-content: center;
+  padding: 20px; /* Espacio de seguridad para que la burbuja respire */
+}
+
+.image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 320px; 
+  aspect-ratio: 1/1;
+}
+
+.padrino-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(64, 77, 119, 0.1);
+}
+
+.blob-bg {
+  position: absolute;
+  /* inset: -15px; aumentado para que se note más el efecto */
+  inset: -15px; 
+  background-color: var(--azure);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  z-index: 1;
+  opacity: 0.4;
+  /* Añadimos una pequeña animación para que se vea más "pro" */
+  animation: blob-mini-morph 8s infinite alternate ease-in-out;
+}
+
+@keyframes blob-mini-morph {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(0deg); }
+  100% { border-radius: 50% 50% 30% 70% / 40% 40% 60% 60%; transform: rotate(5deg); }
+}
+
+/* Paginación */
+.swiper-pagination-custom {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.padrino-dot {
+  background: none;
+  border: none;
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--dark-blue);
+  opacity: 0.3;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.padrino-dot.active {
+  opacity: 1;
+  color: var(--sage);
+  transform: scale(1.2);
+}
+
+/* Responsivo */
+@media (max-width: 850px) {
+  .padrinos-section { padding: 40px 0; }
+  
+  .padrino-item { 
+    grid-template-columns: 1fr; 
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .padrino-content { 
+    order: 2; 
+    text-align: center; 
+    padding: 0 10px;
+  }
+  
+  .padrino-visual { 
+    order: 1; 
+    padding: 25px; /* Más espacio en móvil para que la burbuja no toque los bordes */
+  }
+  
+  .image-frame { 
+    max-width: 240px; 
+    margin: 0 auto; 
+  }
+  
+  .padrino-name { font-size: 2.2rem; }
+}

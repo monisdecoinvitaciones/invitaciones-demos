@@ -1,0 +1,221 @@
+/* =========================
+   SECCIÓN DRESS CODE - RESPONSIVA
+========================= */
+.dress-code-section {
+  padding: 20px 20px; /* Un poco más de aire lateral */
+  background-color: #a55166;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.dress-line {
+  width: 85%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #F8D8DE, transparent);
+  transform: scaleX(0);
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal-line { transform: scaleX(1); }
+
+.dress-code-container {
+  padding: 40px 20px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.reveal-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- ICONO --- */
+.dress-icon-wrapper {
+  width: clamp(130px, 15vw, 160px);
+  margin-bottom: 15px;
+}
+
+.dress-icon {
+  width: 100%;
+  height: auto;
+  animation: floatingIcon 4s ease-in-out infinite;
+  filter: brightness(0) invert(1);
+}
+
+@keyframes floatingIcon {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* --- TIPOGRAFÍA --- */
+.dress-title {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  color: #FFFFFF;
+  margin: 10px 0;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.dress-type {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  letter-spacing: 4px;
+  color: #F8D8DE;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.dress-description {
+  max-width: 500px;
+  margin-bottom: 40px;
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.1rem, 4vw, 1.25rem);
+  color: #FFFFFF;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* --- COLORES RESERVADOS --- */
+.palette-group {
+  width: 100%;
+}
+
+.colors-subtitle {
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 35px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(248, 216, 222, 0.4);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.forbidden-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-circle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reveal-circle {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.x-mark {
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.color-name {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #F8D8DE;
+  font-family: var(--font-cormorant), serif;
+}
+
+.dress-note {
+  font-size: 0.95rem;
+  color: #F8D8DE;
+  font-style: italic;
+  max-width: 400px;
+  margin: 25px auto 0;
+  line-height: 1.4;
+  font-family: var(--font-cormorant), serif;
+  opacity: 0.9;
+}
+
+/* --- AJUSTES ESPECÍFICOS MÓVIL --- */
+@media (max-width: 600px) {
+  .dress-code-section {
+    padding: 30px 15px;
+  }
+
+  .dress-code-container {
+    padding: 20px 10px;
+  }
+
+  /* Cambiado de grid a flex para centrado automático del último elemento */
+  .forbidden-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto 30px;
+  }
+
+  .color-item {
+    flex: 0 1 calc(50% - 20px); /* Ocupa la mitad menos el gap */
+    min-width: 100px;
+  }
+
+  .color-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dress-description {
+    margin-bottom: 30px;
+  }
+
+  .dress-line {
+    width: 90%;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 380px) {
+  .forbidden-grid {
+    gap: 15px;
+  }
+  
+  .color-item {
+    flex: 0 1 calc(50% - 15px);
+    min-width: 80px;
+  }
+
+  .color-circle {
+    width: 50px;
+    height: 50px;
+  }
+}

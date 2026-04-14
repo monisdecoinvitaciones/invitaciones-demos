@@ -1,0 +1,48 @@
+
+
+/*------------------SOLO ADULTOS---------------*/
+
+.adultos-seccion {
+  padding: 10px 20px;
+  background: #f8f6f2;
+  text-align: center;
+}
+
+.adultos-contenido {
+  max-width: 650px;
+  margin: 0 auto;
+
+  opacity: 0;
+  transform: translateY(30px); /* movimiento ligero en lugar de blur */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform; /* optimización GPU */
+}
+
+.adultos-contenido.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* En móviles reducimos aún más el movimiento */
+@media (max-width: 768px) {
+  .adultos-contenido {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+  }
+}
+
+
+.adultos-titulo {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #6d7a5f;
+  margin-bottom: 10px;
+}
+
+.adultos-texto {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-top: 0;
+  margin-bottom: 15px;
+}

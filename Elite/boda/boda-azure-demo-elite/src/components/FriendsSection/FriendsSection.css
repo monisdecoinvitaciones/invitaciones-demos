@@ -1,0 +1,225 @@
+:root {
+  --pink-light: #FCC7D1;
+  --pink-main: #F0B3C5;
+  --pink-vibrant: #E47990;
+  --pink-deep: #B8445E;
+  --pink-soft: #F8D8DE;
+  --pink-muted: #DE8C9C;
+}
+
+.friends-interactive-section {
+  position: relative;
+  min-height: auto;
+  padding: 50px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.friends-container {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* Encabezado */
+.friends-header {
+  margin-bottom: 50px;
+}
+
+.friends-subtitle {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  color: #B8445E;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.friends-title {
+ font-family: var(--font-mea), cursive;
+  font-size: clamp(2.3rem, 8vw, 4.5rem); /* Ajustado para que no sea excesivo en PC */
+  color: #a55166;
+  margin: 15px 0;
+  font-weight: 400;
+  text-align: center; /* Opcional: para que siempre estén centrados */
+  line-height: 1.2;
+}
+
+.friends-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--pink-light), transparent);
+  margin: 0 auto;
+}
+
+/* El Grid Responsivo */
+.friends-grid {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* --- ESTILOS DE LA TARJETA FLIP --- */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 320px;
+  perspective: 1500px; 
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent; 
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(184, 68, 94, 0.08);
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Caras Comunes */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  padding: 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.8);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0); 
+}
+
+/* --- ESTILO FRONTAL --- */
+.flip-card-front {
+  background: #d38c9d;
+  color: white;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.decor-glow {
+  position: absolute;
+  width: 80px; height: 80px;
+  background: white; filter: blur(20px); opacity: 0.4;
+}
+
+.card-tag {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.card-role-text {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.8rem, 3vw, 2rem);
+  margin: 8px 0;
+  color: white;
+  text-transform: capitalize;
+}
+
+.card-instruction {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.4rem;
+  color: white;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+.card-butterfly-icon {
+  width: 45px;
+  margin-top: 15px;
+}
+
+/* --- ESTILO TRASERO --- */
+.flip-card-back {
+  background-color: #ffffff;
+  color: var(--pink-deep);
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.friend-photo-frame {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--pink-light);
+  box-shadow: 0 5px 15px rgba(184, 68, 94, 0.15);
+  margin-bottom: 12px;
+}
+
+.friend-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.friend-name {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
+  margin: 8px 0 4px 0;
+}
+
+.friend-phrase {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.3rem;
+  color: var(--pink-muted);
+  font-style: italic;
+  max-width: 180px;
+  line-height: 1.3;
+}
+
+.friends-tap-hint {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.5rem;
+  color: var(--pink-muted);
+  font-style: italic;
+  opacity: 0.7;
+  margin-top: 15px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+  .friends-interactive-section { padding: 50px 15px; }
+  .friends-header { margin-bottom: 35px; }
+  .friends-grid { gap: 15px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  .flip-card { height: 260px; }
+  .card-role-text { font-size: 1.3rem; }
+  .friend-photo-frame { width: 90px; height: 90px; margin-bottom: 3px; }
+  .friend-name { font-size: 1.7rem; }
+  .friend-phrase { font-size: 1rem; max-width: 190px; }
+}
+
+@media (max-width: 480px) {
+  .friends-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-left: auto; margin-right: auto;
+  }
+}

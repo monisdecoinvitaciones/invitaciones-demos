@@ -1,0 +1,155 @@
+.countdown-section {
+  position: relative;
+  width: 100%;
+  padding: 40px 20px; /* Reducido para ser compacto */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F8F9FA;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-image: url('/fondoVerde.jpeg');
+  background-size: 600px;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+.countdown-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px 50px;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(64, 77, 119, 0.05);
+}
+
+.countdown-flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+/* --- FECHA LLAMATIVA --- */
+.wedding-date-hero {
+  display: flex;
+  flex-direction: column;
+  color: #404D77;
+  font-family: 'Cinzel', serif;
+}
+
+.date-pre {
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  color: #92966F;
+  font-weight: 700;
+  margin-bottom: -5px;
+}
+
+.date-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.big-number {
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.date-column {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid #92966F;
+  padding-left: 10px;
+}
+
+.month {
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.year {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.vertical-divider {
+  width: 1px;
+  height: 80px;
+  background: rgba(146, 150, 111, 0.3);
+}
+
+/* --- CONTADOR COMPACTO --- */
+.countdown-title-compact {
+  font-family: "Pinyon Script", cursive;
+  font-size: 2.2rem;
+  color: #92966F;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+}
+
+.countdown-grid-compact {
+  display: flex;
+  gap: 25px;
+}
+
+.unit {
+  text-align: center;
+}
+
+.num {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  color: #404D77;
+  line-height: 1;
+}
+
+.lab {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+/* --- RESPONSIVIDAD (MÓVIL) --- */
+@media (max-width: 850px) {
+  .countdown-flex-container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .vertical-divider {
+    display: none;
+  }
+
+  .countdown-overlay {
+    padding: 40px 20px;
+  }
+
+  .big-number { font-size: 4rem; }
+
+  .date-main { justify-content: center; }
+
+  .countdown-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+}

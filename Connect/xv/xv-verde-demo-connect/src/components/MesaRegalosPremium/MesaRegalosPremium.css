@@ -1,0 +1,194 @@
+/* 1. CONTENEDOR BASE */
+.mesa-premium {
+  position: relative;
+  padding: 30px 20px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 2. TÍTULO DINÁMICO */
+.titulo-seccion-mesa {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(3.5rem, 8vw, 4.6rem); /* Se ajusta solo según el ancho */
+  color: #8AAC66;
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* 3. SLIDER / GRID (COMPORTAMIENTO HÍBRIDO) */
+.slider-premium {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+/* 4. TARJETAS */
+.card-wrapper {
+  flex: 0 1 320px; /* Tamaño base en PC */
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.card-premium {
+  width: 100%;
+  height: 450px;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.card-top {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: radial-gradient(circle, #ffffff 0%, #fafafa 100%);
+}
+
+.card-top img {
+  max-width: 90%;
+  max-height: 100px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.card-bottom {
+  height: 70px;
+  background: #8AAC66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+}
+
+/* 5. INTERACCIÓN SOLO EN PC */
+@media (min-width: 1025px) {
+  .card-premium:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(138, 172, 102, 0.2);
+    border-color: #8AAC66;
+  }
+  
+  .card-premium:hover .card-top img {
+    transform: scale(1.1);
+  }
+
+  .card-bottom:hover {
+    background: #769458; /* Un verde más oscuro al hover */
+    letter-spacing: 4px;
+  }
+}
+
+/* 6. OCULTAR CONTROLES EN PC */
+.dots, .hint {
+  display: none;
+}
+
+/* 7. TABLETS (Pantallas medianas) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .slider-premium {
+    gap: 20px;
+    padding: 0 20px;
+  }
+  .card-wrapper {
+    flex: 0 1 280px;
+  }
+  .card-premium {
+    height: 400px;
+  }
+}
+
+/* 8. RESPONSIVE MÓVIL (Slider táctil) */
+@media (max-width: 768px) {
+  .mesa-premium {
+    padding: 40px 0;
+  }
+
+  .slider-premium {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slider-premium::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-wrapper {
+    flex: 0 0 100%; /* Una tarjeta a la vez */
+    scroll-snap-align: center;
+  }
+
+  .card-premium {
+    width: 280px; /* Tamaño fijo en móvil para que se asomen las demás */
+    height: 380px;
+    opacity: 0.4;
+    transform: scale(0.85);
+    margin: 0 auto;
+    box-shadow: none;
+  }
+
+  /* Tarjeta enfocada activa vía JS */
+  .card-premium.active {
+    opacity: 1;
+    transform: scale(1);
+   
+    border-color: #8AAC66;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d1d1d1;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active-dot {
+    background: #8AAC66;
+    width: 20px;
+    border-radius: 10px;
+  }
+
+  .hint {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #8AAC66;
+    font-style: italic;
+  }
+}

@@ -1,0 +1,164 @@
+.save-date-section {
+  position: relative;
+  padding: 50px 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F0F2F5; /* Fondo base igual al contador */
+}
+
+/* --- FONDO PARALLAX IGUAL AL COUNTDOWN --- */
+.save-date-parallax-bg {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-image: url('/fondoVerde.jpeg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 700px;
+  opacity: 0.35; /* Sutil como en el contador */
+  z-index: 1;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.save-date-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.6); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  padding: 60px 40px;
+  max-width: 750px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(64, 77, 119, 0.05);
+}
+
+.save-date-pretitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 5px;
+  color: #92966F; /* Verde Salvia */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+}
+
+.save-date-title {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(3rem, 8vw, 5rem);
+  color: #404D77; /* Azul Profundo */
+  margin: 0;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* --- DIVISOR DE FECHA --- */
+.save-date-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px 0 40px;
+}
+
+.save-date-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #CDDFE9, transparent);
+  max-width: 100px;
+}
+
+.date-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: #404D77;
+  letter-spacing: 3px;
+}
+
+/* --- BOTONES DE CALENDARIO --- */
+.calendar-buttons-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-calendar {
+  background: transparent;
+  border: 1px solid #404D77;
+  padding: 14px 28px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #404D77;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn-calendar:hover {
+  background-color: #404D77;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(64, 77, 119, 0.15);
+}
+
+.btn-calendar svg {
+  width: 18px;
+  height: 18px;
+}
+
+.save-date-footer {
+  margin-top: 45px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+  .save-date-section {
+    padding: 50px 20px;
+  }
+
+  .save-date-overlay {
+    padding: 40px 25px;
+    border-radius: 30px;
+  }
+
+  .save-date-title {
+    font-size: 3.2rem;
+  }
+
+  .calendar-buttons-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-calendar {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+  }
+  
+  .date-text {
+    font-size: 1.1rem;
+  }
+}

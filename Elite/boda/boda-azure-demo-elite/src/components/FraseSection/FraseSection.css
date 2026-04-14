@@ -1,0 +1,169 @@
+:root {
+  --sage-q: #92966F;
+  --azure-q: #CDDFE9;
+  --dark-blue-q: #404D77;
+  --grey-blue-q: #859BBA;
+  --cream-q: #FFFEFC;
+}
+
+.coastal-quote-section {
+  position: relative;
+  min-height: 50vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sage-q);
+  overflow: hidden;
+  padding: 60px 20px;
+}
+
+.coastal-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/linen.png');
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.coastal-quote-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Contenedor PC: Cactus a los lados */
+.quote-content-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+}
+
+.cactus-icon {
+  width: 160px;
+  height: auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 5;
+}
+
+.is-visible .cactus-icon {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+/* Espejo para el cactus derecho */
+.cactus-icon.right {
+  transform: translateY(40px) scaleX(-1);
+}
+
+.is-visible .cactus-icon.right {
+  transform: translateY(0) scaleX(-1);
+}
+
+/* Frase */
+.coastal-blockquote p {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: white;
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.coastal-blockquote .highlight {
+  font-style: italic;
+  color: black;
+  font-weight: 300;
+}
+
+.is-visible .line-1 { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.is-visible .line-2 { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+.is-visible .line-3 { opacity: 1; transform: translateY(0); transition-delay: 0.9s; }
+
+.quote-author {
+  display: block;
+  margin-top: 20px;
+  font-family: var(--font-cormorant), serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s ease 1.5s;
+}
+
+.is-visible .quote-author {
+  opacity: 1;
+}
+
+/* Decoración difuminada */
+.corner-decor {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-color: var(--azure-q);
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.top-left { top: -150px; left: -150px; }
+.bottom-right { bottom: -150px; right: -150px; background-color: var(--dark-blue-q); }
+
+/* --- DISEÑO MÓVIL RECOMENDADO --- */
+@media (max-width: 768px) {
+  .coastal-quote-section {
+    min-height: 45vh;
+    padding: 80px 24px;
+  }
+
+  .quote-content-wrapper {
+    display: block; /* Quitamos el flex para que solo quede el texto al centro */
+  }
+
+  .cactus-icon {
+    position: absolute; /* Sacamos los cactus del flujo de la frase */
+    bottom: -10px; /* Pegados al fondo de la sección */
+    width: 90px;
+    opacity: 0 !important;
+  }
+
+  /* Cactus Izquierdo en esquina inferior izquierda */
+  .cactus-icon.left {
+    left: -10px;
+    transform: translateY(30px) rotate(-15deg);
+  }
+
+  /* Cactus Derecho en esquina inferior derecha */
+  .cactus-icon.right {
+    right: -10px;
+    transform: translateY(30px) rotate(15deg) scaleX(-1);
+  }
+
+  .is-visible .cactus-icon {
+    opacity: 0.3 !important; /* Muy sutil para que no tape el texto */
+    transform: translateY(0) rotate(-15deg);
+  }
+
+  .is-visible .cactus-icon.right {
+    transform: translateY(0) rotate(15deg) scaleX(-1);
+  }
+
+  .coastal-blockquote p {
+    font-size: 1.7rem;
+    line-height: 1.3;
+  }
+
+  .quote-author {
+    margin-top: 30px;
+  }
+}

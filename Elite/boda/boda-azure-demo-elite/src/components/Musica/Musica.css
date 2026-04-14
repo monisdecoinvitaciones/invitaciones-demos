@@ -1,0 +1,53 @@
+/* BOTON MUSICA - Versión Azul Profundo */
+.btn-musica {
+  position: fixed;
+  bottom: 25px; 
+  right: 5%;    
+  width: 50px;
+  height: 50px;
+
+  /* Cambiado a #404D77 con transparencia para coherencia visual */
+  background: rgba(64, 77, 119, 0.75); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 9998; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(64, 77, 119, 0.2);
+}
+
+/* Ícono SVG dentro del botón */
+.btn-musica .icono-musica {
+  width: 22px;   
+  height: 22px;
+  fill: #FFFFFF; /* Blanco puro para contraste */
+}
+
+.btn-musica:hover {
+  /* Al pasar el mouse se vuelve un poco más sólido */
+  background: rgba(64, 77, 119, 0.9);
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(64, 77, 119, 0.3);
+}
+
+/* --- AJUSTE RESPONSIVO --- */
+@media (max-width: 850px) {
+  .btn-musica {
+    bottom: 20px; 
+    right: 10px; /* Un poco más de margen para no pegarse al borde */
+    width: 48px;
+    height: 48px;
+  }
+  
+  .btn-musica .icono-musica {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,112 @@
+/*-----------------BOTON FLOTANTE*/
+/* Botón circular que abre el menú */
+/* Estilos base para el Botón (Desktop y general) */
+.boton-menu {
+  position: fixed;
+  bottom: 100px; /* Separación del botón de música */
+  right: 5%;    /* Usamos % para que se adapte al ancho de pantalla */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borde sutil */
+  font-size: 20px;
+  
+  /* Efecto Cristalino */
+  background: rgba(211, 138, 157, 0.4); /* Base rosa con transparencia */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  color: white;
+  cursor: pointer;
+  z-index: 8000; 
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton-menu:hover {
+  background: rgba(211, 138, 157, 0.6);
+  transform: scale(1.05);
+}
+
+/* Lista de botones (Menú desplegable) */
+.menu-flotante {
+  position: fixed;
+  bottom: 160px; 
+  right: 5%;
+  
+  /* Color Rosa Solicitado con Efecto Cristalino */
+  background: rgba(211, 138, 157, 0.85); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 9999; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  
+  /* Responsividad de altura */
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.menu-flotante.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Botones internos de la lista */
+.menu-flotante button {
+  background: rgba(255, 255, 255, 0.9); /* Blanco casi sólido para legibilidad */
+  border: none;
+  border-radius: 12px;
+  color: #a55166; /* Texto en el rosa oscuro de la paleta */
+  font-family: var(--font-cormorant), serif;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 12px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu-flotante button:hover {
+  background: white;
+  transform: translateX(-3px);
+  color: #d38c9d;
+}
+
+/* --- AJUSTES PARA MÓVILES (Responsivo) --- */
+@media (max-width: 600px) {
+  .boton-menu {
+    bottom: 20px; /* Un poco más abajo en móvil */
+    right: 10px;  /* Margen fijo en pantallas pequeñas */
+    width: 48px;
+    height: 48px;
+  }
+
+  .menu-flotante {
+    bottom: 150px;
+    right: 15px;
+    width: 200px; /* Un poco más ancho para mejor lectura */
+    padding: 10px;
+  }
+  
+  .menu-flotante button {
+    font-size: 0.8rem;
+    padding: 14px 10px; /* Área de toque optimizada para móvil */
+  }
+}

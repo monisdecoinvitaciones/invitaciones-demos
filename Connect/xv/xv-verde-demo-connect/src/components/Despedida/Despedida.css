@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@400;600&family=Cormorant+Garamond:wght@400;600&display=swap');
+
+.despedida-section {
+  position: relative;
+  width: 100%;
+  min-height: 80vh; /* Ocupa casi todo el alto de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* --- CONFIGURACIÓN DE LA FOTO DE FONDO --- */
+  /* Reemplaza esta ruta por la de tu foto real */
+  background-image: url('/xv2/optimized/xv6.webp'); 
+  
+  background-size: cover; /* La foto cubre todo el espacio */
+  background-position: center; /* Centrada */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Efecto Parallax elegante en PC */
+  overflow: hidden;
+}
+
+/* --- CAPA DE SUPERPOSICIÓN (OVERLAY) --- */
+/* Esta capa oscurece un poco la foto para que el texto blanco se lea perfecto */
+.despedida-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Degradado sutil de negro a transparente */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 1;
+}
+
+.despedida-container {
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  z-index: 2; /* Por encima del overlay */
+  color: #ffffff; /* Texto en blanco para contraste */
+}
+
+.despedida-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.despedida-titulo {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(3rem, 8vw, 5rem); /* Tamaño fluido */
+  color: #F8F3CD; /* Crema de la paleta */
+  margin: 0;
+  line-height: 1;
+  font-weight: 400;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.despedida-mensaje {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 10px 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.despedida-firma {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #BDD395; /* Verde Pistacho de la paleta */
+  margin-top: 20px;
+}
+
+/* --- BOTÓN VOLVER ARRIBA (Estilo Tiana) --- */
+.btn-subir {
+  margin-top: 40px;
+  padding: 12px 30px;
+  background-color: transparent;
+  border: 1px solid #BDD395; /* Borde Pistacho */
+  color: #BDD395;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-subir:hover {
+  background-color: #BDD395;
+  color: #769A8C; /* Texto en Verde Musgo Profundo */
+}
+
+/* ========= RESPONSIVO ========= */
+@media (max-width: 768px) {
+  .despedida-section {
+    min-height: 60vh;
+    /* Desactivamos fixed en móvil para mejor rendimiento */
+    background-attachment: scroll; 
+  }
+  
+  .despedida-titulo {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .despedida-section {
+    padding: 60px 20px;
+  }
+  
+  .despedida-titulo {
+    font-size: 2.8rem;
+  }
+  
+  .despedida-mensaje {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+}

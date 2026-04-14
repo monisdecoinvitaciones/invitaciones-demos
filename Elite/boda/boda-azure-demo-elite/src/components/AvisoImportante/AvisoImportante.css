@@ -1,0 +1,237 @@
+.special-moment-section {
+  position: relative;
+  min-height: 45vh; 
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px 20px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.special-moment-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 850px;
+  width: 100%;
+}
+
+.special-moment-wrapper {
+  position: relative;
+  padding: 20px 0;
+}
+
+.special-tag {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  color: #B8445E;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.special-moment-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-in .special-moment-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.special-moment-text p {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  color: var(--pink-deep);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.highlight {
+  font-family: var(--font-mea), cursive;
+  color: var(--pink-vibrant);
+  font-size: 1.25em;
+  padding: 0 5px;
+}
+
+.highlight-time {
+  font-weight: 700;
+  color: var(--pink-vibrant);
+}
+
+.special-footer {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem !important;
+  font-style: italic;
+  margin-top: 15px !important;
+  color: black !important;
+}
+
+/* --- ADORNOS Y COMILLAS --- */
+.quote-mark {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(5rem, 10vw, 7.5rem);
+  color: var(--pink-light);
+  position: absolute;
+  
+  line-height: 1;
+  z-index: -1;
+}
+
+.quote-mark.open { top: -20px; left: -10px; }
+.quote-mark.close { bottom: -30px; right: -10px; }
+
+.special-ornament {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--pink-vibrant), transparent);
+  margin: 20px auto;
+  opacity: 0.5;
+}
+
+/* --- ICONOS FLOTANTES --- */
+.float-butterfly, .float-flower {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2s ease;
+  z-index: 2;
+}
+
+.animate-in .float-butterfly, 
+.animate-in .float-flower {
+  opacity: 1;
+}
+
+.b1 { width: 80px; top: 15%; left: 10%; animation: floating 6s infinite ease-in-out; }
+.b2 { width: 50px; bottom: 10%; right: 10%; animation: floating 8s infinite ease-in-out reverse; }
+.f1 { width: 70px; top: 20%; right: 15%; animation: floating 7s infinite ease-in-out 1s; }
+.f2 { width: 60px; bottom: 20%; left: 15%; animation: floating 9s infinite ease-in-out; }
+
+@keyframes floating {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(10px, -15px) rotate(8deg); }
+}
+
+.star-dust {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(circle, #fff 1px, transparent 1px),
+    radial-gradient(circle, var(--pink-main) 1px, transparent 1px);
+  background-size: 60px 60px, 120px 120px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+/* --- RESPONSIVO CORREGIDO --- */
+@media (max-width: 768px) {
+  .special-moment-section { 
+    padding: 60px 15px; 
+    min-height: 40vh;
+  }
+  
+  .special-moment-text p { 
+    font-size: 1.4rem; 
+    padding: 0 10px;
+  }
+
+  .quote-mark { 
+    font-size: 3.5rem; 
+     /* Menos opacidad para que no distraiga del texto */
+  }
+  
+  .quote-mark.open { top: -15px; left: 0px; }
+  .quote-mark.close { bottom: -20px; right: 0px; }
+
+  /* Reposicionamiento de iconos para que no se encimen */
+  .b1 { width: 45px; top: 5%; left: 5%; }
+  .b2 { width: 35px; bottom: 5%; right: 5%; }
+  .f1 { width: 40px; top: 8%; right: 5%; }
+  .f2 { width: 35px; bottom: 8%; left: 5%; }
+
+  .special-ornament {
+    width: 60px;
+    margin: 15px auto;
+  }
+}
+
+/* Ajuste extra para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  .special-moment-text p { font-size: 1.25rem; }
+  .b1, .f1 { top: 2%; }
+  .b2, .f2 { bottom: 2%; }
+}
+
+/* --- RESPONSIVO CORREGIDO (DENTRO DE LOS LÍMITES) --- */
+@media (max-width: 768px) {
+  .special-moment-section { 
+    padding: 50px 20px; 
+    min-height: auto; /* Dejamos que el contenido mande */
+  }
+  
+  .special-moment-text p { 
+    font-size: 1.4rem; 
+    padding: 0 25px; /* Más aire a los lados para los iconos */
+  }
+
+  /* Comillas más discretas y pegadas al texto */
+  .quote-mark { 
+    font-size: 3rem; 
+    
+  }
+  .quote-mark.open { top: -10px; left: 5px; }
+  .quote-mark.close { bottom: -15px; right: 5px; }
+
+  /* Iconos: Tamaño pequeño y posiciones seguras (dentro de la sección) */
+  .b1 { 
+    width: 40px; 
+    top: 10%; 
+    left: 8%; /* Movido ligeramente hacia adentro */
+  }
+  .b2 { 
+    width: 30px; 
+    bottom: 10%; 
+    right: 8%; 
+  }
+  .f1 { 
+    width: 35px; 
+    top: 12%; 
+    right: 8%; 
+  }
+  .f2 { 
+    width: 30px; 
+    bottom: 12%; 
+    left: 8%; 
+  }
+
+  /* Reducimos la animación en móvil para que no "vuelen" fuera de la vista */
+  @keyframes floating {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(5px, -8px) rotate(4deg); }
+  }
+
+  .special-ornament {
+    width: 50px;
+    margin: 15px auto;
+  }
+}
+
+/* Para pantallas muy angostas, bajamos la opacidad de los iconos aún más */
+@media (max-width: 450px) {
+  .animate-in .float-butterfly, 
+  .animate-in .float-flower {
+     /* Sutileops para que el texto sea el rey */
+     opacity: 1;
+  }
+  
+  /* Los alejamos un poco más del centro verticalmente */
+  .b1, .f1 { top: 5%; }
+  .b2, .f2 { bottom: 5%; }
+}

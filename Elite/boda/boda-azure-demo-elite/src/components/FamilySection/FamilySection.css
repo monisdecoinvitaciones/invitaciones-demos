@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --pink-deep: #B8445E;
+  --pink-vibrant: #E47990;
+  --pink-light: #FCC7D1;
+  --pink-soft: #F8D8DE;
+}
+
+.family-creative-section {
+  position: relative;
+  /* En PC mantenemos un aire espacioso, en móvil lo quitamos abajo */
+  min-height: 60vh; 
+  padding: 80px 5%;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.family-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+}
+
+/* --- BLOQUES DE CONTENIDO --- */
+.family-group-box {
+  flex: 1;
+  opacity: 0;
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.parents-box { transform: translateX(-60px); text-align: right; }
+.godparents-box { transform: translateX(60px); text-align: left; }
+
+.is-active .family-group-box {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* --- ESTILOS DE TEXTO --- */
+.small-tag {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  letter-spacing: 3px;
+  color: var(--pink-deep);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.family-name-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
+  color: #333;
+  font-weight: 400;
+  margin: 5px 0;
+  line-height: 1.2;
+}
+
+/* --- DECORACIÓN CENTRAL --- */
+.family-center-decor {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 1s ease 0.5s;
+}
+
+.is-active .family-center-decor { opacity: 1; }
+
+.circle-border {
+  width: clamp(80px, 10vw, 100px);
+  height: clamp(80px, 10vw, 100px);
+  border: 1px solid var(--pink-soft);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-center-butterfly {
+  width: 70%;
+  animation: floatButterfly 4s infinite ease-in-out;
+}
+
+/* --- LÍNEAS DE REVELADO --- */
+.decoration-element {
+  height: 1px;
+  background: linear-gradient(to right, var(--pink-light), var(--pink-deep));
+  width: 0;
+  margin-top: 20px;
+  transition: width 1.5s ease 1s;
+}
+
+.parents-box .decoration-element { 
+  margin-left: auto; 
+  background: linear-gradient(to left, var(--pink-light), var(--pink-deep)); 
+}
+
+.is-active .decoration-element { width: 100px; }
+
+/* --- FOOTER --- */
+.family-message {
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--pink-vibrant);
+  max-width: 600px;
+  opacity: 0;
+  transition: opacity 2s ease 2s;
+}
+
+.is-active .family-message { opacity: 1; }
+
+/* --- MEDIA QUERY: CORRECCIÓN DE ESPACIOS EN MÓVIL --- */
+@media (max-width: 850px) {
+  .family-creative-section {
+    min-height: auto; /* Quitamos la altura forzada */
+    padding: 20px 5%; /* Reducimos el padding vertical a la mitad */
+  }
+
+  .family-flex-container {
+    flex-direction: column;
+    gap: 25px; /* Gap más pequeño entre bloques */
+  }
+  
+  .family-group-box {
+    text-align: center !important;
+  }
+
+  .family-center-decor {
+    order: -1; 
+    width: 80px; /* Reducimos el contenedor de la mariposa */
+    margin-bottom: 0px;
+  }
+
+  .circle-border {
+    width: 70px; /* Círculo más pequeño en móvil */
+    height: 70px;
+  }
+
+  .family-message {
+    margin-top: 30px; /* Menos espacio antes de la frase final */
+    padding: 0 10px;
+  }
+
+  .decoration-element {
+    margin: 10px auto !important; /* Línea más cerca del texto */
+  }
+
+  /* Ajuste de animación para que no salte tanto */
+  .parents-box, .godparents-box { 
+    transform: translateY(20px); 
+  }
+}
+
+@keyframes floatButterfly {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}

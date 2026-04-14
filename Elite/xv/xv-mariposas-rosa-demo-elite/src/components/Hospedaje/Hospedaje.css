@@ -1,0 +1,157 @@
+/* ============================================================
+   SECCIÓN HOSPEDAJE - COMPACTA (PC OPTIMIZED)
+   ============================================================ */
+
+.hospedaje-section {
+  padding: 40px 20px; /* Reducido de 100px a 40px */
+  background-color: white; 
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hospedaje-container {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+.fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hospedaje-icon {
+  width: 100px; /* Reducido de 120px para ahorrar espacio vertical */
+  height: auto;
+  margin-bottom: 5px; /* Margen mínimo */
+  
+}
+
+.hospedaje-title {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Ajustado para que no sea excesivo en PC */
+  color: #a55166;
+  margin: 15px 0;
+  font-weight: 400;
+  text-align: center; /* Opcional: para que siempre estén centrados */
+  line-height: 1.2;
+}
+
+.hospedaje-subtitle {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.5rem;
+  color: black;
+  margin-bottom: 30px; /* Reducido de 50px a 30px */
+  font-style: italic;
+}
+
+/* --- GRID DE HOTELES --- */
+.hoteles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px; /* Espacio entre tarjetas más compacto */
+  padding: 10px;
+}
+
+.hotel-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(184, 68, 94, 0.08);
+  border: 1px solid rgba(184, 68, 94, 0.05);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-card:hover {
+  transform: translateY(-8px);
+}
+
+/* --- ESTILOS DE IMAGEN COMPACTOS --- */
+.hotel-image-wrapper {
+  width: 100%;
+  height: 160px; /* Reducido de 220px a 160px en PC */
+  overflow: hidden;
+  position: relative;
+}
+
+.hotel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hotel-info-content {
+  padding: 20px 15px; /* Padding interno más ajustado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hotel-name {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.5rem; /* Más compacto */
+  color: #B8445E;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.hotel-distance {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1rem;
+  color: black;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.hotel-promo-tag {
+  background-color: #F8D8DE;
+  color: #B8445E;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 15px;
+  border-radius: 50px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.hotel-btn {
+  text-decoration: none;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: white;
+  background-color: #B8445E;
+  padding: 10px 25px; /* Botón más pequeño */
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+  .hospedaje-section {
+    padding: 50px 15px;
+  }
+  
+  .hospedaje-icon {
+    width: 70px;
+  }
+
+  .hotel-image-wrapper {
+    height: 180px; /* En móvil dejamos un poco más de aire */
+  }
+
+  .hotel-card {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}

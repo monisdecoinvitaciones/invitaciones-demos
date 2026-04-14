@@ -1,0 +1,172 @@
+/*============= ITINERARIO ESTILO ELITE ==============*/
+
+.itinerario-section {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* DISEÑO DE TÍTULO */
+.titulo-wrapper {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtitulo-curvo {
+  font-family: var(--font-mea), cursive;
+  font-size: 3.5rem;
+  color: #8AAC66;
+  margin-bottom: -10px;
+  z-index: 2;
+}
+
+.titulo-itinerario {
+  font-family: var(--font-cormorant), serif;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  color: #1a1a1a;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.adorno-itinerario {
+  width: 60px;
+  height: 1px;
+  background-color: #D9B765;
+  margin-top: 15px;
+}
+
+/* CONTENEDOR DE EVENTOS */
+.timeline-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.evento-box {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.icono-wrapper {
+  width: 85px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.icono-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(138, 172, 102, 0.15));
+}
+
+.evento-nombre {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.3rem;
+  color: #222;
+  margin: 5px 0 2px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.evento-hora {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.5rem;
+  color: #8AAC66;
+  font-weight: 600;
+}
+
+/* SEPARADORES (Desktop) */
+.separador-wrapper {
+  position: absolute;
+  right: -50px;
+  top: 35px;
+  width: 40px;
+  opacity: 0.3;
+}
+
+.separador-img {
+  width: 100%;
+  height: auto;
+}
+
+/* BLOQUE DE CIERRE */
+.bloque-cierre {
+  width: 60%;
+  max-width: 400px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D9B765, transparent);
+  margin: 50px auto 0;
+}
+
+/* ========= AJUSTES PARA MÓVIL (COMPACTO) ========= */
+@media (max-width: 768px) {
+  .itinerario-section {
+    padding: 40px 15px;
+  }
+
+  .titulo-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .titulo-itinerario {
+    font-size: 2rem;
+    letter-spacing: 6px;
+  }
+  
+  .subtitulo-curvo {
+    font-size: 2.5rem;
+  }
+
+  .timeline-container {
+    gap: 15px;
+    padding: 0;
+  }
+
+  .evento-box {
+    width: 45%; 
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  .icono-wrapper {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 8px;
+  }
+
+  .evento-nombre {
+    font-size: 1rem;
+    margin: 2px 0;
+  }
+
+  .evento-hora {
+    font-size: 0.95rem;
+  }
+
+  .separador-wrapper {
+    display: none;
+  }
+
+  .bloque-cierre {
+    margin-top: 30px;
+    width: 80%;
+  }
+}

@@ -1,0 +1,312 @@
+.guestbook-container {
+  background-color: #404D77; 
+  padding: 30px 20px;
+  font-family: var(--font-cormorant), serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.guestbook-title {
+  font-family: var(--font-mea), cursive;
+  color: white;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 10px; /* Reducido para que el separador esté cerca */
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  text-align: center;
+}
+
+/* Contenedor del Separador */
+.guestbook-divider {
+  width: 100%;
+  max-width: 100px; /* Ajusta según el ancho de tu separador */
+  margin-bottom: 40px; /* Espacio entre separador e inputs */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Línea de ejemplo por si no tienes imagen aún */
+.divider-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+}
+
+.form-group {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 25px;
+}
+
+.label-text {
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-montserrat), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.input-field {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.95);
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: white;
+  background-color: #ffffff;
+}
+
+.textarea-field {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.signature-wrapper {
+  background-color: #fcfcfc; 
+  border: 1px solid #000;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+  height: 200px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  cursor: crosshair;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-clear {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #333;
+  border-radius: 20px;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.btn-clear:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit {
+  margin-top: 40px;
+  padding: 15px 60px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white !important;
+  font-family: var(--font-montserrat), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border-radius: 50px;
+}
+
+.btn-submit:hover {
+  background-color: white;
+  color: #404D77 !important;
+}
+
+.btn-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.status-message {
+  margin-top: 25px;
+  padding: 15px;
+  border-radius: 4px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.8rem;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+.status-message.success {
+  border: 1px solid #92966F;
+  color: #92966F;
+  background: white;
+}
+
+.status-message.error {
+  border: 1px solid #ffcccc;
+  color: #ffcccc;
+}
+
+@media (max-width: 600px) {
+  .guestbook-container {
+    padding: 60px 20px;
+  }
+  
+  .signature-wrapper {
+    height: 180px;
+  }
+  
+  .btn-submit {
+    width: 100%;
+  }
+}
+
+.guestbook-container {
+  background-color: #404D77; 
+  padding: 30px 20px;
+  font-family: var(--font-cormorant), serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.guestbook-title {
+  font-family: var(--font-mea), cursive;
+  color: white;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 5px; /* Muy poco margen para que el separador suba */
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  text-align: center;
+}
+
+/* Contenedor del Separador */
+.guestbook-divider {
+  width: 100%;
+  max-width: 250px; /* Puedes ajustar este ancho según tu separador */
+  margin-bottom: 30px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para tu imagen .webp */
+.divider-img {
+  width: 30%;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Si tu separador es oscuro, esto lo vuelve blanco para que resalte en el fondo azul */
+}
+
+.form-group {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 25px;
+}
+
+.label-text {
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-montserrat), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.input-field {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.95);
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.textarea-field {
+  min-height: 120px;
+}
+
+.signature-wrapper {
+  background-color: #fcfcfc; 
+  border: 1px solid #000;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+  height: 200px;
+  border-radius: 4px;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-clear {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  margin-top: 40px;
+  padding: 15px 60px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white !important;
+  font-family: var(--font-montserrat), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+}
+
+.btn-submit:hover {
+  background-color: white;
+  color: #404D77 !important;
+}
+
+.status-message {
+  margin-top: 25px;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .guestbook-divider {
+    max-width: 180px; /* Un poco más pequeño en móviles */
+  }
+}

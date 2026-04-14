@@ -1,0 +1,60 @@
+.invimon-footer-full {
+  width: 100%;
+  padding: 60px 0; /* Un poco más de aire */
+  background-color: transparent; /* Se adapta al fondo de tu sitio */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  opacity: 0.6;
+  transition: all 0.4s ease;
+}
+
+.invimon-footer-full:hover .footer-inner {
+  opacity: 1;
+  transform: translateY(-2px); /* Efecto sutil al pasar el mouse */
+}
+
+.footer-line {
+  width: 60px;
+  height: 1px;
+  background-color: #92966f; /* Verde Salvia (--sage) */
+}
+
+.footer-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  color: #404d77; /* Azul Oscuro (--dark-blue) */
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 600px) {
+  .invimon-footer-full {
+    padding: 40px 0;
+  }
+  
+  .footer-line {
+    width: 35px;
+  }
+  
+  .footer-text {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+  
+  .footer-inner {
+    gap: 15px;
+  }
+}

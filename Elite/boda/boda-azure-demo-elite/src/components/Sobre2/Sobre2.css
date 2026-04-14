@@ -1,0 +1,137 @@
+:root {
+  --sage: #92966f;
+  --light-azure: #cddfe9;
+  --pastel-blue: #aebed5;
+  --butter-yellow: #fffec3;
+  --dark-blue: #404d77;
+  --grey-blue: #859bba;
+}
+
+.sobre-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh; /* dynamic viewport height para evitar barra de navegación móvil */
+  z-index: 10000;
+  background-color: #f9f9f9;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  touch-action: none; /* Evita scroll por gesto en móviles */
+}
+
+/* Capas de transición */
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  transform: translateY(100%);
+  transition: transform 1.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.bg-sage { background-color: var(--sage); transition-delay: 0.1s; }
+.bg-azure { background-color: var(--pastel-blue); transition-delay: 0.3s; }
+.bg-cream { background-color: var(--butter-yellow); transition-delay: 0.5s; }
+
+.active-portal .layer {
+  z-index: 50;
+  transform: translateY(-100%);
+}
+
+.main-content {
+  position: relative;
+  z-index: 20;
+  width: 90%;
+  max-width: 480px;
+  text-align: center;
+  transition: all 1.2s ease;
+}
+
+.editorial-frame {
+  padding: 80px 40px;
+  background: white;
+  position: relative;
+  border: 1px solid rgba(146, 150, 111, 0.3);
+  outline: 15px solid white;
+  outline-offset: -25px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.subtitle {
+  font-family: var(--font-cormorant), serif;
+  letter-spacing: 7px;
+  color: var(--sage);
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.main-name {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  color: var(--dark-blue);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: 2px;
+}
+
+.botanical-art {
+  margin: 40px auto;
+  width: 90px;
+  height: auto;
+}
+
+.floating-flower {
+  width: 100%;
+  opacity: 0.6;
+  animation: float 5s infinite ease-in-out;
+}
+
+.date-display {
+  font-family: var(--font-cormorant), serif;
+  color: var(--grey-blue);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+}
+
+.entry-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.entry-action p {
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  color: var(--sage);
+  font-weight: 600;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background-color: var(--sage);
+  opacity: 0.3;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+.active-portal .main-content {
+  opacity: 0;
+  transform: translateY(-50px) scale(1.05);
+  filter: blur(4px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}

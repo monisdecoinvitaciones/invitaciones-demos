@@ -1,0 +1,104 @@
+/* ================= PADRES Y PADRINOS ================= */
+
+.padres {
+    position: relative;
+    padding: 60px 20px; /* Reducido un poco para móvil */
+    background-color: #ffffff;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0px auto; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+    border-radius: 15px; 
+    overflow: hidden; 
+}
+
+/* Líneas decorativas - Se ajustan solas al centro */
+.padres::before,
+.padres::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 120px; /* Un poco más cortas para móvil */
+    height: 1px;
+    background-color: #bca37d;
+    transition: transform 2s ease; 
+}
+
+.padres.visible::before,
+.padres.visible::after {
+    transform: translateX(-50%) scaleX(1); 
+}
+
+.padres::before { top: 30px; }
+.padres::after { bottom: 30px; }
+
+/* Grid de Padres */
+.padres-grid {
+    display: flex;
+    flex-direction: column; /* Por defecto en móvil: uno arriba del otro */
+    align-items: center;    /* Centrado horizontal total */
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.padres-grid .lado {
+    width: 100%;            /* Ocupa todo el ancho disponible */
+    max-width: 300px;       /* Pero no se estira demasiado */
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    
+    /* CENTRADO CLAVE */
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centra el subtítulo y los nombres entre sí */
+    text-align: center;
+}
+
+/* Ajustes para Pantallas Grandes (Escritorio) */
+@media (min-width: 768px) {
+    .padres-grid {
+        flex-direction: row; /* En PC vuelven a estar uno al lado del otro */
+        align-items: flex-start;
+    }
+    
+    .padres-grid .lado {
+        flex: 1;
+        max-width: none;
+    }
+}
+
+/* Animaciones de entrada (Mantenemos el efecto lateral) */
+.padres-grid .lado:first-child { transform: translateX(-50px); }
+.padres-grid .lado:last-child { transform: translateX(50px); }
+
+/* Si en móvil el efecto lateral se ve raro, puedes cambiarlo a vertical solo para móvil */
+@media (max-width: 767px) {
+    .padres-grid .lado { transform: translateY(30px); } /* Entrada suave hacia arriba */
+}
+
+.padres-grid .lado.visible {
+    opacity: 1;
+    transform: translate(0) !important; /* Resetea tanto X como Y */
+}
+
+.padres-grid p {
+    margin: 4px 0;
+    font-size: 1.2rem; /* Un poco más legible en móvil */
+    line-height: 1.4;
+    width: 100%;
+}
+
+/* --- CLASE ANIMAR --- */
+.animar {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

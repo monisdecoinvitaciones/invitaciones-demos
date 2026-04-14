@@ -1,0 +1,136 @@
+:root {
+  --sage: #92966F;
+  --dark-blue: #404D77;
+  --azure: #CDDFE9;
+  --cream: #FFFEFC;
+  --white: #FFFFFF;
+}
+
+.family-section {
+  padding: clamp(30px, 5vw, 50px) 20px;
+  background-color: var(--sage);
+  text-align: center;
+  overflow: hidden;
+}
+
+.family-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.family-title {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(2.8rem, 8vw, 4rem);
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+/* --- GRID Y CARDS --- */
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; /* Reducido para compactar */
+}
+
+.family-card {
+  perspective: 1500px;
+  width: 100%;
+  height: 250px; /* Altura más baja en PC */
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.family-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-front {
+  background-color: var(--white);
+  border: 1px solid var(--azure);
+}
+
+.card-back {
+  background-color: var(--dark-blue);
+  color: var(--cream);
+  transform: rotateY(180deg);
+}
+
+/* --- TEXTOS --- */
+.parent-label {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: var(--sage);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.parent-names {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 2vw, 1.8rem); 
+  color: var(--dark-blue);
+  line-height: 1.2;
+}
+
+.thank-you-msg {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* --- AJUSTE MÓVIL (COMPACTO) --- */
+@media (max-width: 480px) {
+  .family-section {
+    padding: 30px 15px;
+  }
+  
+  .family-grid {
+    gap: 15px; /* Menos espacio entre tarjetas */
+  }
+
+  .family-card {
+    height: 180px; /* Tarjetas mucho más bajas */
+  }
+
+  .parent-label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .parent-names {
+    font-size: 1.3rem;
+  }
+
+  .thank-you-msg {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .family-title {
+    font-size: 2.5rem;
+  }
+}

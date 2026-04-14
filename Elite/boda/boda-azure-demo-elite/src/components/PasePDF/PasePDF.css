@@ -1,0 +1,117 @@
+.ticket-pdf {
+  width: 160mm; 
+  padding: 50px;
+  background: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png"); /* Textura editorial */
+  border: 1px solid #92966F; /* --inv-sage */
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  margin: 0 auto;
+  position: relative;
+}
+
+.ticket-pdf::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1px solid #CDDFE9; /* --inv-azure */
+  pointer-events: none;
+}
+
+.ticket-header h1 {
+  font-family: "Pinyon Script", cursive;
+  color: #92966F; /* --inv-sage */
+  font-size: 4.5rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.ticket-subtitle {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 5px;
+  font-size: 1.4rem;
+  color: #404D77; /* --inv-dark */
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.ticket-date {
+  font-family: 'Cormorant Garamond', serif;
+  color: #859BBA; /* --inv-grey-blue */
+  letter-spacing: 4px;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.ticket-divider-sage {
+  width: 80px;
+  height: 1px;
+  background-color: #92966F;
+  margin: 20px auto;
+}
+
+.ticket-tag {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: #92966F;
+  text-transform: uppercase;
+}
+
+.ticket-nombre {
+  color: #404D77;
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  margin: 20px 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.ticket-info-pases {
+  display: flex;
+  justify-content: center; 
+  gap: 50px; 
+  margin: 25px 0;
+  padding: 20px 0;
+  border-top: 1px solid #CDDFE9;
+  border-bottom: 1px solid #CDDFE9;
+}
+
+.ticket-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  color: #92966F;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.ticket-value {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: #404D77; 
+}
+
+.ticket-qr svg {
+  padding: 10px;
+  border: 1px solid #CDDFE9;
+  background: white;
+}
+
+.ticket-lista {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.ticket-footer {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #859BBA;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

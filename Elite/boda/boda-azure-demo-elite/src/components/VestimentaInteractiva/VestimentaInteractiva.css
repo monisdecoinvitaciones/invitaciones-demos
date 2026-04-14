@@ -1,0 +1,157 @@
+.vestimenta-section {
+  padding: 40px 20px;
+  background-color: #404D77;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.vestimenta-main-title {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(3rem, 10vw, 4.4rem);
+  color: white;
+  margin-bottom: 30px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.vestimenta-card-wrapper {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #CDDFE9;
+  box-shadow: 0 10px 40px rgba(64, 77, 119, 0.08);
+  overflow: hidden; /* Para que el drawer no se salga antes de tiempo */
+}
+
+/* TARJETA PRINCIPAL */
+.vestimenta-main-card {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  gap: 40px;
+}
+
+.v-card-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  animation: floatAnim 3s ease-in-out infinite;
+}
+
+.v-card-right {
+  flex: 1.5;
+  text-align: center;
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.vestimenta-tipo {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  color: #404D77;
+  letter-spacing: 5px;
+  margin: 0;
+}
+
+.vestimenta-divider {
+  width: 50px;
+  height: 2px;
+  background: #92966F;
+  margin: 20px auto;
+}
+
+.mini-dots {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.m-dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.m-dot.sage { background-color: #92966F; }
+.m-dot.azure { background-color: #CDDFE9; }
+.m-dot.butter { background-color: #FFFEFC; }
+.m-dot.dark { background-color: #404D77; }
+
+/* BOTÓN DE ACCIÓN */
+.btn-open-pinterest {
+  background: #404D77;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-open-pinterest:hover {
+  background: #92966F;
+  transform: translateY(-2px);
+}
+
+/* --- EL DRAWER (LO INTERACTIVO) --- */
+.pinterest-drawer {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #F9F9F9;
+  border-top: 0px solid #CDDFE9;
+}
+
+.pinterest-drawer.open {
+  max-height: 600px; /* Altura máxima del panel al abrirse */
+  opacity: 1;
+  border-top: 1px solid #CDDFE9;
+  padding: 20px;
+}
+
+.drawer-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.drawer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #92966F;
+}
+
+.pinterest-container-scroll {
+  width: 100%;
+  height: 450px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .vestimenta-main-card {
+    flex-direction: column;
+    padding: 20px 20px;
+    gap: 20px;
+  }
+  
+  .vestimenta-tipo { font-size: 1.6rem; }
+  
+  .pinterest-drawer.open {
+    max-height: 550px;
+  }
+}

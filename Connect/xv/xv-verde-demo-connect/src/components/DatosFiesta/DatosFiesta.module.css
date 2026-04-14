@@ -1,0 +1,147 @@
+/* DatosFiesta.module.css */
+
+.section {
+  background: linear-gradient(#f48861, #e9612e);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- BLOQUES --- */
+.bloque {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  opacity: 0;
+  /* Reducimos a 30px para que en móvil no se sienta un salto tan largo */
+  transform: translateY(30px);
+  /* Transición fluida sin desenfoques ni escalas pesadas */
+  transition: opacity 1s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Hardware Acceleration para móviles */
+  will-change: transform, opacity;
+}
+
+/* ACTIVAR ANIMACIÓN (Usando la clase .visible que inyecta el Intersection Observer) */
+.bloque.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- TIPOGRAFÍA RESPONSIVA --- */
+.tituloScript {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.hora {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.lugar {
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  font-weight: 400;
+  margin-top: 10px;
+  line-height: 1.2;
+}
+
+.direccion {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin: 8px auto 0;
+  max-width: 300px;
+  line-height: 1.4;
+}
+
+.descripcion {
+  max-width: 450px;
+  margin: 15px auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-style: italic;
+  opacity: 0.95;
+}
+
+/* --- BOTÓN --- */
+.btnUbicacion {
+  margin-top: 25px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 12px 35px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btnUbicacion:hover {
+  background: #f48861;
+  color: #e9612e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- ICONOS --- */
+.icono {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.icono img {
+  width: 90px; /* Tamaño optimizado para móvil y PC */
+  height: auto;
+  display: block;
+}
+
+/* Solo flota cuando el bloque padre es visible */
+.bloque.visible .icono img {
+  animation: floatIcon 4s ease-in-out infinite;
+}
+
+/* --- DECORADOR (LÍNEA) --- */
+.decorador {
+  width: 80px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 50px auto;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* --- AJUSTES MÓVIL --- */
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 15px;
+  }
+  
+  .bloque {
+    margin-bottom: 0;
+  }
+
+  .decorador {
+    margin: 40px auto;
+    width: 60px;
+  }
+
+  .btnUbicacion {
+    padding: 10px 25px;
+    font-size: 0.75rem;
+  }
+}

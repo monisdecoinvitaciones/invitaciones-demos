@@ -1,0 +1,141 @@
+.presentacion-section {
+  position: relative;
+  padding: 50px 20px; /* Reducido un poco para acomodar la corona */
+  background-color: #ffffff; /* Crema suave */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.presentacion-container {
+  max-width: 800px;
+  text-align: center;
+  z-index: 5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- ESTILOS DE LA CORONA PNG --- */
+.corona-wrapper {
+  margin-bottom: 30px; /* Espacio antes del prefacio */
+  z-index: 10;
+}
+
+.corona-flotante {
+  width: 100px; /* Ajusta este tamaño según tu PNG */
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(170, 138, 46, 0.2)); /* Sombra dorada suave */
+  
+  /* Animación de flotado suave y constante */
+  animation: flotarCorona 4s infinite ease-in-out;
+}
+
+@keyframes flotarCorona {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-8px) rotate(1deg); /* Sube un poco y rota ligeramente */
+  }
+}
+
+/* --- ESTILOS DEL TEXTO (SE MANTIENE IGUAL) --- */
+.texto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prefacio {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 8px;
+  color: #769A8C;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.mensaje-principal {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.cita-inicial {
+  font-family: var(--font-cormorant), serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: #8AAC66; /* Verde Tiana */
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.linea-central {
+  width: 40px;
+  height: 1px;
+  background: #D9B765; /* Dorado */
+  margin: 0 auto 30px;
+}
+
+.texto-emocional {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 40px;
+}
+
+.firma-iniciales {
+  font-family: var(--font-mea), cursive;
+  font-size: 3.5rem;
+  color: #D9B765;
+  opacity: 0.8;
+  letter-spacing: 10px;
+}
+
+/* Decoración de luz de fondo sutil */
+.luz-fondo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(138, 172, 102, 0.08) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* --- RESPONSIVO PARA MÓVILES --- */
+@media (max-width: 768px) {
+  .presentacion-section {
+    padding: 40px 15px;
+  }
+
+  .corona-flotante {
+    width: 80px; /* Más pequeña en móvil */
+  }
+
+  .cita-inicial {
+    font-size: 1.6rem;
+  }
+
+  .texto-emocional {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prefacio {
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+  }
+  
+  .firma-iniciales {
+    font-size: 2.8rem;
+  }
+}

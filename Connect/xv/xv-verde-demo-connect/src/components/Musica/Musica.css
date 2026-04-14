@@ -1,0 +1,51 @@
+/* BOTON MUSICA - La Base */
+.btn-musica {
+  position: fixed;
+  bottom: 25px; /* Posición base inferior */
+  right: 5%;    /* Alineado con el botón de menú */
+  width: 50px;
+  height: 50px;
+
+  /* Fondo Verde Musgo Profundo con transparencia (Paleta Tiana) */
+  background: rgba(118, 154, 140, 0.85); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* Borde en Verde Pistacho sutil */
+  border: 1px solid rgba(189, 211, 149, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 9998; 
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(118, 154, 140, 0.3);
+}
+
+/* Ícono SVG dentro del botón */
+.btn-musica .icono-musica {
+  width: 22px;   /* tamaño más pequeño y proporcionado */
+  height: 22px;
+  /* Color Crema Suave para el ícono */
+  fill: #F8F3CD; 
+}
+
+.btn-musica:hover {
+  /* Hover en Verde Oliva Lirio */
+  background: #8AAC66;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(138, 172, 102, 0.4);
+}
+
+/* --- AJUSTE RESPONSIVO --- */
+@media (max-width: 850px) {
+  .btn-musica {
+    /* Ajuste para pantallas pequeñas, alineado con el menú móvil */
+    bottom: 20px; 
+    right: 10px; 
+    width: 45px;
+    height: 45px;
+  }
+}

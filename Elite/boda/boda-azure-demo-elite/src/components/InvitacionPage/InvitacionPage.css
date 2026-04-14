@@ -1,0 +1,302 @@
+/* ============================================================
+   SECCIÓN STATUS & MODAL - PALETA ELEGANTE (DARK BLUE & SAGE)
+   ============================================================ */
+
+:root {
+  --inv-dark: #404D77;      /* Dark Blue */
+  --inv-sage: #92966F;      /* Sage Green */
+  --inv-azure: #CDDFE9;     /* Light Azure */
+  --inv-butter: #FFFEFC;    /* Butter Yellow */
+  --inv-white: #FFFFFF;
+}
+
+/* Contenedor principal */
+.invitacion-status-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  padding: 20px;
+  background-color: var(--inv-butter); /* Fondo Butter Yellow suave */
+}
+
+/* Tarjeta base */
+.status-card {
+  background: var(--inv-white);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(64, 77, 119, 0.08);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+  border: 1px solid var(--inv-azure); /* Borde Azure */
+}
+
+.status-card h2 {
+  color: var(--inv-dark); /* Título en Dark Blue */
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-family: var(--font-cormorant), serif;
+  font-weight: 700;
+}
+
+.status-card p {
+  color: #555555; 
+  line-height: 1.6;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Variantes de estado */
+.status-card.error .icon { color: var(--inv-dark); }
+.status-card.expired .icon { color: var(--inv-sage); }
+
+/* Spinner de carga - AHORA DARK BLUE */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--inv-azure);
+  border-top: 4px solid var(--inv-dark); 
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+/* Resumen de confirmación */
+.info-resumen {
+  background: var(--inv-butter);
+  border: 1px solid var(--inv-azure);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px 0;
+}
+
+.dato {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: var(--inv-dark);
+}
+
+.dato strong {
+  color: var(--inv-dark);
+  font-weight: 800;
+}
+
+.qr-placeholder {
+  background: var(--inv-butter);
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--inv-azure);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Contenedor del QR */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.qr-contenedor {
+  padding: 15px;
+  background: white;
+  border: 1px solid var(--inv-azure);
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.mensaje-intro {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0 10px 0;
+  font-size: 1rem;
+  color: var(--inv-dark);
+  display: block; 
+  font-family: var(--font-cormorant), serif;
+  font-style: italic;
+}
+
+.qr-subtext {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--inv-sage); /* Subtexto en Verde Salvia */
+  text-align: center;
+}
+
+/* Botón de descarga y login - AHORA SAGE GREEN / DARK BLUE */
+.btn-rsvp {
+  display: block;
+  width: 100%;
+  margin: 30px auto; 
+  padding: 15px;
+  background-color: var(--inv-dark); 
+  color: #ffffff !important;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.btn-rsvp:hover {
+  background-color: var(--inv-sage); /* Cambio a Salvia en hover */
+  transform: translateY(-2px);
+}
+
+/* --- MODAL STYLES --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(8px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content1 {
+  background: var(--inv-white);
+  width: 90%;
+  max-width: 450px;
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid var(--inv-azure);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--inv-azure);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: var(--inv-dark);
+}
+
+.modal-icon-bg {
+  width: 70px;
+  height: 70px;
+  background: var(--inv-butter); 
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  color: var(--inv-dark);
+}
+
+.modal-header h3 {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.6rem;
+  color: var(--inv-dark);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.modal-header p {
+  color: var(--inv-sage);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.credentials-box {
+  background: var(--inv-butter);
+  border: 1px dashed var(--inv-sage);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.credentials-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--inv-dark);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.credential-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.credential-row .label { color: var(--inv-sage); }
+.credential-row .value {
+  color: var(--inv-dark);
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.btn-go-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--inv-sage) !important; /* BOTÓN VERDE SALVIA */
+  color: white !important;
+  text-decoration: none;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.btn-go-panel:hover {
+  background: var(--inv-dark) !important; /* Cambio a Azul en hover */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(64, 77, 119, 0.2);
+}
+
+.modal-note {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  color: var(--inv-sage);
+}
+
+/* Animaciones */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 480px) {
+  .modal-content { padding: 30px 20px; }
+  .btn-go-panel { padding: 14px 15px; font-size: 0.95rem; }
+}

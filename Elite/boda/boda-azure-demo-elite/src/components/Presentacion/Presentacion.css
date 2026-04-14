@@ -1,0 +1,175 @@
+:root {
+  --sage: #92966F;
+  --azure: #CDDFE9;
+  --dark-blue: #404D77;
+  --cream: #FFFEFC;
+}
+
+.artistic-section {
+  padding: 80px 0;
+  background-color: var(--cream);
+  overflow: hidden;
+}
+
+.artistic-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* --- ESTILOS BASE DE PERSONA --- */
+.art-persona {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: all 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* --- ANIMACIÓN PC: Entrada lateral --- */
+.ella { transform: translateX(-60px); }
+.el { transform: translateX(60px); }
+
+.is-visible .art-persona {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.blob-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 4/5;
+  margin-bottom: 25px;
+}
+
+.art-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 60% 40% 70% 30% / 40% 50% 60% 70%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(64, 77, 119, 0.15);
+}
+
+.blob-shape {
+  position: absolute;
+  inset: -8%;
+  z-index: 1;
+  opacity: 0.35;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: blob-morph 10s infinite alternate ease-in-out;
+}
+
+.bg-sage { background-color: var(--sage); }
+.bg-blue { background-color: var(--azure); animation-delay: -3s; }
+
+/* --- INFORMACIÓN --- */
+.art-info { 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.art-role {
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.9rem;
+  letter-spacing: 5px;
+  color: var(--sage);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.art-name {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  color: var(--dark-blue);
+  font-weight: 400;
+  margin: -5px 0 0 0;
+  line-height: 1.1;
+}
+
+/* --- NEXO CENTRAL --- */
+.art-center-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: all 1.2s ease 0.5s;
+}
+
+.is-visible .art-center-desktop { 
+  opacity: 1; 
+}
+
+.ampersand {
+  font-family: var(--font-mea), cursive;
+  font-size: 5rem;
+  color: var(--sage);
+  line-height: 0.8;
+  margin: 10px 0;
+}
+
+.line-top, .line-bottom {
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--sage), transparent);
+  transform: scaleY(0);
+  transition: transform 1.5s ease 0.3s;
+}
+
+.is-visible .line-top, 
+.is-visible .line-bottom {
+  transform: scaleY(1);
+}
+
+@keyframes blob-morph {
+  0% { border-radius: 60% 40% 70% 30% / 40% 50% 60% 70%; }
+  100% { border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
+}
+
+/* --- RESPONSIVO CORREGIDO --- */
+@media (max-width: 900px) {
+  .artistic-section {
+    padding: 60px 0;
+  }
+  
+  .artistic-container {
+    grid-template-columns: 1fr;
+    gap: 60px; /* Más espacio entre los dos */
+  }
+
+  .art-center-desktop {
+    display: none;
+  }
+
+  /* --- ANIMACIÓN MÓVIL: De abajo hacia arriba --- */
+  .ella, .el { 
+    transform: translateY(40px); /* Cambiamos lateral por vertical */
+    transition-delay: 0.2s;
+  }
+
+  .el {
+    transition-delay: 0.4s; /* Aparece un poquito después que ella */
+  }
+
+  .blob-wrapper {
+    max-width: 280px;
+    margin-bottom: 15px;
+  }
+
+  .art-name {
+    font-size: 3.2rem;
+    margin-top: -10px;
+  }
+
+  .art-role {
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+  }
+}

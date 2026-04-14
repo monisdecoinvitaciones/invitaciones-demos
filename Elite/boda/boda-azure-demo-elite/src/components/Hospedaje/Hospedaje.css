@@ -1,0 +1,194 @@
+.hospedaje-seccion {
+  position: relative; /* Importante para posicionar los cactus */
+  padding: 30px 20px;
+  background-color: #92966F; 
+  text-align: center;
+  overflow: hidden;
+}
+
+.hospedaje-main-title {
+  font-family: "Pinyon Script", cursive;
+  font-size: clamp(3rem, 10vw, 4.4rem);
+  color: white; 
+  margin-bottom: 10px;
+  font-weight: 400;
+  position: relative;
+  z-index: 2;
+}
+
+.mensaje-intro {
+  color: white !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- INDICADOR DESLIZAR --- */
+.swipe-indicator {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px auto 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 254, 252, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulseSwipe 2s infinite ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes pulseSwipe {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(5px); }
+}
+
+/* --- CONTENEDOR DESLIZABLE --- */
+.slider-contenedor {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  padding: 20px 15px 50px 15px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2; /* Por encima de los cactus decorativos */
+}
+
+.slider-contenedor::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- TARJETAS --- */
+.hotel-card {
+  min-width: 280px;
+  max-width: 320px;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(64, 77, 119, 0.08);
+  border: 1px solid #CDDFE9;
+  scroll-snap-align: center;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  flex-shrink: 0;
+}
+
+.hotel-card:hover {
+  transform: translateY(-10px);
+}
+
+.hotel-imagen {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hotel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(64, 77, 119, 0.1));
+}
+
+.hotel-info {
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hotel-info h3 {
+  font-family: 'Cinzel', serif;
+  color: #404D77;
+  font-size: 1.2rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.hotel-info p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.btn-hotel {
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px 25px;
+  border: 1px solid #404D77;
+  color: #404D77;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-hotel:hover {
+  background: #404D77;
+  color: white;
+}
+
+/* --- CACTUS DECORATIVOS --- */
+.hospedaje-cactus {
+  position: absolute;
+  bottom: -20px; /* "Saliendo" del borde inferior */
+  width: 150px;
+  height: auto;
+  opacity: 1; /* Sutil como marca de agua */
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.cactus-izq {
+  left: -30px;
+  transform: rotate(-10deg);
+}
+
+.cactus-der {
+  right: -30px;
+  transform: rotate(10deg) scaleX(-1); /* Reflejado */
+}
+
+/* --- RESPONSIVIDAD --- */
+
+@media (min-width: 1024px) {
+  .slider-contenedor {
+    justify-content: center;
+    overflow-x: hidden;
+  }
+  .hospedaje-cactus {
+    width: 260px; /* Más grandes en PC */
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .hospedaje-seccion { padding: 30px 15px 80px; }
+  .swipe-indicator { display: flex; }
+  .hotel-card { min-width: 270px; }
+  .slider-contenedor {
+    justify-content: flex-start;
+  }
+  
+  /* Ajuste para que los cactus no estorben el scroll en móvil */
+  .hospedaje-cactus {
+    width: 100px;
+    bottom: -10px;
+    opacity: 0.8;
+  }
+  .cactus-izq { left: -20px; }
+  .cactus-der { right: -20px; }
+}

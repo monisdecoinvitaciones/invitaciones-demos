@@ -1,0 +1,151 @@
+.amenidades-container {
+  position: relative;
+  padding: 100px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 700px;
+}
+
+/* --- TARJETA DE MENÚ --- */
+.menu-card {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  padding: 60px 40px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+  text-align: center;
+  border-radius: 4px;
+  z-index: 5;
+}
+
+.menu-header {
+  margin-bottom: 40px;
+}
+
+.menu-icon-main {
+  color: #8AAC66;
+  margin-bottom: 15px;
+  width: 40px;
+  height: 40px;
+}
+
+.titulo-menu {
+  font-family: var(--font-mea), cursive;
+  font-size: 3.5rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.divider-oro {
+  width: 80px;
+  height: 2px;
+  background-color: #8AAC66;
+  margin: 0 auto;
+}
+
+/* --- CONTENIDO DEL MENÚ --- */
+.menu-secciones {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.menu-grupo h3 {
+  font-family: var(--font-cormorant), serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 1rem;
+  color: #8AAC66;
+  margin-bottom: 10px;
+}
+
+.menu-grupo p {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* --- FOOTER DEL MENÚ --- */
+.menu-footer {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.9rem;
+  color: #777;
+  text-transform: uppercase;
+}
+
+/* --- DECORACIÓN EUCALIPTOS --- */
+.eucalipto-menu {
+  position: absolute;
+  width: 450px;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.top-left-menu {
+  top: -60px;
+  left: -120px;
+}
+
+.bottom-right-menu {
+  bottom: -60px;
+  right: -120px;
+  /* EFECTO ESPEJO: Invierte tanto X como Y para un reflejo perfecto */
+  transform: scale(-1);
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+  .amenidades-container {
+    padding: 80px 20px;
+  }
+
+  .menu-card {
+    padding: 40px 25px;
+  }
+
+  .titulo-menu {
+    font-size: 2.6rem;
+  }
+
+  .eucalipto-menu {
+    width: 220px;
+    opacity: 0.4;
+  }
+
+  .top-left-menu {
+    top: -20px;
+    left: -40px; /* Metido más hacia adentro para que se vea en móvil */
+  }
+
+  .bottom-right-menu {
+    bottom: -20px;
+    right: -40px; /* Metido más hacia adentro para que se vea en móvil */
+    transform: scale(-1);
+  }
+
+  .menu-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+}

@@ -1,0 +1,164 @@
+/* ============================================================
+   VESTIMENTA INTERACTIVA - INVIMON PREMIUM (FIXED)
+   ============================================================ */
+
+.vestimenta-section {
+  padding: 100px 20px;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2ede0; ;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.flip-card-container {
+  width: 100%;
+  max-width: 420px; /* Un poco más angosta para elegancia */
+  height: 480px;    /* Un poco más alta para dar espacio */
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card-container.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, 
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Cambiado de center a flex-start para controlar el aire arriba */
+  justify-content: flex-start; 
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 0px;
+  border: 1px solid rgba(128, 0, 32, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 50px 30px; /* Más padding arriba */
+  box-sizing: border-box;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  justify-content: center; /* La cara de atrás sí puede ir centrada */
+}
+
+/* ICONO PNG - AHORA DERECHO Y BIEN UBICADO */
+.vestimenta-image-floating {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.12));
+  /* Animación suavizada sin rotación para que no se vea chueco */
+  animation: floatImage 3.5s ease-in-out infinite;
+}
+
+.vestimenta-image-floating img {
+  object-fit: contain;
+  width: 100% !important;
+  height: auto !important;
+}
+
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); } /* Solo sube y baja */
+}
+
+.vestimenta-card-content {
+  width: 100%;
+}
+
+.vestimenta-title {
+  font-family: var(--font-mea), cursive;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: #362017;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.vestimenta-divider {
+  width: 40px;
+  height: 2px;
+  background: #5f7161;
+  margin: 12px auto;
+}
+
+.vestimenta-tipo {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.6rem;
+  letter-spacing: 6px;
+  color: #800020;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.instruction-text, 
+.return-text {
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #999;
+  margin-top: 30px;
+}
+
+/* TRASERA */
+.back-title {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.8rem;
+  color: #362017;
+  margin-bottom: 15px;
+}
+
+.color-dots {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.dot {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dot.burgundy { background-color: #800020; }
+.dot.moss { background-color: #5f7161; }
+.dot.olive { background-color: #6d7a5f; }
+.dot.sand { background-color: #d2b48c; }
+.dot.white { background-color: #ffffff; border: 1px solid #eee; }
+.dot.ivory { background-color: #fffff0; border: 1px solid #eee; }
+
+@media (max-width: 768px) {
+  .flip-card-container {
+    height: 440px;
+  }
+  .vestimenta-image-floating {
+    width: 110px;
+    height: 110px;
+  }
+}

@@ -1,0 +1,109 @@
+.clima-seccion {
+  padding: 40px 15px;
+  background: linear-gradient(135deg, #f8f6f1, #6d7a5f);
+  display: flex;
+  justify-content: center;
+}
+
+.clima-contenido {
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+.clima-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25px 20px;
+  border-radius: 22px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.clima-card:hover {
+  transform: translateY(-3px);
+}
+
+.nav {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #6d7a5f;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav:hover {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+.clima-info {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.clima-info.fade {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.fecha {
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+
+.icono {
+  font-size: 2.6rem;
+  margin: 8px 0;
+}
+
+.temp-actual {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 3px;
+}
+
+.temp {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #a3765d;
+  margin-bottom: 6px;
+}
+
+.lluvia {
+  font-size: 0.8rem;
+  color: #555;
+  letter-spacing: 0.3px;
+}
+
+.frase-romantica {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #5f7161;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* --- AJUSTES PARA MÓVIL --- */
+@media (max-width: 768px) {
+  .clima-card {
+    backdrop-filter: none; /* quitamos blur en móvil */
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease;
+  }
+
+  .nav {
+    font-size: 1.2rem;
+  }
+
+  .clima-info {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+}

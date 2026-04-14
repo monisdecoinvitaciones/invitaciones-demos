@@ -1,0 +1,173 @@
+.dress-minimal-section {
+  padding: 50px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dress-minimal-container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Icono Flotante */
+.dress-floating-icon {
+  width: 180px; 
+  margin-bottom: 10px; 
+  z-index: 2;
+  position: relative;
+}
+
+.dress-floating-icon img {
+  width: 100%;
+  height: auto;
+  animation: softFloat 4s infinite ease-in-out;
+}
+
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.dress-tag {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: #8AAC66;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dress-main-title {
+  font-family: var(--font-cormorant), serif;
+  font-size: 2.8rem;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* Ornamento */
+.dress-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0 30px;
+}
+
+.dress-ornament .line {
+  width: 50px;
+  height: 1px;
+  background-color: #D9B765;
+}
+
+.dress-ornament .diamond {
+  width: 6px;
+  height: 6px;
+  background-color: #D9B765;
+  transform: rotate(45deg);
+}
+
+/* Flex Info */
+.dress-flex-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.dress-group {
+  flex: 1;
+}
+
+.dress-label {
+  font-family: var(--font-mea), cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #658354;
+  margin: 0; /* Quitamos margen para pegar más al texto de abajo */
+  line-height: 0.8; /* Crucial para reducir espacio vertical en cursivas */
+}
+
+.dress-desc {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #333;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.dress-vertical-divider {
+  width: 1px;
+  height: 60px;
+  background-color: #e0e0e0;
+}
+
+.dress-footer-note {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 450px;
+}
+
+.dress-footer-note .highlight {
+  color: #D9B765;
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 5px;
+  display: block;
+}
+
+/* ========= AJUSTES PARA MÓVIL (CORREGIDO) ========= */
+@media (max-width: 768px) {
+  .dress-minimal-section {
+    padding: 50px 20px; /* Reducimos padding general */
+  }
+
+  .dress-floating-icon {
+    width: 130px;
+    margin-bottom: 0px;
+  }
+
+  .dress-main-title {
+    font-size: 1.8rem;
+  }
+
+  .dress-ornament {
+    margin: 15px 0 25px; /* Menos espacio alrededor del diamante */
+  }
+
+  .dress-flex-info {
+    flex-direction: column; 
+    gap: 15px; /* Gap muy pequeño entre secciones */
+    margin-bottom: 30px;
+  }
+  
+  .dress-vertical-divider {
+    width: 40px; 
+    height: 1px;
+    margin: 5px 0; /* Margen mínimo para la línea separadora */
+  }
+
+  .dress-label {
+    font-size: 2.3rem;
+  }
+
+  .dress-desc {
+    font-size: 0.95rem;
+    margin-top: 0px; /* Pegamos el texto a la palabra cursiva */
+  }
+}

@@ -1,0 +1,172 @@
+
+/*===============DATOS DE EVENTO===========*/
+.datos-evento {
+  position: relative;
+  /* Altura necesaria para que el scroll tenga "recorrido" */
+  height: auto; 
+  background-color: #f4f1ea;
+}
+
+.datos-evento .bloque {
+    padding-top: 80px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+/* LA MISA: Se queda pegada al inicio */
+.misa { 
+  z-index: 1; 
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/icons/fondoRevelar1.jpg'); 
+  background-size: cover;
+  margin-top: 0px;
+  margin-bottom:0px;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* LA RECEPCIÓN: Aparece después de 100vh de scroll y cubre a la Misa */
+.recepcion { 
+  z-index: 2; 
+  margin-top: 0px; /* Esto crea el "segundo scroll" */
+   background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/icons/fondoRevelar2.jpg'); 
+  background-size: cover;
+  background-position: center;
+ background-attachment: fixed;
+  margin-bottom:0px;
+}
+
+
+.tarjeta {
+  background: rgba(0,0,0,0.65); /* semitransparente */
+  padding: 100px 25px 35px 25px; 
+  border-radius: 0px;
+  text-align: center;
+  width: 80%;
+  max-width: 450px;
+  box-shadow: 0 25px 55px rgba(0,0,0,0.15);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-height: 500px;
+  box-sizing: border-box; 
+}
+
+/* En móviles puedes bajar un poco más la transparencia */
+@media (max-width: 768px) {
+  .tarjeta {
+    background: rgba(0,0,0,0.65);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  }
+}
+
+
+.foto-redonda {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* 2. Subimos un poco más el círculo para que luzca mejor (de -75 a -85) */
+  top: -85px; 
+  width: 160px; 
+  height: 160px;
+  border-radius: 50%;
+  border: 6px solid white;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.titulo-tarjeta {
+  /* 3. Quitamos cualquier margen que empuje lo de abajo */
+  margin-top: 30px;
+  margin-bottom: -5px; /* Un margen negativo acerca el texto de abajo al título */
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(2.5rem, 7vw, 5rem); 
+  color: #6d7a5f;
+  line-height: 0.8; /* Reduce el espacio vertical intrínseco de la fuente cursiva */
+}
+
+/* Ajuste preventivo para que la dirección no quede pegada al botón */
+.direccion-texto {
+  font-family: 'serif';
+  font-size: 1.3rem;
+  color: #777;
+  max-width: 90%; 
+  line-height: 1.3;
+  margin: 2px 0;
+}
+
+
+.foto-redonda img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- AJUSTES PARA MÓVILES PEQUEÑOS --- */
+@media (max-width: 400px) {
+  .foto-redonda {
+    width: 130px; /* Reducimos la foto en pantallas muy chicas */
+    height: 130px;
+    top: -65px;
+  }
+  
+  .tarjeta {
+    padding-top: 85px; /* Ajustamos el espacio para la foto más chica */
+    width: 95%;
+  }
+
+  .titulo-tarjeta {
+    font-size: 2.7rem !important; /* Reducimos un poco el título para que quepa */
+  }
+  
+  .btn-mapa {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+/* En móviles desactivamos el efecto fijo */ 
+@media (max-width: 768px) { 
+  .misa, .recepcion {
+    background-attachment: scroll; /* o directamente eliminar la propiedad */ } }
+
+/* Resto de estilos para mantener consistencia */
+.lugar-texto {
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.hora-texto {
+  font-size: 1.4rem;
+  color: #6d7a5f;
+  font-weight: bold;
+}
+
+.btn-mapa {
+  margin-top: 15px;
+  background-color: #E0115F;
+  color: white;
+  padding: 16px 40px;
+  border-radius: 0px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(163, 118, 93, 0.4);
+}
+
+.misa, .recepcion {
+  will-change: background-position;
+}

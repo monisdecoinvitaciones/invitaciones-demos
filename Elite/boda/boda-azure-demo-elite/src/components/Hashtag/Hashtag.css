@@ -1,0 +1,144 @@
+.hashtag-section {
+  padding: 40px 20px;
+  background-color: #FFFEFC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  min-height: 400px;
+}
+
+/* Texto decorativo gigante al fondo con fade in suave */
+.hashtag-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3.5rem, 15vw, 12rem); 
+  color: rgba(64, 77, 119, 0.03); 
+  z-index: 0;
+  letter-spacing: 15px;
+  pointer-events: none;
+  white-space: nowrap;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.is-visible .hashtag-bg-text {
+  opacity: 1;
+}
+
+.hashtag-container {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Estilo para los elementos que se animan */
+.hashtag-pretitle,
+.hashtag-main-box,
+.hashtag-instruction,
+.copy-button {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Cascada de tiempos para cada elemento */
+.is-visible .hashtag-pretitle { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.is-visible .hashtag-main-box { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.is-visible .hashtag-instruction { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+.is-visible .copy-button { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+
+.hashtag-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hashtag-pretitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: #92966F; 
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.hashtag-text {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(2.2rem, 10vw, 5rem);
+  color: #404D77;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hashtag-line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #CDDFE9, transparent);
+  margin: 15px auto;
+}
+
+.hashtag-instruction {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 280px;
+  margin: 0 auto 25px;
+  line-height: 1.4;
+}
+
+.copy-button {
+  background: transparent;
+  border: 1px solid #404D77;
+  color: #404D77;
+  padding: 12px 35px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.4s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* Mantiene la animación de entrada */
+}
+
+.copy-button:hover {
+  background: #404D77;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.copy-button.copied {
+  background: #92966F;
+  color: white;
+  border-color: #92966F;
+}
+
+/* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
+@media (max-width: 480px) {
+  .hashtag-bg-text {
+    letter-spacing: 4px !important; 
+    font-size: 4rem !important;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hashtag-text {
+    font-size: 2.5rem;
+  }
+
+  .hashtag-instruction {
+    font-size: 0.95rem;
+    max-width: 220px;
+  }
+
+  .copy-button {
+    width: 90%;
+    max-width: 280px;
+  }
+}

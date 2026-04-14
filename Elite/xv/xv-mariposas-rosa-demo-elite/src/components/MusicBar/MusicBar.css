@@ -1,0 +1,86 @@
+.barra-musica {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 400px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  z-index: 8999;
+}
+
+.btn-control {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #f7d7da;
+}
+
+/* SLIDER */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+
+  height: 2px; /* visualmente delgada */
+  border-radius: 10px;
+  outline: none;
+
+  cursor: pointer;
+}
+
+/* Área táctil más grande */
+.slider::-webkit-slider-runnable-track {
+  height: 2px;
+  border-radius: 10px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f7d7da;
+
+  cursor: pointer;
+  margin-top: -6px; /* centra */
+
+  transition: transform 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f7d7da;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .barra-musica {
+    width: 92%;
+  }
+}
+
+

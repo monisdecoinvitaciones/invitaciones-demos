@@ -8,17 +8,37 @@ export default function Sobre2() {
   const [luciernagas, setLuciernagas] = useState([]);
 
   useEffect(() => {
-    // Generamos las luciérnagas solo en el cliente para evitar el error de hidratación
+    // Generamos las luciérnagas
     const nuevasLuciernagas = [...Array(12)].map((_, i) => ({
       top: `${Math.random() * 80 + 10}%`,
       left: `${Math.random() * 80 + 10}%`,
       duration: `${6 + Math.random() * 4}s`,
-      delay: `${Math.random() * 2}s` // Aparecen casi al mismo tiempo, pero con ritmo
+      delay: `${Math.random() * 2}s`
     }));
     setLuciernagas(nuevasLuciernagas);
+  }, []);
 
-    if (visible) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
+  useEffect(() => {
+    if (visible) {
+      const scrollY = window.scrollY;
+
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.overflow = "hidden";
+
+    } else {
+      const scrollY = document.body.style.top;
+
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    }
   }, [visible]);
 
   const manejarApertura = () => {
@@ -51,7 +71,6 @@ export default function Sobre2() {
       <div className="sobre-contenedor" onClick={manejarApertura}>
         <img src="/princesa/corona.png" alt="Corona" className="decoracion-png corona-img" />
         
-
         <div className="solapa-superior"></div>
         <div className="cuerpo-sobre"></div>
 

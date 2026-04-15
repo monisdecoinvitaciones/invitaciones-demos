@@ -20,33 +20,42 @@ export default function Sobre2() {
 
   useEffect(() => {
     if (visible) {
+      // Bloqueo de scroll elegante
       const scrollY = window.scrollY;
-
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
+      document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
-
     } else {
+      // Liberación de scroll
       const scrollY = document.body.style.top;
-
       document.body.style.position = "";
       document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
+      document.body.style.width = "";
       document.body.style.overflow = "";
-
       window.scrollTo(0, parseInt(scrollY || "0") * -1);
     }
+
+    return () => {
+      // Limpieza por si el componente se desmonta inesperadamente
+      document.body.style.position = "";
+      document.body.style.overflow = "";
+    };
   }, [visible]);
 
   const manejarApertura = () => {
     if (abierto) return;
     setAbierto(true);
+    
     const audio = document.getElementById("audioPrincipal");
     if (audio) audio.play().catch(() => {});
-    setTimeout(() => setVisible(false), 8500);
+
+    // Sincronizado con la animación de CSS:
+    // La tarjeta sube en 1.8s, damos un tiempo para leer y luego liberamos.
+    // Reducido de 8500ms a 4500ms para que no se sienta "pausado"
+    setTimeout(() => {
+      setVisible(false);
+    }, 4500); 
   };
 
   if (!visible) return null;

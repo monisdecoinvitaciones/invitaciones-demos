@@ -5,8 +5,12 @@ import "./Sobre2.css";
 export default function Sobre2() {
   const [active, setActive] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false); // Nuevo estado para controlar el flash de estilos
 
   useEffect(() => {
+    // Pequeño retardo para asegurar que el navegador procesó el CSS antes de mostrar el HTML
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+
     // Bloqueamos el scroll al montar el componente
     if (visible) {
       document.body.classList.add("no-scroll");
@@ -17,6 +21,7 @@ export default function Sobre2() {
     // Limpieza al desmontar
     return () => {
       document.body.classList.remove("no-scroll");
+      clearTimeout(timer);
     };
   }, [visible]);
 
@@ -25,7 +30,7 @@ export default function Sobre2() {
 
     setActive(true);
     
-    // Reproducción de audio (asegúrate de que el ID coincida en tu layout)
+    // Reproducción de audio
     const audio = document.getElementById("audioPrincipal");
     if (audio) {
       audio.play().catch((error) => console.log("Audio play blocked:", error));
@@ -41,12 +46,29 @@ export default function Sobre2() {
 
   return (
     <section 
-      className={`sobre-wrapper ${active ? "active-portal" : ""}`} 
+      className={`sobre-wrapper ${active ? "active-portal" : ""} ${isLoaded ? "loaded" : ""}`} 
       onClick={handleStart}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 10000,
+        backgroundColor: '#fdf2f4', // Estilo crítico in-line
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        opacity: isLoaded ? 1 : 0, // Evita ver contenido sin formato
+        transition: 'opacity 0.5s ease-in'
+      }}
     >
-      {/* Cortinas laterales */}
-      <div className="curtain curtain-left"></div>
-      <div className="curtain curtain-right"></div>
+      {/* Cortinas laterales con estilos básicos in-line */}
+      <div 
+        className="curtain curtain-left" 
+        style={{ backgroundColor: '#f7d7da', left: 0 }}
+      ></div>
+      <div 
+        className="curtain curtain-right" 
+        style={{ backgroundColor: '#f7d7da', right: 0 }}
+      ></div>
 
       {/* Explosión de mariposas */}
       <div className="butterfly-burst">

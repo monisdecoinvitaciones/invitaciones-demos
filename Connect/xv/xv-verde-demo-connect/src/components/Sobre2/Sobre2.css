@@ -1,3 +1,8 @@
+:root {
+  --font-mea: 'Mea Culpa', cursive;
+  --font-cormorant: 'Cormorant Garamond', serif;
+}
+
 /* --- CONTENEDOR PRINCIPAL --- */
 .luxury-envelope-wrapper {
   position: fixed;
@@ -6,57 +11,25 @@
   display: flex;
   justify-content: center;
   align-items: center; 
-  padding-top: 15vh;
   perspective: 1200px;
   background-color: #0f1513; 
   overflow: hidden;
+  transition: opacity 0.5s ease;
 }
 
 .fondo-mesa {
   position: absolute;
   inset: 0;
-   background-image: linear-gradient(
+  background-image: linear-gradient(
       rgba(91, 115, 65, 0.7), 
       rgba(61, 83, 22, 0.8)
     ), 
     url('/icons/fondo-verde.png'); 
   opacity: 0.95;
+  background-size: cover;
 }
 
-/* --- DECORACIONES (EXTERIOR) --- */
-.decoracion-png {
-  position: absolute;
-  pointer-events: none;
-  z-index: 5;
-  transition: opacity 0.8s ease;
-}
-
-/* Desvanecer todo el exterior al abrir */
-.reveal .corona-img,
-.reveal .sapo-img,
-.reveal .instruccion-abrir,
-.reveal .luciernaga {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.8s ease, visibility 0.8s;
-}
-
-.sapo-img { 
-  bottom: 20px; 
-  left: 10px; 
-  width: 90px; 
-  transform: rotate(-10deg); 
-}
-
-.corona-img { 
-  top: -45px; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  width: 100px; 
-  z-index: 15; 
-}
-
-/* Enjambre de Luciérnagas */
+/* Luciérnagas */
 .luciernaga {
   position: absolute;
   width: 6px;
@@ -67,13 +40,14 @@
   box-shadow: 0 0 10px #fdfae3;
   animation: volar 8s infinite ease-in-out;
   z-index: 1;
+  opacity: 0.6;
 }
 
 @keyframes volar {
-  0%, 100% { transform: translate(0, 0); opacity: 0.1; }
-  25% { transform: translate(30px, -50px); opacity: 0.6; }
-  50% { transform: translate(60px, 20px); opacity: 0.3; }
-  75% { transform: translate(-20px, -40px); opacity: 0.7; }
+  0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+  25% { transform: translate(40px, -60px); opacity: 0.9; }
+  50% { transform: translate(80px, 10px); opacity: 0.5; }
+  75% { transform: translate(-30px, -30px); opacity: 0.8; }
 }
 
 /* --- EL SOBRE --- */
@@ -83,6 +57,7 @@
   height: 240px;
   cursor: pointer;
   z-index: 10;
+  transition: transform 0.6s ease;
 }
 
 .cuerpo-sobre {
@@ -132,7 +107,7 @@
 
 .reveal .sello-lacre {
   opacity: 0;
-  transform: scale(0);
+  transform: translate(-50%, -50%) scale(0);
 }
 
 /* --- TARJETA REVELADA --- */
@@ -145,7 +120,7 @@
   background-color: #F8F3CD;
   z-index: 1;
   opacity: 0;
-  padding: 5px; /* Reducido para que el borde dorado se acerque a la orilla */
+  padding: 5px;
   transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -163,7 +138,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px; /* Ajustado para que el texto respire pero el borde esté en la orilla */
+  padding: 15px;
   text-align: center;
   box-sizing: border-box;
 }
@@ -173,11 +148,10 @@
   font-size: 0.65rem;
   letter-spacing: 5px;
   color: #769A8C;
-  margin-bottom: 10px; /* Separación del nombre */
   text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
-/* TIPOGRAFÍA: Mea Culpa */
 .nombres-lujo {
   font-family: var(--font-mea), cursive;
   font-size: 4.5rem; 
@@ -201,7 +175,29 @@
   color: #769A8C;
 }
 
-/* --- INSTRUCCIÓN CENTRADA --- */
+/* --- DECORACIONES --- */
+.decoracion-png {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 0.8s ease;
+}
+
+.corona-img { 
+  top: -45px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 100px; 
+  z-index: 15; 
+}
+
+.reveal .corona-img,
+.reveal .instruccion-abrir,
+.reveal .luciernaga {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
 .instruccion-abrir {
   position: absolute;
   bottom: -65px; 
@@ -217,7 +213,6 @@
   font-size: 0.85rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  margin: 0 auto;
   animation: bouncePulse 2s infinite;
 }
 
@@ -226,56 +221,16 @@
   50% { opacity: 1; transform: translateY(-5px); }
 }
 
-/* Cierre de la sección después de la animación */
+/* Salida final de la sección */
 .reveal {
-  animation: fadeOutSectionEnd 1.2s ease forwards 4s; 
+  animation: fadeOutSectionEnd 0.6s ease forwards 4s; 
 }
 
 @keyframes fadeOutSectionEnd {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 480px) {
   .sobre-contenedor { width: 300px; height: 210px; }
   .nombres-lujo { font-size: 3.5rem; }
-  .instruccion-abrir { bottom: -55px; }
 }
-
-/* ... (mantiene lo anterior de contenedor y fondo) ... */
-
-/* Enjambre de Luciérnagas */
-.luciernaga {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #fdfae3; 
-  border-radius: 50%;
-  filter: blur(1px);
-  box-shadow: 0 0 10px #fdfae3;
-  /* Eliminamos el delay positivo de aquí para manejarlo en React */
-  animation: volar 8s infinite ease-in-out;
-  z-index: 1;
-  opacity: 0.6; /* Opacidad base inicial */
-}
-
-@keyframes volar {
-  0%, 100% { 
-    transform: translate(0, 0); 
-    opacity: 0.4; 
-  }
-  25% { 
-    transform: translate(40px, -60px); 
-    opacity: 0.9; 
-  }
-  50% { 
-    transform: translate(80px, 10px); 
-    opacity: 0.5; 
-  }
-  75% { 
-    transform: translate(-30px, -30px); 
-    opacity: 0.8; 
-  }
-}
-
-/* ... (el resto del código del sobre y tarjeta se mantiene igual al anterior) ... */

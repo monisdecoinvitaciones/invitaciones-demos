@@ -3,7 +3,6 @@
   --font-cormorant: 'Cormorant Garamond', serif;
 }
 
-/* Bloqueo total del scroll cuando el portal está activo */
 .no-scroll {
   overflow: hidden !important;
   height: 100vh;
@@ -14,7 +13,7 @@
 .sobre-wrapper {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 100000; /* Asegura estar por encima del Hero siempre */
   background-color: #fdf2f4;
   display: flex;
   justify-content: center;
@@ -22,40 +21,27 @@
   overflow: hidden;
   cursor: pointer;
   touch-action: none;
-  opacity: 0; /* Por defecto oculto para evitar el flash */
+  opacity: 1 !important; /* Visible desde el inicio */
 }
 
-.sobre-wrapper.loaded {
-  opacity: 1; /* Se activa mediante JS */
-}
-
-/* Cortinas de apertura lateral */
 .curtain {
   position: absolute;
   top: 0;
   width: 50%;
   height: 100%;
-  background-color: #f7d7da; /* Rosa Palo */
+  background-color: #f7d7da;
   z-index: 5;
   transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
   display: flex;
   align-items: center;
 }
 
-.curtain-left { 
-  left: 0; 
-  border-right: 1px solid rgba(212, 163, 115, 0.2); 
-}
-.curtain-right { 
-  right: 0; 
-  border-left: 1px solid rgba(212, 163, 115, 0.2); 
-}
+.curtain-left { left: 0; border-right: 1px solid rgba(212, 163, 115, 0.2); }
+.curtain-right { right: 0; border-left: 1px solid rgba(212, 163, 115, 0.2); }
 
-/* Animación de apertura */
 .active-portal .curtain-left { transform: translateX(-100%); }
 .active-portal .curtain-right { transform: translateX(100%); }
 
-/* Contenedor Central */
 .main-container {
   position: relative;
   z-index: 10;
@@ -93,7 +79,6 @@
   width: 65px;
   height: 65px;
   margin: 25px auto;
-  filter: drop-shadow(0 4px 10px rgba(166, 124, 82, 0.2));
 }
 
 .butterfly-seal img {
@@ -109,7 +94,6 @@
   font-style: italic;
 }
 
-/* Explosión de Mariposas */
 .butterfly-burst .burst-bfly {
   position: absolute;
   top: 50%;
@@ -144,10 +128,6 @@
   50% { transform: scaleX(0.7) rotate(5deg); }
 }
 
-.touch-hint {
-  margin-top: 50px;
-}
-
 .touch-hint p {
   font-family: var(--font-cormorant), serif;
   font-size: 0.85rem;
@@ -160,10 +140,4 @@
 @keyframes pulseFade {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
-}
-
-@media (max-width: 480px) {
-  .name-title { font-size: 3.2rem; }
-  .decor-frame { width: 85vw; padding: 35px 20px; }
-  .event-date { font-size: 1.2rem; }
 }

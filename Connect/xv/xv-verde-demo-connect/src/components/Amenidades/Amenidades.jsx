@@ -8,7 +8,7 @@ const Amenidades = () => {
     <section className="amenidades-container" id="menu">
       {/* Eucalipto Superior Izquierdo (Normal) */}
       <img 
-        src="princesa/eucalipto.png" 
+        src="princesa/optimized/eucalipto.webp" 
         alt="decor" 
         className="eucalipto-menu top-left-menu" 
       />
@@ -57,7 +57,7 @@ const Amenidades = () => {
 
       {/* Eucalipto Inferior Derecho (Efecto Espejo) */}
       <img 
-        src="princesa/eucalipto.png" 
+        src="princesa/optimized/eucalipto.webp" 
         alt="decor" 
         className="eucalipto-menu bottom-right-menu" 
       />

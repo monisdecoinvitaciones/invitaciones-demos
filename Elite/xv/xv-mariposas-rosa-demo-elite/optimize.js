@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 // 1. Configura aquí tus carpetas
-const inputFolder = './public/xv3'; // Carpeta con tus fotos originales
-const outputFolder = './public/xv3/optimized'; // Donde se guardarán las nuevas
+const inputFolder = './public/mariposas'; // Carpeta con tus fotos originales
+const outputFolder = './public/mariposas/optimized'; // Donde se guardarán las nuevas
 
 // Crear la carpeta de salida si no existe
 if (!fs.existsSync(outputFolder)) {

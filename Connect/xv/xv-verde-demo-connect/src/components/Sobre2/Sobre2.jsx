@@ -78,13 +78,13 @@ export default function Sobre2() {
       ))}
 
       <div className="sobre-contenedor" onClick={manejarApertura}>
-        <img src="/princesa/corona.png" alt="Corona" className="decoracion-png corona-img" />
+        <img src="/princesa/optimized/corona.webp" alt="Corona" className="decoracion-png corona-img" />
         
         <div className="solapa-superior"></div>
         <div className="cuerpo-sobre"></div>
 
         <div className="sello-lacre">
-           <img src="/princesa/flor.png" alt="Sello" className="monograma-sello" />
+           <img src="/princesa/optimized/flor.webp" alt="Sello" className="monograma-sello" />
         </div>
 
         <div className="invitacion-fisica">

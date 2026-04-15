@@ -35,7 +35,7 @@ const FamilySection = () => {
         {/* ELEMENTO CENTRAL INTERACTIVO */}
         <div className="family-center-decor">
           <div className="circle-border">
-            <img src="/mariposas/5.png" className="floating-center-butterfly" alt="" />
+            <img src="/mariposas/optimized/5.webp" className="floating-center-butterfly" alt="" />
           </div>
         </div>
 

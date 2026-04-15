@@ -24,10 +24,10 @@ const AvisoImportante = () => {
       <div className="star-dust"></div>
 
       {/* Tus iconos flotantes característicos */}
-      <img src="/mariposas/5.png" alt="mariposa" className="float-butterfly b1" />
-      <img src="/mariposas/5.png" alt="mariposa" className="float-butterfly b2" />
-      <img src="/mariposas/2.png" alt="flor" className="float-flower f1" />
-      <img src="/mariposas/2.png" alt="flor" className="float-flower f2" />
+      <img src="/mariposas/optimized/5.webp" alt="mariposa" className="float-butterfly b1" />
+      <img src="/mariposas/optimized/5.webp" alt="mariposa" className="float-butterfly b2" />
+      <img src="/mariposas/optimized/2.webp" alt="flor" className="float-flower f1" />
+      <img src="/mariposas/optimized/2.webp" alt="flor" className="float-flower f2" />
 
       <div className="special-moment-content">
         <div className="special-moment-wrapper">

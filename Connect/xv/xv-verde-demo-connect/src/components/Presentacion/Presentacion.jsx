@@ -15,7 +15,7 @@ export default function Presentacion() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="corona-wrapper"
         >
-          <img src="/princesa/corona.png" alt="Corona Real" className="corona-flotante" />
+          <img src="/princesa/optimized/corona.webp" alt="Corona Real" className="corona-flotante" />
         </motion.div>
 
         {/* TEXTO DE PRESENTACIÓN ANIMADO */}

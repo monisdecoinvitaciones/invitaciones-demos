@@ -84,7 +84,7 @@ export default function Sobre2() {
           <h1 className="name-title">Valentina</h1>
           
           <div className="butterfly-seal">
-            <img src="/mariposas/5.png" alt="butterfly-seal" />
+            <img src="/mariposas/optimized/5.webp" alt="butterfly-seal" />
           </div>
           
           <p className="event-date">25 . 10 . 2027</p>

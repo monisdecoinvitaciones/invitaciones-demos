@@ -29,10 +29,10 @@ const FraseSection = () => {
 
       {/* Decoración flotante */}
       <div className="elite-quote-decorations">
-        <img src="/mariposas/2.png" className="elite-quote-float eq-b1" alt="Mariposa" />
-        <img src="/mariposas/2.png" className="elite-quote-float eq-b2" alt="Mariposa" />
-        <img src="/mariposas/3.png" className="elite-quote-float eq-f1" alt="Flor" />
-        <img src="/mariposas/3.png" className="elite-quote-float eq-f2" alt="Flor" />
+        <img src="/mariposas/optimized/2.webp" className="elite-quote-float eq-b1" alt="Mariposa" />
+        <img src="/mariposas/optimized/2.webp" className="elite-quote-float eq-b2" alt="Mariposa" />
+        <img src="/mariposas/optimized/3.webp" className="elite-quote-float eq-f1" alt="Flor" />
+        <img src="/mariposas/optimized/3.webp" className="elite-quote-float eq-f2" alt="Flor" />
       </div>
 
       <div className="elite-quote-container">

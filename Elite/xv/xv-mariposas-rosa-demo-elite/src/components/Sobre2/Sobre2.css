@@ -116,7 +116,7 @@
   left: 50%;
   width: 40px;
   height: 40px;
-  background: url('/mariposas/5.png') no-repeat center;
+  background: url('/mariposas/optimized/5.webp') no-repeat center;
   background-size: contain;
   opacity: 0;
   z-index: 15;

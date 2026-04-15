@@ -56,7 +56,7 @@ const FriendCard = ({ friend }) => {
           <span className="card-tag">MADRINA DE</span>
           <h3 className="card-role-text">{friend.role.replace("Madrina de ", "")}</h3>
           <p className="card-instruction">(Toca para revelar)</p>
-          <img src="/mariposas/2.png" className="card-butterfly-icon" alt="butterfly" />
+          <img src="/mariposas/optimized/2.webp" className="card-butterfly-icon" alt="butterfly" />
         </div>
 
         {/* TRASERA: Con textos ampliados */}

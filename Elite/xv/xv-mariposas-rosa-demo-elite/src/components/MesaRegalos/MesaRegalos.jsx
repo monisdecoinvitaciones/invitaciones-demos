@@ -19,9 +19,9 @@ const MesaRegalos = () => {
         
         {/* Contenedor del título con mariposas flotantes */}
         <div className="gift-header-container">
-          <img src="/mariposas/5.png" alt="mariposa" className="butterfly-floating left" />
+          <img src="/mariposas/optimized/5.webp" alt="mariposa" className="butterfly-floating left" />
           <h2 className="gift-title">Mesa de regalos</h2>
-          <img src="/mariposas/5.png" alt="mariposa" className="butterfly-floating right" />
+          <img src="/mariposas/optimized/5.webp" alt="mariposa" className="butterfly-floating right" />
         </div>
 
         <p className="gift-intro">

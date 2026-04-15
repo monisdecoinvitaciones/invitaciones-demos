@@ -42,7 +42,7 @@ export default function Ubicaciones() {
     <section className="ubicaciones-container" id="datos">
       {/* PNG de Eucalipto - Animación de entrada suave desde la izquierda */}
       <motion.img 
-        src="/princesa/eucalipto.png" 
+        src="/princesa/optimized/eucalipto.webp" 
         className="eucalipto-decor top-left" 
         alt="" 
         variants={leafLeftVariant}
@@ -53,7 +53,7 @@ export default function Ubicaciones() {
       
       {/* PNG de Eucalipto - Animación de entrada suave desde la derecha */}
       <motion.img 
-        src="/princesa/eucalipto.png" 
+        src="/princesa/optimized/eucalipto.webp" 
         className="eucalipto-decor bottom-right" 
         alt="" 
         variants={leafRightVariant}

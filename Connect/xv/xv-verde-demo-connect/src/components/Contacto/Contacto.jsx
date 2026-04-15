@@ -7,6 +7,13 @@ import "./Contacto.css";
 const Contacto = () => {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  // CONFIGURACIÓN DEL MENSAJE
+  const numero = "3322283707";
+  const mensaje = "¡Hola! Me interesa una invitación paquete Connect Plus.";
+  
+  // Generamos el link codificado correctamente
+  const whatsappLink = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
   return (
     <section className="contacto-section">
       <div className="contacto-container">
@@ -60,7 +67,7 @@ const Contacto = () => {
                 <h3>WhatsApp</h3>
                 <p>Escríbenos directamente para confirmar o resolver dudas.</p>
                 <a 
-                  href="https://wa.me/3322283707" 
+                  href={whatsappLink} // Usamos la variable generada
                   className="btn-whatsapp"
                   target="_blank"
                   rel="noopener noreferrer"

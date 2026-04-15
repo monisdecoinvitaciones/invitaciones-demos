@@ -70,7 +70,7 @@ export default function Ubicaciones() {
                 </p>
               </div>
 
-              <a href="#" className="btn-premium">VER UBICACIÓN</a>
+              <a href="https://www.google.com.mx/maps" className="btn-premium">VER UBICACIÓN</a>
             </div>
           </div>
 
@@ -101,7 +101,7 @@ export default function Ubicaciones() {
                 </p>
               </div>
 
-              <a href="#" className="btn-premium">CÓMO LLEGAR</a>
+              <a href="https://www.google.com.mx/maps" className="btn-premium">CÓMO LLEGAR</a>
             </div>
           </div>
 

@@ -2,8 +2,8 @@ import React from 'react';
 import './ContactoNovios1.css';
 
 const ContactoNovios1 = () => {
-  const telefono = "521234567890"; // Reemplaza con el número real
-  const mensaje = "¡Hola! Tengo una duda sobre la invitación...";
+  const telefono = "523322283707"; // Reemplaza con el número real
+  const mensaje = "¡Hola! Me interesa una invitación paquete Elite Pro.";
   
   const whatsappUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 

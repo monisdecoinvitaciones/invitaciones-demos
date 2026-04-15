@@ -81,7 +81,7 @@ export default function Ubicaciones() {
           </p>
           <p className="hora-texto">5:00 PM</p>
           <a 
-            href="https://maps.app.goo.gl/uPtoXGgD8aU6rS2y5" 
+            href="https://www.google.com.mx/maps" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-gps"
@@ -107,7 +107,7 @@ export default function Ubicaciones() {
           </p>
           <p className="hora-texto">8:00 PM</p>
           <a 
-            href="https://maps.app.goo.gl/V8MAsvXv8o8A6mHq8" 
+            href="https://www.google.com.mx/maps" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-gps"

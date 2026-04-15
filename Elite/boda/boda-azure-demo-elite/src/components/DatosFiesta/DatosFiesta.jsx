@@ -79,7 +79,13 @@ export default function DatosFiesta() {
               </p>
             </div>
 
-            <button className={styles.btnMaps}>VER UBICACIÓN</button>
+            <a 
+              href="https://www.google.com.mx/maps" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <button className={styles.btnMaps}>VER UBICACIÓN</button>
+            </a>
           </TarjetaUbicacion>
 
           {/* CÓCTEL */}
@@ -101,7 +107,13 @@ export default function DatosFiesta() {
               </p>
             </div>
 
-            <button className={styles.btnMaps}>VER UBICACIÓN</button>
+            <a 
+              href="https://www.google.com.mx/maps" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <button className={styles.btnMaps}>VER UBICACIÓN</button>
+            </a>
           </TarjetaUbicacion>
 
           {/* RECEPCIÓN */}
@@ -123,7 +135,13 @@ export default function DatosFiesta() {
               </p>
             </div>
 
-            <button className={styles.btnMaps}>VER UBICACIÓN</button>
+            <a 
+              href="https://www.google.com.mx/maps" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <button className={styles.btnMaps}>VER UBICACIÓN</button>
+            </a>
           </TarjetaUbicacion>
 
         </div>

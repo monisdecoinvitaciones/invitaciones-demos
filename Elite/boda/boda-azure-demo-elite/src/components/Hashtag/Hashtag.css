@@ -4,12 +4,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  /* CRÍTICO: Asegura que nada se escape de los bordes */
+  overflow: hidden; 
   position: relative;
   min-height: 400px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Texto decorativo gigante al fondo con fade in suave */
+/* Texto decorativo gigante al fondo */
 .hashtag-bg-text {
   position: absolute;
   top: 50%;
@@ -25,6 +28,8 @@
   line-height: 1;
   opacity: 0;
   transition: opacity 2s ease;
+  /* FIX: Evita que el texto fuerce el ancho del contenedor en móviles */
+  max-width: 100vw; 
 }
 
 .is-visible .hashtag-bg-text {
@@ -37,6 +42,8 @@
   text-align: center;
   position: relative;
   z-index: 2;
+  /* FIX: Previene desbordamiento interno */
+  margin: 0 auto;
 }
 
 /* Estilo para los elementos que se animan */
@@ -49,16 +56,11 @@
   transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Cascada de tiempos para cada elemento */
+/* Cascada de animaciones */
 .is-visible .hashtag-pretitle { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
 .is-visible .hashtag-main-box { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
 .is-visible .hashtag-instruction { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
 .is-visible .copy-button { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
-
-.hashtag-content {
-  position: relative;
-  z-index: 1;
-}
 
 .hashtag-pretitle {
   font-family: 'Montserrat', sans-serif;
@@ -104,7 +106,7 @@
   font-size: 0.75rem;
   letter-spacing: 2px;
   cursor: pointer;
-  transition: all 0.4s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* Mantiene la animación de entrada */
+  transition: all 0.4s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .copy-button:hover {
@@ -121,15 +123,22 @@
 
 /* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
 @media (max-width: 480px) {
+  .hashtag-section {
+    padding: 40px 10px; /* Reducimos padding lateral para dar espacio */
+    overflow-x: hidden; /* Doble seguro contra scroll lateral */
+  }
+
   .hashtag-bg-text {
     letter-spacing: 4px !important; 
     font-size: 4rem !important;
-    width: 100%;
-    text-align: center;
+    width: 100vw;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Forzamos centrado absoluto */
   }
 
   .hashtag-text {
-    font-size: 2.5rem;
+    font-size: 2.2rem; /* Ligeramente más pequeño para evitar saltos de línea raros */
+    padding: 0 10px;
   }
 
   .hashtag-instruction {
@@ -138,7 +147,8 @@
   }
 
   .copy-button {
-    width: 90%;
-    max-width: 280px;
+    width: 85%;
+    max-width: 260px;
+    padding: 12px 20px;
   }
 }
